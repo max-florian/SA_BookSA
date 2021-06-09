@@ -1,4 +1,4 @@
-import { Router, Application } from "express";
+import { Router } from "express";
 import {
     login,
     register
