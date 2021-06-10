@@ -18,14 +18,14 @@ export const login = async (req: Request, res: Response) => {
 
     const user = await User.findOne({ where: { correo } })
 
-    const invalid = () => setResponse(res, {
+    const invalid = (status: number) => setResponse(res, {
         message: 'Correo o contraseña incorrecta',
-        statuscode: 404,
+        statuscode: status,
         data: {}
     })
 
-    if (!user) return invalid();
-    if (await comparePasswords(clave, user._attributes.clave)) return invalid();
+    if (!user) return invalid(404);
+    if (await comparePasswords(clave, user._attributes.clave)) return invalid(401);
 
     const token = generateToken({
         correo,
