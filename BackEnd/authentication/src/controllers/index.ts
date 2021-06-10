@@ -14,10 +14,25 @@ const comparePasswords = async (password: string, hashPassword: string) => {
 }
 
 export const login = async (req: Request, res: Response) => {
-    setResponse(res, {
-        message: 'Iniciar sesion',
-        statuscode: 200,
+    const { correo, clave } = req.body;
+
+    const user = await User.findOne({ where: { correo } })
+
+    const invalid = () => setResponse(res, {
+        message: 'Correo o contraseña incorrecta',
+        statuscode: 404,
         data: {}
+    })
+
+    if (!user) return invalid();
+    if (user._attributes.clave != clave) return invalid();
+
+    const token = generateToken({ correo, nombre: user._attributes.nombre, apellido: user._attributes.apellido })
+
+    setResponse(res, {
+        message: 'Sesión iniciada con éxito',
+        statuscode: 200,
+        data: { token }
     })
 }
 
