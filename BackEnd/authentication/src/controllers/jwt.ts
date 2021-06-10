@@ -1,13 +1,13 @@
 import { Request, Response, NextFunction } from "express";
 import { verify, sign } from "jsonwebtoken";
 import { setResponse } from "./response";
+import { JWT_SECRET, JWT_DURATION } from "../../env";
 
-export function verifyToken(req: Request, res: Response, next: NextFunction) {
-    const secret = process.env.JWT_SECRET as string;
+export const verifyToken = (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization?.replace('Bearer ', '');
 
     if (token) {
-        verify(token, secret, (err, _) => {
+        verify(token, JWT_SECRET, (err, _) => {
             if (err) return setResponse(res, { statuscode: 401, message: 'Token inválido', data: {} });
             next();
         });
@@ -16,10 +16,8 @@ export function verifyToken(req: Request, res: Response, next: NextFunction) {
     }
 };
 
-export function generateToken(payload: object) {
-    const secret = process.env.JWT_SECRET as string;
-
-    return sign(payload, secret, {
-        expiresIn: '2h',
+export const generateToken = (payload: object) => {
+    return sign(payload, JWT_SECRET, {
+        expiresIn: JWT_DURATION,
     });
 }
