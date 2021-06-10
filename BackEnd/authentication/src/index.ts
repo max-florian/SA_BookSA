@@ -4,13 +4,13 @@ import { config } from "dotenv";
 config();
 import routes from './routes';
 import sequelize from "./database";
+import { APP_PORT, APP_NAME } from "../env";
 
 // Create server
 const app = express();
 
 // Config
-app.set('port', process.env.PORT || 4000);
-app.set('servicename', 'authentication')
+app.set('servicename', APP_NAME)
 app.set('json spaces', 2);
 
 // Middlewares
@@ -22,8 +22,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(`/api/${app.get('servicename')}`, routes);
 
 // Listen
-app.listen(app.get('port'), async () => {
-    console.log(`Servidor ${app.get('servicename')}: levantado en el puerto ${app.get('port')}`);
+app.listen(APP_PORT, async () => {
+    console.log(`Servidor ${app.get('servicename')}: levantado en el puerto ${APP_PORT}`);
     await sequelize.authenticate();
     console.log("Base de datos conectada");
 });
