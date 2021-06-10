@@ -7,7 +7,8 @@ interface IResponse {
 }
 
 export function setResponse(res: Response, response: IResponse) {
-    res.statusCode = typeof response.statuscode == "string" ? parseStatus[response.statuscode] : response.statuscode;
+    response.statuscode = typeof response.statuscode == "string" ? parseStatus[response.statuscode] || 500 : response.statuscode;
+    res.statusCode = response.statuscode;
     res.json({ ...response });
 }
 
