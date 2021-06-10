@@ -21,16 +21,14 @@ interface UserCreationAttributes extends Optional<UserAttributes, 'createdAt'> {
 })
 export default class User extends Model<UserAttributes, UserCreationAttributes> implements UserAttributes {
     @Length({ min: 3, max: 45, msg: 'El nombre tiene que ser entre 3 y 45 caracteres' })
-    @IsAlpha
     @Column({ field: 'nombre' })
     name!: string
 
     @Length({ min: 3, max: 45, msg: 'El apellido tiene que ser entre 3 y 45 caracteres' })
-    @IsAlpha
     @Column({ field: 'apellido' })
     lastname!: string
 
-    @Unique
+    @Unique({msg: 'Ya hay una cuenta con el correo electrónico', name: 'usuarios.correo_UNIQUE' })
     @IsEmail
     @Length({ max: 100, msg: 'El correo tiene que ser menor a 100 caracteres' })
     @Column({ field: 'correo' })
