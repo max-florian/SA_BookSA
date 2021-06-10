@@ -25,9 +25,13 @@ export const login = async (req: Request, res: Response) => {
     })
 
     if (!user) return invalid();
-    if (user._attributes.clave != clave) return invalid();
+    if (await comparePasswords(clave, user._attributes.clave)) return invalid();
 
-    const token = generateToken({ correo, nombre: user._attributes.nombre, apellido: user._attributes.apellido })
+    const token = generateToken({
+        correo,
+        nombre: user._attributes.nombre,
+        apellido: user._attributes.apellido
+    })
 
     setResponse(res, {
         message: 'Sesión iniciada con éxito',
@@ -39,7 +43,7 @@ export const login = async (req: Request, res: Response) => {
 export const register = async (req: Request, res: Response) => {
     const { nombre, apellido, correo, clave, estado, telefono, tipo } = req.body;
 
-    User.create({ nombre, apellido, correo, clave, estado, telefono, tipo })
+    User.create({ nombre, apellido, correo, clave: await hashPassword(clave), estado, telefono, tipo })
         .then(() => {
             const token = generateToken({ correo, nombre, apellido })
             setResponse(res, {
