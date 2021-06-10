@@ -3,6 +3,7 @@ import cors from 'cors';
 import { config } from "dotenv";
 config();
 import routes from './routes';
+import sequelize from "./database";
 
 // Create server
 const app = express();
@@ -21,6 +22,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(`/api/${app.get('servicename')}`, routes);
 
 // Listen
-app.listen(app.get('port'), () => {
-    console.log(`Servidor ${app.get('servicename')}: levantado en el puerto ${app.get('port')}`)
+app.listen(app.get('port'), async () => {
+    console.log(`Servidor ${app.get('servicename')}: levantado en el puerto ${app.get('port')}`);
+    await sequelize.authenticate();
+    console.log("Base de datos conectada");
 });
