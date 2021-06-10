@@ -1,22 +1,13 @@
 import { Request, Response } from "express";
 import { setResponse } from "./response";
 import { generateToken } from "./jwt";
-import bcrypt from "bcrypt";
 import User from "../database/models/User";
-
-
-const hashPassword = async (password: string) => {
-    return await bcrypt.hash(password, 10);
-}
-
-const comparePasswords = async (password: string, hashPassword: string) => {
-    return await bcrypt.compare(password, hashPassword);
-}
+import { comparePasswords } from "./crypt";
 
 export const login = async (req: Request, res: Response) => {
-    const { correo, clave } = req.body;
+    const { email, password } = req.body;
 
-    const user = await User.findOne({ where: { correo } })
+    const user = await User.findOne({ where: { email } })
 
     const invalid = (status: number) => setResponse(res, {
         message: 'Correo o contraseña incorrecta',
@@ -25,12 +16,12 @@ export const login = async (req: Request, res: Response) => {
     })
 
     if (!user) return invalid(404);
-    if (!await comparePasswords(clave, user?.getDataValue('clave'))) return invalid(401);
+    if (!await comparePasswords(password, user?.getDataValue('password'))) return invalid(401);
 
     const token = generateToken({
-        correo,
-        nombre: user?.getDataValue('nombre'),
-        apellido: user?.getDataValue('apellido')
+        email,
+        name: user?.getDataValue('name'),
+        lastname: user?.getDataValue('lastname')
     })
 
     setResponse(res, {
@@ -41,11 +32,11 @@ export const login = async (req: Request, res: Response) => {
 }
 
 export const register = async (req: Request, res: Response) => {
-    const { nombre, apellido, correo, clave, estado, telefono, tipo } = req.body;
+    const { name, lastname, email, password, status, phone, type } = req.body;
 
-    User.create({ nombre, apellido, correo, clave: await hashPassword(clave), estado, telefono, tipo })
+    User.create({ name, lastname, email, password, status, phone, type })
         .then(() => {
-            const token = generateToken({ correo, nombre, apellido })
+            const token = generateToken({ email, name, lastname })
             setResponse(res, {
                 message: 'Registro exitoso',
                 statuscode: 200,
@@ -54,8 +45,18 @@ export const register = async (req: Request, res: Response) => {
         }).catch((error) => {
             setResponse(res, {
                 message: 'No se pudo completar el registro',
-                statuscode: 500,
-                data: { error }
+                statuscode: error.name as string || 500,
+                data: { errors: error.errors.map((err: any) => ({ message: err.message, value: err.value })) }
             })
         });
 }
+
+
+
+// curl --location --request POST 'http://localhost:4000/api/authentication/register' \
+// --header 'Content-Type: application/json' \
+// --data-raw '{"name": "Darwin", "lastname": "Arevalo", "email": "dalexis.da@gmail.com", "password": "password", "status": 0, "type": "cliente", "phone": "36054254" }'
+
+// curl --location --request POST 'http://localhost:4000/api/authentication/login' \
+// --header 'Content-Type: application/json' \
+// --data-raw '{"email": "dalexis.da@gmail.com", "password": "password" }'

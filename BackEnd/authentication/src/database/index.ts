@@ -1,4 +1,5 @@
-import { Sequelize } from "sequelize";
+import { Sequelize } from "sequelize-typescript";
+import User from './models/User';
 import {
     DB_HOST,
     DB_DATABASE,
@@ -7,6 +8,7 @@ import {
     DB_USER
 } from "../../env";
 
+
 const sequelize = new Sequelize(
     DB_DATABASE,
     DB_USER,
@@ -14,8 +16,9 @@ const sequelize = new Sequelize(
     {
         host: DB_HOST,
         port: DB_PORT,
-        dialect: "mysql"
-    }
+        dialect: "mysql",
+        models: [User]
+    },
 );
 
 export default sequelize;
