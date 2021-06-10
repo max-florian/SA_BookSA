@@ -55,7 +55,7 @@ User.init({
         type: DataTypes.STRING,
         validate: {
             len: {
-                args: [8, 20],
+                args: [8, 200],
                 msg: 'La clave tiene que ser entre 8 y 20 caracteres'
             },
         }

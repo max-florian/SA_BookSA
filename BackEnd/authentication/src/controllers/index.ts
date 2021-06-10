@@ -25,12 +25,12 @@ export const login = async (req: Request, res: Response) => {
     })
 
     if (!user) return invalid(404);
-    if (await comparePasswords(clave, user._attributes.clave)) return invalid(401);
+    if (!await comparePasswords(clave, user?.getDataValue('clave'))) return invalid(401);
 
     const token = generateToken({
         correo,
-        nombre: user._attributes.nombre,
-        apellido: user._attributes.apellido
+        nombre: user?.getDataValue('nombre'),
+        apellido: user?.getDataValue('apellido')
     })
 
     setResponse(res, {
@@ -53,7 +53,7 @@ export const register = async (req: Request, res: Response) => {
             })
         }).catch((error) => {
             setResponse(res, {
-                message: 'Registro exitoso',
+                message: 'No se pudo completar el registro',
                 statuscode: 500,
                 data: { error }
             })
