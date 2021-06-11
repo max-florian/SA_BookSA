@@ -1,4 +1,20 @@
 <app-nav-bar></app-nav-bar>
 
-<p>libreria</p>
-
+<div class="container" id="custom-cards">
+  <h2 class="border-bottom">Books</h2>
+  <div class="row row-cols-1 row-cols-lg-3 ">
+    <div *ngFor="let book of books" class="col">
+      <div class="card" style="width: 20rem; margin-bottom: 5px;">
+        <img class="card-img-top" src="{{book.foto}}" alt="Card image cap" style="height: 25rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{book.titulo}}</h5>
+          <p class="card-text">By {{book.autor}}</p>
+          <p class="card-text">Editorial: {{book.id_editorial}}</p>
+          <p class="card-text">{{book.precio}}</p>
+          <a class="btn btn-primary" (click)="editBook(book.id)">Editar</a>
+          <a class="btn btn-danger" (click)="deleteBook(book.id)">Delete</a>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
