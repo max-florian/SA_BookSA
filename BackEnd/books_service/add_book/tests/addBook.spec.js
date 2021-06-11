@@ -24,9 +24,9 @@ describe('addProduct', () => {
             expect(r.body)
                 .to.be.an.an('Object')
                 .that.has.property('message');
-            assert(r.body.code, 200)
-        done();
+            assert(r.body.code, 200);
         });
+        done(); 
     })
 
 
