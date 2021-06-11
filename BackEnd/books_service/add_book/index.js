@@ -7,15 +7,28 @@ const app = express().use(cors());
 const mysql = require('./database');
 
 app.post('/add_book', jsonParser, async function (req, res) {
-        let {titulo, autor, idEditorial, precio, cantidad} = req.body;
+        let {titulo, autor, precio, cantidad, generos} = req.body;
+        let idEditorial = req.body.id_editorial;
         let code = 200;
         let response = {
                 message: ''
         };
 
-        if (titulo === undefined || autor == undefined || precio === undefined || cantidad === undefined || idEditorial === undefined) {
+        if (titulo === undefined || autor == undefined || precio === undefined || cantidad === undefined || idEditorial === undefined || generos === undefined) {
                 code  = 422;
                 response.message = `Por favor revise los campos faltantes`;
+                res.status(code).json(response);
+        }
+
+        if (generos.constructor !== Array) {
+                code  = 422;
+                response.message = `Generos incorrectos`;
+                res.status(code).json(response);
+        }
+
+        if (generos.length === 0) {
+                code  = 422;
+                response.message = `Debe escoger al menos un  genero`;
                 res.status(code).json(response);
         }
 
@@ -61,11 +74,34 @@ app.post('/add_book', jsonParser, async function (req, res) {
 
         await mysql.execute('INSERT INTO libros SET ?', [new_product])
                 .then( result => {
-                        response.message = `${titulo} agregado correctamete`
+                        
                 }).catch( error => {
                         console.log(error);
                         code = 422;
                         response.message = `Error al insertar registro`
+                });
+
+        let id = 0;
+        await mysql.execute(`SELECT last_insert_id() as id;`,[])
+                .then( result => {
+                        id = result[0]['id'];
+                }).catch( error => {
+                        response.message = `Problema al guardar los generos de libro`;
+                        res.status(400).json(response);
+                });
+
+        let genQuery = '';
+        for (var i = 0; i < generos.length; i++) {
+                genQuery += `INSERT INTO libro_generos values(${id}, ?);`
+        }
+
+        await mysql.execute(genQuery,generos)
+                .then( result => {
+                        response.message = `${titulo} agregado correctamete`;
+                }).catch( error => {
+                        console.log(error);
+                        response.message = `Problema al guardar generos de libro`;
+                        res.status(400).json(response);
                 });
 
 
