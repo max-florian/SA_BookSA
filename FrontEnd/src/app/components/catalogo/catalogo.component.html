@@ -1,0 +1,23 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container padding-nav">
+    <div class="row">
+        <div class="col-md-3 mb-3" *ngFor="let producto of productos">
+            <div class="card border-secondary shadow p-3 mb-5 rounded h-100">
+                <div class="card-header bg-light text-dark d-flex justify-content-between align-items-center">
+                    {{producto.name}}
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <img class="mx-auto" style="height: 100px; width: auto;" src="{{producto.photo}}" />
+                    </div>
+                    <hr>
+                    <button type="button" class="btn btn-outline-primary mr-1" >Add to Cart</button>
+                    <p></p>
+                    <button type="button" type="button" class="btn btn-success">Detalles</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

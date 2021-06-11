@@ -6,16 +6,20 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { CatalogoComponent } from './catalogo/catalogo.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { CatalogoComponent } from './components/catalogo/catalogo.component';
+import { LibreriaComponent } from './components/libreria/libreria.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    CatalogoComponent
+    CatalogoComponent,
+    LibreriaComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
