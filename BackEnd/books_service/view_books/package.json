@@ -1,7 +1,7 @@
 {
   "name": "add_book",
   "version": "1.0.0",
-  "description": "add book microservice",
+  "description": "view book(s) microservice",
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/**/*spec.js --exit"
