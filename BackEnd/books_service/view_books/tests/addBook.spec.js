@@ -25,8 +25,6 @@ describe('View books', () => {
         });
     })
 
-
-
    it('View book data', (done) => {
         request(Server)
         .get('/books/9')
@@ -35,6 +33,18 @@ describe('View books', () => {
             expect(r.body)
                 .to.be.an.an('Object')
                 .that.has.property('data');
+            assert(r.status, 200);
+            done(); 
+        });
+    })
+
+   it('Delete book', (done) => {
+        request(Server)
+        .delete('/books/9')
+        .send()
+        .then(r => {
+            expect(r.body)
+                .to.be.an.an('Object');
             assert(r.status, 200);
             done(); 
         });

@@ -70,6 +70,24 @@ app.get('/books/:idLibro', jsonParser, async function (req, res) {
        res.status(code).json(response);
 });
 
+app.delete('/books/:idLibro', jsonParser, async function (req, res) {
+        let {idLibro}=req.params;
+        let code = 200;
+        let response = {
+                message: ''
+        };
+
+        await mysql.execute(`update libros set estado = 0 where id  = ?`, [idLibro])
+                .then( result => {
+                        response.message = 'Libro eliminado con exito';
+                }).catch( error => {
+                        code = 422;
+                        response.message = `Error al eliminar libro`
+                });
+
+       res.status(code).json(response);
+});
+
 
 const port = process.env['PORT'];
 // const port = 3000;
