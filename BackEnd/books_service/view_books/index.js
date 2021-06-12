@@ -7,7 +7,7 @@ const app = express().use(cors());
 const mysql = require('./database');
 
 app.get('/books/', jsonParser, async function (req, res) {
-        let {idEditorial} = req.query;
+        let {idEditorial} = req.body;
         let code = 200;
         let response = {
                 data: []
