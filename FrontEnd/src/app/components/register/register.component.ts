@@ -9,7 +9,7 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  tipousuario = "cliente";
   usuario = "";
   pass = "";
   rpass = "";
