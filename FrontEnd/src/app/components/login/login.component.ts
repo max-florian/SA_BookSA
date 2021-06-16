@@ -10,7 +10,7 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
 })
 export class LoginComponent implements OnInit {
 
-  username = "";
+  correo = "";
   contrasenia = "";
 
   constructor(private webService: WebService, private router: Router) { }
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   iniciarSesion(){
     const data = {
-      usuario: this.username,
+      usuario: this.correo,
       password: this.contrasenia
     }
 

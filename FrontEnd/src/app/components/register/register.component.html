@@ -1,5 +1,5 @@
 <app-nav-bar></app-nav-bar>
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <div class="container">
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
@@ -9,25 +9,43 @@
                     <input [(ngModel)]="usuario" required type="text" class="form-control" id="inputNombre"
                         placeholder="">
                 </div>
+                <ng-container *ngIf="tipousuario == 'cliente'">
                 <div class="form-group">
                     <label for="inputUsuario">Apellidos</label>
                     <input [(ngModel)]="usuario" required type="text" class="form-control" id="inputApellido"
                         placeholder="">
                 </div>
+                </ng-container>
+                <ng-container *ngIf="tipousuario == 'editorial'">
+                <div class="form-group">
+                    <label for="inputUsuario">Dirección Fisica</label>
+                    <input [(ngModel)]="usuario" required type="text" class="form-control" id="inputDireccion"
+                        placeholder="">
+                </div>
+                </ng-container>
                 <div class="form-group">
                     <label for="inputUsuario">Correo Electrónico</label>
                     <input [(ngModel)]="usuario" required type="text" class="form-control" id="inputCorreo"
                         placeholder="">
                 </div>
+                <ng-container *ngIf="tipousuario == 'cliente'">
                 <div class="form-group">
-                    <label for="inputUsuario">Celular</label>
-                    <input [(ngModel)]="pass" required type="number" class="form-control" id="inputCelular"
+                    <label for="inputUsuario">Numero de Celular</label>
+                    <input [(ngModel)]="pass" required type="number" class="form-control" id="inputNumero"
                         placeholder="">
                 </div>
+                </ng-container>
                 <div class="form-group">
                     <label for="inputPassword">Contraseña</label>
                     <input [(ngModel)]="pass" required type="password" class="form-control" id="inputPassword"
                         placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">Tipo de Usuario</label>
+                    <select class="form-control" name="miselect" [(ngModel)]="tipousuario">
+                        <option value="cliente">Cliente</option>
+                        <option value="editorial">Editorial</option>
+                    </select>
                 </div>
             </div>
         </div>
