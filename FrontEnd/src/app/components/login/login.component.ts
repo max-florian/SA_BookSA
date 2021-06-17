@@ -20,15 +20,16 @@ export class LoginComponent implements OnInit {
 
   iniciarSesion(){
     const data = {
-      usuario: this.correo,
+      email: this.correo,
       password: this.contrasenia
     }
 
     this.webService.iniciarSesion(data).subscribe((response: any) => {
-      if(response == `Usuario Válido`){
-        this.router.navigate(['/estudiantes'])
+      //console.log(response);
+      if(response.statuscode == 200){
+        this.router.navigate(['/catalogo'])
       }else{
-        alert('error al iniciar sesión')
+        alert('Credenciales invalidas')
       }
     })
   }

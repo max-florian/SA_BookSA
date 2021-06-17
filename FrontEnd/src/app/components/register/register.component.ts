@@ -9,32 +9,37 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  tipousuario = "cliente";
+  tipousuario = "";
   usuario = "";
   pass = "";
-  rpass = "";
-  foto = "";
-  extension = "";
-  base64textString = [];
+  apellido = "";
+  correo = "";
+  numero = 0;
+  direccion = "";
 
   constructor(private webService: WebService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  registrase(){
+  registrarse(){
     let data: any = {
-      usuario: this.usuario,
+      name: this.usuario,
+      lasname: this.apellido,
+      email: this.correo,
       password: this.pass,
-      rpassword: this.rpass
+      status: 1,
+      type: this.tipousuario,
+      phone: this.numero
     }
 
 
     this.webService.registrarse(data).subscribe((response: any) => {
-      if(response == `Usuario registrado`){
+      console.log(response);
+      if(response.statuscode == 200){
         this.router.navigate(["/login"])
       }else{
-        alert(response)
+        alert('Usuario no ingresado!')
       }
     })
   }
