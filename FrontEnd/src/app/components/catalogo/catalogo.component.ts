@@ -28,7 +28,9 @@ export class CatalogoComponent implements OnInit {
   }
 
 
-  agregarlibro(id:any){
+  agregarlibro(cart: any, id: any){
+    this.bookService.agregaracarrito({cart_id: 1, id: id})
+      .subscribe(response => {})
     console.log('Libro Agregado: ' + id)
   }
 }

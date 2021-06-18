@@ -20,5 +20,9 @@ export class WebService {
     return this.http.get('http://localhost:3000/catalogo/');
   }
 
+  agregaracarrito(data: any){
+    return this.http.post(`http://localhost:3000/${data.cart_id}/${data.id}`,null);
+  }
+
   
 }
