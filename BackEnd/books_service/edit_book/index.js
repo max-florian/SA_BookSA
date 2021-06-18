@@ -93,8 +93,8 @@ app.put('/books/:idLibro', jsonParser, async function (req, res) {
        res.status(code).json(response);
 });
 
-// const port = process.env['PORT'];
-const port = 3000;
+const port = process.env['PORT'];
+// const port = 3000;
 app.listen(port, () => {
         console.log("Microservicio editar libro activo en puerto = " + port);
 });
