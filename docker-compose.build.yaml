@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  authentication:
+    build: ./BackEnd/authentication
+    image: alexizzarevalo/book-sa-authentication
+    
+  addbooks:
+    build: ./BackEnd/books_service/add_book
+    image: alexizzarevalo/book-sa-addbooks
+
+  editbooks:
+    build: ./BackEnd/books_service/edit_book
+    image: alexizzarevalo/book-sa-editbooks
+
+  viewbooks:
+    build: ./BackEnd/books_service/view_books
+    image: alexizzarevalo/book-sa-viewbooks
+
+  catalogos:
+    build: ./BackEnd/catalogos
+    image: alexizzarevalo/book-sa-catalogos
+
+  compras:
+    build: ./BackEnd/compras
+    image: alexizzarevalo/book-sa-compras
+    
+  editorial:
+    build: ./BackEnd/editorial
+    image: alexizzarevalo/book-sa-editorial
+
+  frontend:
+    build: ./FrontEnd
+    image: alexizzarevalo/book-sa-frontend

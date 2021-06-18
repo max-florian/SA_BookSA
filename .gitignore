@@ -2,3 +2,4 @@
 FrontEnd\node_modules
 /**/node_modules
 /**/.env
+auth.env

@@ -1,0 +1,55 @@
+version: "3"
+
+services:
+  authentication:
+    image: alexizzarevalo/book-sa-authentication
+    env_file:
+      - auth.env
+      - .env
+    environment:
+      - APP_NAME=authentication
+    ports:
+      - 3000:4000
+
+  addbooks:
+    image: alexizzarevalo/book-sa-addbooks
+    env_file: .env
+    ports:
+      - 3001:4000
+
+  editbooks:
+    image: alexizzarevalo/book-sa-editbooks
+    env_file: .env
+    ports:
+      - 3002:4000
+
+  viewbooks:
+    image: alexizzarevalo/book-sa-viewbooks
+    env_file: .env
+    ports:
+      - 3003:4000
+
+  catalogos:
+    image: alexizzarevalo/book-sa-catalogos
+    env_file: .env
+    ports:
+      - 3004:4000
+
+  compras:
+    image: alexizzarevalo/book-sa-compras
+    env_file: .env
+    ports:
+      - 3005:4000
+
+  editorial:
+    image: alexizzarevalo/book-sa-editorial
+    env_file: .env
+    environment:
+      - APP_NAME=editorial
+    ports:
+      - 3006:4000
+
+  frontend:
+    image: alexizzarevalo/book-sa-frontend
+    ports:
+      - 80:80
