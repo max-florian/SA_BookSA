@@ -92,7 +92,7 @@ class Order {
 	}
 
 	static async getUser (userId){
-		let query = `select id, type from usuarios where id = ?`;
+		let query = `select id, tipo as type from usuarios where id = ?`;
 		let user = null;
 		await db.execute(query,[userId])
 			.then(result => {
@@ -145,17 +145,17 @@ class Order {
 	static async getOrderData(orderId, userId, userType) {
 		let query = `select 
 						p.id,
-					    p.code,
-					    p.name,
-					    od.unit_price,
-					    od.quantity
-					from order_details od
-					inner join product p
-					on p.id = od.product_id
-					where order_id = ?`;
+					    p.titulo,
+					    p.autor,
+					    od.precio,
+					    od.cantidad
+					from detalle_ordenes od
+					inner join libros p
+					on p.id = od.id_libro
+					where id_orden = ?`;
 		
-		if (userType == 'restaurant') {
-			query += ` and p.owner_id = ?`
+		if (userType == 'editorial') {
+			query += ` and p.id_editorial = ?`
 		}
 
 		let details = [];
