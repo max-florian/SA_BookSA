@@ -1,6 +1,7 @@
 const cors = require("cors");
 const express = require("express");
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+require('dotenv').config();
 var jsonParser = bodyParser.json()
 
 const app = express().use(cors());
@@ -108,8 +109,8 @@ app.post('/add_book', jsonParser, async function (req, res) {
        res.status(code).json(response);
 });
 
-const port = process.env['PORT'];
-// const port = 3000;
+const port = process.env['PORT'] || 3000;
+
 app.listen(port, () => {
         console.log("Microservicio agregar libro activo en puerto = " + port);
 });

@@ -2,6 +2,7 @@ const cors = require("cors");
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+require('dotenv').config();
 var cookieParser = require('cookie-parser');
 // var logger = require('morgan');
 var session = require('express-session')
@@ -47,8 +48,8 @@ app.use('/store/order', orderRouter);
 //   res.render('error');
 // });
 
-// const port = process.env['PORT'];
-const port = 3000;
+const port = process.env['PORT'] || 3000;
+
 app.listen(port, () => {
         console.log("Microservicio store activo en puerto = " + port);
 });

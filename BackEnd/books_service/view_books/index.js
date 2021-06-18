@@ -1,6 +1,7 @@
 const cors = require("cors");
 const express = require("express");
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+require('dotenv').config();
 var jsonParser = bodyParser.json()
 
 const app = express().use(cors());
@@ -89,8 +90,8 @@ app.delete('/books/:idLibro', jsonParser, async function (req, res) {
 });
 
 
-const port = process.env['PORT'];
-// const port = 3000;
+const port = process.env['PORT'] || 3000;
+
 app.listen(port, () => {
         console.log("Microservicio ver libro(s) activo en puerto = " + port);
 });
