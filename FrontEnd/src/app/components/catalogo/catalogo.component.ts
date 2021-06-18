@@ -23,7 +23,7 @@ export class CatalogoComponent implements OnInit {
     this.bookService.getBooks()
       .subscribe(data => {
         this.books = data;
-        console.log(this.books)
+        //console.log(this.books)
       })
   }
 
