@@ -13,7 +13,7 @@ export class CatalogoComponent implements OnInit {
 
   books:any = [];
 
-  constructor(private bookService:BooksService) { }
+  constructor(private bookService:WebService) { }
 
   ngOnInit(): void {
     this.getBooks();
@@ -27,12 +27,9 @@ export class CatalogoComponent implements OnInit {
       })
   }
 
-  deleteBook(id:any){
-    console.log('Eliminar: ' + id)
-  }
 
-  editBook(id:any){
-    console.log('Editar: ' + id)
+  agregarlibro(id:any){
+    console.log('Libro Agregado: ' + id)
   }
 }
 

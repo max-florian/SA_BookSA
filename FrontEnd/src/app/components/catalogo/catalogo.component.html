@@ -3,16 +3,15 @@
 <div class="container padding-nav">
     <h2 class="border-bottom">Books</h2>
   <div class="row row-cols-1 row-cols-lg-3 ">
-    <div *ngFor="let book of books" class="col">
+    <div *ngFor="let book of books.data" class="col">
       <div class="card" style="width: 20rem; margin-bottom: 5px;">
-        <img class="card-img-top" src="{{book.foto}}" alt="Card image cap" style="height: 25rem;">
+        <!--<img class="card-img-top" src="{{book.foto}}" alt="Card image cap" style="height: 25rem;">-->
         <div class="card-body">
           <h5 class="card-title">{{book.titulo}}</h5>
-          <p class="card-text">By {{book.autor}}</p>
+          <p class="card-text">Por: {{book.autor}}</p>
           <p class="card-text">Editorial: {{book.id_editorial}}</p>
           <p class="card-text">{{book.precio}}</p>
-          <a class="btn btn-primary" (click)="editBook(book.id)">Editar</a>
-          <a class="btn btn-danger" (click)="deleteBook(book.id)">Delete</a>
+          <a class="btn btn-primary" (click)="agregarlibro(book.id)">Agregar</a>
         </div>
       </div>
   </div>
