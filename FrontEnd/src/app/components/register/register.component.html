@@ -6,43 +6,43 @@
             <div>
                 <div class="form-group">
                     <label for="inputUsuario">Nombre</label>
-                    <input [(ngModel)]="usuario" required type="text" class="form-control" id="inputNombre"
+                    <input [(ngModel)]="usuario" required type="text" class="form-control" id="usuario"
                         placeholder="">
                 </div>
                 <ng-container *ngIf="tipousuario == 'cliente'">
                 <div class="form-group">
-                    <label for="inputUsuario">Apellidos</label>
-                    <input [(ngModel)]="usuario" required type="text" class="form-control" id="inputApellido"
+                    <label for="inputApellido">Apellidos</label>
+                    <input [(ngModel)]="apellido" type="text" class="form-control" id="apellido"
                         placeholder="">
                 </div>
                 </ng-container>
                 <ng-container *ngIf="tipousuario == 'editorial'">
                 <div class="form-group">
-                    <label for="inputUsuario">Dirección Fisica</label>
-                    <input [(ngModel)]="usuario" required type="text" class="form-control" id="inputDireccion"
+                    <label for="inputDireccion">Dirección Fisica</label>
+                    <input [(ngModel)]="direccion" type="text" class="form-control" id="direccion"
                         placeholder="">
                 </div>
                 </ng-container>
                 <div class="form-group">
-                    <label for="inputUsuario">Correo Electrónico</label>
-                    <input [(ngModel)]="usuario" required type="text" class="form-control" id="inputCorreo"
+                    <label for="inputCorreo">Correo Electrónico</label>
+                    <input [(ngModel)]="correo" required type="text" class="form-control" id="correo"
                         placeholder="">
                 </div>
                 <ng-container *ngIf="tipousuario == 'cliente'">
                 <div class="form-group">
-                    <label for="inputUsuario">Numero de Celular</label>
-                    <input [(ngModel)]="pass" required type="number" class="form-control" id="inputNumero"
+                    <label for="inputNumero">Numero de Celular</label>
+                    <input [(ngModel)]="numero" required type="number" class="form-control" id="numero"
                         placeholder="">
                 </div>
                 </ng-container>
                 <div class="form-group">
                     <label for="inputPassword">Contraseña</label>
-                    <input [(ngModel)]="pass" required type="password" class="form-control" id="inputPassword"
+                    <input [(ngModel)]="pass" required type="password" class="form-control" id="pass"
                         placeholder="">
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword">Tipo de Usuario</label>
-                    <select class="form-control" name="miselect" [(ngModel)]="tipousuario">
+                    <label for="inputTipoUsuario">Tipo de Usuario</label>
+                    <select class="form-control" name="miselect" [(ngModel)]="tipousuario" id="tipousuario">
                         <option value="cliente">Cliente</option>
                         <option value="editorial">Editorial</option>
                     </select>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="col-sm-6 offset-sm-3">
-            <button type="submit" class="btn btn-primary btn-block" (click)="registrase()">Registrarse</button>
+            <button type="submit" class="btn btn-primary btn-block" (click)="registrarse()">Registrarse</button>
                                 Ya tienes usuario? <a  [routerLink]="[ '/login' ]">Inicia Sesión</a>.
         </div>
     </div>
