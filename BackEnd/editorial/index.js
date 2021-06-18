@@ -19,6 +19,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(`/api/${app.get('servicename')}`, routes);
 
 // Listen
-app.listen(process.env.APP_PORT, async () => {
+app.listen(process.env.PORT || 4000, async () => {
   console.log(`Servidor levantado en el puerto ${process.env.APP_PORT}`);
 });
