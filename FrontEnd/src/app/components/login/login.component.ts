@@ -37,8 +37,8 @@ export class LoginComponent implements OnInit {
         }else{
           this.router.navigate(['/libreria']);
         }
-        console.log('token');
-        console.log(this.tokenService.getCaracteristicas());
+        //console.log('token');
+        //console.log(this.tokenService.getCaracteristicas());
       }else{
         alert('Credenciales invalidas')
       }
