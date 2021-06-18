@@ -6,7 +6,7 @@ var jsonParser = bodyParser.json()
 const app = express().use(cors());
 const mysql = require('./database');
 
-app.get('/generos', jsonParser, async function (req, res) {
+app.get('/catalogos/generos', jsonParser, async function (req, res) {
         code = 200;
         response = {
                 data: []
@@ -28,7 +28,7 @@ app.listen(port, () => {
         console.log("Microservicio catalogos activo en puerto = " + port);
 });
 
-app.get('/catalogo/', jsonParser, async function (req, res) {
+app.get('/catalogos/catalogo/', jsonParser, async function (req, res) {
         let {editorial, genero} = req.query;
         let code = 200;
         let response = {
@@ -67,6 +67,48 @@ app.get('/catalogo/', jsonParser, async function (req, res) {
                         if(result.length > 0 && result[0]['id'] !== null){
                                 response.data = result;
                         }
+                }).catch( error => {
+                        console.log(error);
+                        code = 422;
+                        response.message = `Error al obtener registros`
+                });
+
+       res.status(code).json(response);
+});
+
+app.get('/catalogos/pagos/', jsonParser, async function (req, res) {
+        let {editorial, genero} = req.query;
+        let code = 200;
+        let response = {
+                data: []
+        };
+
+        let sql = `select * from metodo_pagos where estado = 1 `
+
+        await mysql.execute(sql)
+                .then( result => {
+                        response.data = result;
+                }).catch( error => {
+                        console.log(error);
+                        code = 422;
+                        response.message = `Error al obtener registros`
+                });
+
+       res.status(code).json(response);
+});
+
+app.get('/catalogos/envio/', jsonParser, async function (req, res) {
+        let {editorial, genero} = req.query;
+        let code = 200;
+        let response = {
+                data: []
+        };
+
+        let sql = `select * from metodo_envios where estado = 1 `
+
+        await mysql.execute(sql)
+                .then( result => {
+                        response.data = result;
                 }).catch( error => {
                         console.log(error);
                         code = 422;
