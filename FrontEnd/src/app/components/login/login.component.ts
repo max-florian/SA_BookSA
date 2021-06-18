@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { WebService } from 'src/app/services/web.service';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,13 @@ export class LoginComponent implements OnInit {
     this.webService.iniciarSesion(data).subscribe((response: any) => {
       //console.log(response);
       if(response.statuscode == 200){
-        this.router.navigate(['/catalogo'])
+        var tokendecodificado: any = jwt_decode(response.data.token)
+        console.log(tokendecodificado)
+        if(tokendecodificado.type){
+          this.router.navigate(['/catalogo']);
+        }else{
+          this.router.navigate(['/libreria']);
+        }
       }else{
         alert('Credenciales invalidas')
       }
