@@ -1,14 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-            steps {
-                sh 'docker-compose -f docker-compose.build.yaml build'
-                sh 'docker-compose -f docker-compose.build.yaml push'
-            }
-        }
         stage('Deploy') {
             steps {
+                sh 'which fab2'
                 sh 'fab2 deploy'
             }
         }
