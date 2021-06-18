@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  serverAuthentication: '/server-authentication',
+  serverAddBook: '/server-add-book',
+  serverEditBook: '/server-edit-book',
+  serverViewBooks: '/server-view-books',
+  serverCatalogo: '/server-catalogo',
+  serverCompras: '/server-compras',
+  serverEditorial: '/server-editorial',
 };
 
 /*
