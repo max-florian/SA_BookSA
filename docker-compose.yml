@@ -1,0 +1,94 @@
+version: '3.1'
+services:  
+  Authentication:
+    container_name: server-authentication
+    image: authentication
+    build:
+      context: ./BackEnd/authentication
+      dockerfile: dockerfile
+    restart: always
+    ports: 
+      -  3001:4000
+    env_file:
+      - .env
+
+  AddBook:
+    container_name: server-add-book
+    image: add-book
+    build:
+      context: ./BackEnd/books_service/add_book
+      dockerfile: dockerfile
+    restart: always
+    ports: 
+      -  3002:4000
+    env_file:
+      - .env
+
+  EditBook:
+    container_name: server-edit-book
+    image: edit-book
+    build:
+      context: ./BackEnd/books_service/edit_book
+      dockerfile: dockerfile
+    restart: always
+    ports: 
+      -  3003:4000
+    env_file:
+      - .env
+
+  ViewBooks:
+    container_name: server-view-books
+    image: view-books
+    build:
+      context: ./BackEnd/books_service/view_books
+      dockerfile: dockerfile
+    restart: always
+    ports: 
+      -  3004:4000
+    env_file:
+      - .env
+
+  Catalogos:
+    container_name: server-catalogos
+    image: catalogos
+    build:
+      context: ./BackEnd/catalogos
+      dockerfile: dockerfile
+    restart: always
+    ports: 
+      -  3005:4000
+    env_file:
+      - .env
+
+  Compras:
+    container_name: server-compras
+    image: compras
+    build:
+      context: ./BackEnd/compras
+      dockerfile: dockerfile
+    restart: always
+    ports: 
+      -  3006:4000
+    env_file:
+      - .env
+
+  Editorial:
+    container_name: server-editorial
+    image: editorial
+    build:
+      context: ./BackEnd/editorial
+      dockerfile: dockerfile
+    restart: always
+    ports: 
+      -  3007:4000
+    env_file:
+      - .env
+
+  Frontend:
+    container_name: frontend
+    image: frontend
+    build:
+      context: ./FrontEnd
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
