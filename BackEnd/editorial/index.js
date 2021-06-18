@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Routes
-app.use(`/api/${app.get('servicename')}`, routes);
+app.use('/', routes);
 
 // Listen
 app.listen(process.env.PORT || 4000, async () => {
