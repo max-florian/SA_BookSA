@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'fab2 deploy'
+                sh '/home/alexizzarevalo/.local/bin/fab2 deploy'
             }
         }
     }
