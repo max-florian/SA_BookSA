@@ -1,9 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh 'docker images'
+                sh 'docker-compose -f docker-compose.build.yaml build'
+                sh 'docker-compose -f docker-compose.build.yaml push'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'fab2 deploy'
             }
         }
     }
