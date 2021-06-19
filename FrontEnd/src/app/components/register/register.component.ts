@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
 
 
     this.webService.registrarse(data).subscribe((response: any) => {
-      console.log(response);
+      //console.log(response);
       if(response.statuscode == 200){
         alert('Usuario registrado correctamente!');
         this.router.navigate(["/login"]);
