@@ -34,8 +34,10 @@ export class LoginComponent implements OnInit {
         //console.log(tokendecodificado)
         if(tokendecodificado.type == 'cliente'){
           this.router.navigate(['/catalogo']);
-        }else{
+        }else if(tokendecodificado.type == 'editorial'){
           this.router.navigate(['/libreria']);
+        }else{
+          this.router.navigate(['/admin']);
         }
         //console.log('token');
         //console.log(this.tokenService.getCaracteristicas());

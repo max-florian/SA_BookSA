@@ -25,5 +25,9 @@ export class WebService {
     return this.http.get(`${this.serverCatalogo}/catalogos/catalogo`);
   }
 
+  agregaracarrito(data: any){
+    return this.http.post(`http://localhost:3000/${data.cart_id}/${data.id}`,null);
+  }
+
   
 }
