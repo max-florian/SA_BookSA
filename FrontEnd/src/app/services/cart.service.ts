@@ -22,12 +22,12 @@ export class CartService {
     return this.http.post(`${this.serverCompras}/store/cart`, {user_id});
   }
 
-  async getCartDetail(cart_id:number){
-    const cart_detail:any = await this.http.get(`${this.serverCompras}/store/cart/${cart_id}/totals`).toPromise();
-    console.log(cart_detail);
-    this.carritoSizeSubject.next(cart_detail.reduce((total_items:number, item:any) => total_items + item.cantidad, 0));
+  getCartDetail(cart_id:number){
+    return this.http.get(`${this.serverCompras}/store/cart/${cart_id}/totals`);
+  }
 
-    return cart_detail;
+  pushCartSize(size:number){
+    this.carritoSizeSubject.next(size);
   }
 
   addItemToCart(cart_id:number, product_id:number, quantity:number){
@@ -44,8 +44,11 @@ export class CartService {
   removeItemFromCart(cart_id:number, product_id:number, quantity:number){
     this.carritoSizeSubject.next(this.carritoSizeSubject.getValue() - quantity);
 
-    return this.http.post(`${this.serverCompras}/store/cart/${cart_id}/product/delete`, {
-      product_id,
-    })
+    return this.http.post(`${this.serverCompras}/store/cart/${cart_id}/product/delete`, {product_id})
+
+  }
+
+  registrarOrden(data:any){
+    return this.http.post(`${this.serverCompras}/store/order`, data);
   }
 }

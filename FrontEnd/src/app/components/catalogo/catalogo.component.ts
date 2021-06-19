@@ -26,7 +26,10 @@ export class CatalogoComponent implements OnInit {
   getCarrito(){
     this.cartService.getCart().subscribe((response: any)=> {
       this.cart_id = response.cart_id;
-      this.cartService.getCartDetail(this.cart_id);
+      this.cartService.getCartDetail(this.cart_id).subscribe((response:any) => {
+        let cart_size = response.reduce((total_items:number, item:any) => total_items + item.cantidad, 0);
+        this.cartService.pushCartSize(cart_size);
+      });
     })
   }
 
