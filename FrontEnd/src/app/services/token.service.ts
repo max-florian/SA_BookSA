@@ -4,19 +4,24 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TokenService {
-  
+    
   constructor() { }
 
   addCaracteristicas(data: any) {
-    localStorage.setItem('data',JSON.stringify(data))
+    localStorage.setItem('data', JSON.stringify(data))
   }
 
   getCaracteristicas(): any {
-    return JSON.parse(localStorage.getItem('data') + ' ');
+    let dataString = localStorage.getItem('data')
+    return dataString == null ? null : JSON.parse(dataString);
   }
 
-  deleteCaracteristicas(){
-    localStorage.removeItem('data')
+  logout(){
+    localStorage.removeItem('data');
+  }
+
+  isLogged(){
+    return this.getCaracteristicas() != null
   }
 
 

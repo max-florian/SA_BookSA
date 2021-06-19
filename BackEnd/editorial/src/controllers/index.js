@@ -35,7 +35,7 @@ async function getUsers(req, res){
     message: 'Usuarios'
   };
 
-  let query = 'SELECT * FROM usuarios WHERE tipo != "admin" && estado != 0;';
+  let query = 'SELECT * FROM usuarios WHERE tipo != "admin" && estado != 0 ORDER BY tipo, nombre;;';
 
   await db.execute(query, [])
   .then(rows => {  

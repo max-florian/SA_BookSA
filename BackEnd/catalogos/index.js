@@ -51,7 +51,7 @@ app.get('/api/catalogos/catalogos/catalogo/', jsonParser, async function (req, r
                 join usuarios u
                                 on u.id = l.id_editorial
                 where g.estado = 1 
-                        and l.estado = 1 `
+                        and l.estado = 1 group by l.id;`
 
         if (editorial !== null && !isNaN(editorial)) {
                 sql += `and l.id_editorial = ? `; 

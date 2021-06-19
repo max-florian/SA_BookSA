@@ -20,6 +20,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { AddbookComponent } from './components/libreria/book/addbook/addbook.component';
 import { OrdenComponent } from './components/tienda/orden/orden.component';
 import { NavBarEditorialComponent } from './components/navigation/nav-bar-editorial/nav-bar-editorial.component';
+import { ProductoComponent } from './components/catalogo/producto/producto.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NavBarEditorialComponent } from './components/navigation/nav-bar-editor
     OrdenComponent,
     NavBarComponent,
     ViewUsersComponent,
+    ProductoComponent,
     NavBarEditorialComponent
   ],
   imports: [

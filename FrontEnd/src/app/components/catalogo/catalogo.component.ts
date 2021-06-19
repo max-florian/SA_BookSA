@@ -36,5 +36,12 @@ export class CatalogoComponent implements OnInit {
       .subscribe(response => {})
     console.log('Libro Agregado: ' + id)
   }
+
+  agregarProductoAlCarrito(data:any){
+    let producto = data.producto;
+    let cantidad = data.cantidad;
+
+    //this.compraService.agregarItemAlCarrito(producto, cantidad);
+  }
 }
 
