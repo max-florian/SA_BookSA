@@ -50,6 +50,33 @@ async function getUsers(req, res){
   .json(result);
 }
 
+async function deleteUser(req, res){
+  const {id_user} = req.params;
+
+  let result = {
+    code: 200,
+    message: 'Registro eliminado'
+  };
+
+  if(id_user == undefined){
+    result.message = 'Campos faltantes';
+    res.status(result.code).json(result);
+  }
+
+  let query = 'UPDATE usuarios SET estado = 0 WHERE id = ?';
+
+  await db.execute(query, [id_user])
+  .then(result => {  
+  }).catch(e => {
+    console.log(e);
+    result.code = 422;
+    result.message = 'Error al eliminar el registro';
+  })
+
+  res.status(result.code)
+  .json(result);
+}
 
 module.exports.approve = approve;
 module.exports.getUsers = getUsers;
+module.exports.deleteUser = deleteUser;
