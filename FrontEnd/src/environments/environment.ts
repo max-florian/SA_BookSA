@@ -6,10 +6,10 @@ export const environment = {
   production: false,
 
   serverAuthentication: '/server-authentication',
-  serverAddBook: '/server-add-book',
-  serverEditBook: '/server-edit-book',
-  serverViewBooks: '/server-view-books',
-  serverCatalogo: '/server-catalogo',
+  serverAddBook: 'http://localhost:3004/add_book',
+  serverEditBook: 'http://localhost:3002/books',
+  serverViewBooks: 'http://localhost:3000/books',
+  serverCatalogo: 'http://localhost:3001/catalogos',
   serverCompras: '/server-compras',
   serverEditorial: '/server-editorial',
 };
