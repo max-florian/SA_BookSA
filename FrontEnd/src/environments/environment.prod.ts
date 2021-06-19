@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
 
-  serverAuthentication: '/server-authentication',
-  serverAddBook: '/server-add-book',
-  serverEditBook: '/server-edit-book',
-  serverViewBooks: '/server-view-books',
-  serverCatalogo: '/server-catalogo',
-  serverCompras: '/server-compras',
-  serverEditorial: '/server-editorial',
+  serverAuthentication: '#{serverAuthentication}#',
+  serverAddBook: '#{serverAddBook}#',
+  serverEditBook: '#{serverEditBook}#',
+  serverViewBooks: '#{serverViewBooks}#',
+  serverCatalogo: '#{serverCatalogo}#',
+  serverCompras: '#{serverCompras}#',
+  serverEditorial: '#{serverEditorial}#',
 };

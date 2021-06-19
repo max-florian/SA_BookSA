@@ -51,5 +51,13 @@ services:
 
   frontend:
     image: alexizzarevalo/book-sa-frontend
+    environment: 
+      - serverAuthentication=/api/authentication
+      - serverAddBook=/api/addbooks
+      - serverEditBook=/api/editbooks
+      - serverViewBooks=/api/viewbooks
+      - serverCatalogo=/api/catalogos
+      - serverCompras=/api/compras
+      - serverEditorial=/api/editorial
     ports:
       - 80:80
