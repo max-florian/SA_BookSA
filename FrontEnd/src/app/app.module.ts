@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { LibreriaComponent } from './components/libreria/libreria.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ViewUsersComponent } from './components/view-users/view-users.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     RegisterComponent,
     CatalogoComponent,
     LibreriaComponent,
-    NavBarComponent
+    NavBarComponent,
+    ViewUsersComponent,
   ],
   imports: [
     BrowserModule,

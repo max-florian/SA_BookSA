@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header">
+    <h4>Usuarios</h4>
+  </div>
+  <div class="px-5 py-3">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i=index;">
+          <td>{{user.nombre + " " + (user.apellido || "")}}</td>
+          <td>{{user.correo}}</td>
+          <td>{{user.telefono}}</td>
+          <td>{{user.estado == 1 ? 'Activo' : 'Pendiente'}}</td>
+          <td>{{user.tipo | titlecase}}</td>
+          <td>
+            <a><i class="fas fa-ban" style="color:darkred" title="Eliminar"></i></a>
+            &nbsp;
+            <a *ngIf="user.estado != 1"><i class="fas fa-check-circle" style="color:#31703a" title="Aprobar"></i></a>        
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
