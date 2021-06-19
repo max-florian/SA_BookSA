@@ -24,7 +24,7 @@
           <td>
             <a (click)="deleteUserClickHandler(user.id, i)"><i class="fas fa-ban" style="color:darkred" title="Eliminar"></i></a>
             &nbsp;
-            <a *ngIf="user.estado != 1" (click)="approveUserClickHandler(user.id)"><i class="fas fa-check-circle" style="color:#31703a" title="Aprobar"></i></a>        
+            <a *ngIf="user.estado != 1" (click)="approveUserClickHandler(user.id, i)"><i class="fas fa-check-circle" style="color:#31703a" title="Aprobar"></i></a>        
           </td>
         </tr>
       </tbody>
