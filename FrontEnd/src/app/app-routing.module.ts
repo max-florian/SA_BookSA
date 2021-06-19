@@ -6,6 +6,7 @@ import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { LibreriaComponent } from './components/libreria/libreria.component';
 import { BookComponent } from './components/libreria/book/book.component';
 import { AddbookComponent } from './components/libreria/book/addbook/addbook.component';
+import { OrdenComponent } from './components/tienda/orden/orden.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'libreria', component: LibreriaComponent },
   { path: 'libreria/book/addbook',component:AddbookComponent},
   { path: 'libreria/book/:idLibro',component:BookComponent},
+  { path: 'libreria/ordenes',component:OrdenComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' },
 ];

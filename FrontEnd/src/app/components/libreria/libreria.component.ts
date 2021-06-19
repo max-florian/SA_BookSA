@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BooksService } from 'src/app/services/books.service';
-import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { NavBarEditorialComponent } from '../navigation/nav-bar-editorial/nav-bar-editorial.component';
 
 @Component({
   selector: 'app-libreria',
@@ -25,7 +25,7 @@ export class LibreriaComponent implements OnInit {
     this.bookService.getBooks()
       .subscribe((json: any) => {
         this.books = json.data;
-        console.log(this.books)
+        //console.log(this.books)
       })
   }
 
