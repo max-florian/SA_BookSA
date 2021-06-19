@@ -15,6 +15,7 @@ app.get('/api/viewbooks/books/', jsonParser, async function (req, res) {
         };
 
         let sql = `select l.*, group_concat(g.nombre) as categorias
+                        date_format(l.fecha_creado,"%d/%m/%Y %H:%i:%s") as fecha_creado
                 from libros l
                 join libro_generos lg
                         on l.id = lg.id_libro
