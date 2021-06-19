@@ -11,18 +11,18 @@
             </li>
             <div>
                 <li class="nav-item">
-                <a class="nav-link waves-light" mdbWavesEffect routerLink="/misOrdenes"><i class="fas fa-receipt"></i> Mis Ordenes</a>
+                <a class="nav-link waves-light" mdbWavesEffect routerLink="/tienda/ordenes"><i class="fas fa-receipt"></i> Mis Ordenes</a>
                 </li>
             </div>
         </ul>
         <!-- Links -->
 
         <ul class="navbar-nav ml-auto nav-flex-icons">
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="carritoSize$ | async as carritoSize">
               <a class="nav-link" style="position:relative;" routerLink="/checkout">
                   Ir al carrito
                   <i class="fas fa-shopping-cart"></i>
-                  <span  class="badge rounded-pill badge-notification bg-danger" style="position: absolute; top: -2px; right: -2px;">2</span>
+                  <span  class="badge rounded-pill badge-notification bg-danger" style="position: absolute; top: -2px; right: -2px;">{{carritoSize}}</span>
               </a>
             </li>
             &nbsp;&nbsp;
