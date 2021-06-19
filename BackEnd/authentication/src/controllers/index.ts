@@ -19,9 +19,11 @@ export const login = async (req: Request, res: Response) => {
     if (!await comparePasswords(password, user?.getDataValue('password'))) return invalid(401);
 
     const token = generateToken({
+        id: user?.id,
         email,
         name: user?.getDataValue('name'),
-        lastname: user?.getDataValue('lastname')
+        lastname: user?.getDataValue('lastname'),
+        type: user?.getDataValue('type'),
     })
 
     setResponse(res, {
