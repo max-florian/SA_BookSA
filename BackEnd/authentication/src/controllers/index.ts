@@ -37,8 +37,8 @@ export const register = async (req: Request, res: Response) => {
     const { name, lastname, email, password, status, phone, type } = req.body;
 
     User.create({ name, lastname, email, password, status, phone, type })
-        .then(() => {
-            const token = generateToken({ email, name, lastname })
+        .then((user) => {
+            const token = generateToken({ id: user?.id, email, name, lastname, type: user?.getDataValue('type') })
             setResponse(res, {
                 message: 'Registro exitoso',
                 statuscode: 200,
