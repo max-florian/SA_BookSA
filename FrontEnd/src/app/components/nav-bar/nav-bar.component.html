@@ -1,4 +1,47 @@
 <!-- As a heading -->
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <span class="navbar-brand mb-0 h1">BookSA</span>
+
+    <div *ngIf="isLogged" class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+            <a class="nav-link waves-light" mdbWavesEffect routerLink="/catalogo"><i class="fas fa-th"></i>Catalogo</a>
+            </li>
+            <div>
+                <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect routerLink="/misOrdenes"><i class="fas fa-receipt"></i> Mis Ordenes</a>
+                </li>
+            </div>
+        </ul>
+        <!-- Links -->
+
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item">
+              <a class="nav-link" style="position:relative;" routerLink="/checkout">
+                  Ir al carrito
+                  <i class="fas fa-shopping-cart"></i>
+                  <span  class="badge rounded-pill badge-notification bg-danger" style="position: absolute; top: -2px; right: -2px;">2</span>
+              </a>
+            </li>
+            &nbsp;&nbsp;
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span id="username-navbar">{{ username }}</span>
+                    &nbsp;
+                    <i class="fas fa-user-alt"></i>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#">Perfil</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect (click)="logoutClickHandler()">Salir</a>
+                </div>
+            </li>
+    
+          </ul>
+
+    </div>
 </nav>

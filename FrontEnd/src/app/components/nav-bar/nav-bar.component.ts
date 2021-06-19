@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { CartService } from 'src/app/services/cart.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,9 +11,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  isLogged = false;
+  carritoSize$:Observable<number> = new Observable<number>();
+
+  username = "";
+
+  carritoVisible:boolean = true;
+
+  constructor(
+    private tokenService: TokenService,
+    private cartService: CartService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.isLogged = this.tokenService.isLogged();
+    this.username = this.tokenService.getCaracteristicas().name;
+    this.carritoSize$ = this.cartService.carritoSize$;
+    this.carritoVisible = this.router.url != '/checkout'
+  }
+
+  logoutClickHandler(){
+    this.tokenService.logout();
+    this.router.navigate(['']);
   }
 
 }

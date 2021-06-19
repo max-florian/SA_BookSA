@@ -19,6 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import { AddbookComponent } from './components/libreria/book/addbook/addbook.component';
 import { OrdenComponent } from './components/tienda/orden/orden.component';
+import { ProductoComponent } from './components/catalogo/producto/producto.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { OrdenComponent } from './components/tienda/orden/orden.component';
     OrdenComponent,
     NavBarComponent,
     ViewUsersComponent,
+    ProductoComponent,
   ],
   imports: [
     MatButtonModule,
