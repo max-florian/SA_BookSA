@@ -8,7 +8,7 @@ var jsonParser = bodyParser.json()
 
 // create cart or return if exist
 router.post('', function(req, res, next) {
-	let userId = 31;//req.body.user_id;
+	let userId = req.body.user_id;
 	let sessionId = req.sessionID;
 
 	(async() => {
