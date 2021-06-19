@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BooksService } from 'src/app/services/books.service';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
@@ -11,7 +12,10 @@ export class LibreriaComponent implements OnInit {
 
   books:any = [];
 
-  constructor(private bookService:BooksService) { }
+  constructor(
+    private bookService:BooksService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.getBooks();
@@ -19,18 +23,19 @@ export class LibreriaComponent implements OnInit {
 
   getBooks(){
     this.bookService.getBooks()
-      .subscribe(data => {
-        this.books = data;
+      .subscribe((json: any) => {
+        this.books = json.data;
         console.log(this.books)
       })
   }
 
   deleteBook(id:any){
-    console.log('Eliminar: ' + id)
-  }
-
-  editBook(id:any){
-    console.log('Editar: ' + id)
+    if(window.confirm('¿Confirma la eliminacion del libro?')){
+      this.bookService.deleteBook(id).subscribe((json:any) => {
+        window.alert(json.message)
+        //quitar el libro del array
+      })
+    }
   }
 
 }

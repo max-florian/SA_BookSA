@@ -8,14 +8,13 @@ const app = express().use(cors());
 const mysql = require('./database');
 
 app.post('/api/addbooks/add_book', jsonParser, async function (req, res) {
-        let {titulo, autor, precio, cantidad, generos} = req.body;
-        let idEditorial = req.body.id_editorial;
+        let {titulo, autor, precio, cantidad, generos, idEditorial} = req.body;
         let code = 200;
         let response = {
                 message: ''
         };
 
-        if (titulo === undefined || autor == undefined || precio === undefined || cantidad === undefined || idEditorial === undefined || generos === undefined) {
+        if (titulo  == undefined || autor == undefined || precio === undefined || cantidad === undefined || idEditorial === undefined || generos === undefined) {
                 code  = 422;
                 response.message = `Por favor revise los campos faltantes`;
                 res.status(code).json(response);

@@ -8,7 +8,7 @@ const app = express().use(cors());
 const mysql = require('./database');
 
 app.get('/api/viewbooks/books/', jsonParser, async function (req, res) {
-        let {idEditorial} = req.body;
+        let {idEditorial} = req.query;
         let code = 200;
         let response = {
                 data: []
@@ -21,7 +21,9 @@ app.get('/api/viewbooks/books/', jsonParser, async function (req, res) {
                 join genero g
                         on g.id = lg.id_genero
                 where g.estado = 1
-                and l.id_editorial = ?;`
+                and l.estado = 1
+                and l.id_editorial = ?
+                group by l.id;`
 
         await mysql.execute(sql, [idEditorial])
                 .then( result => {

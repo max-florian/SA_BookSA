@@ -11,6 +11,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { LibreriaComponent } from './components/libreria/libreria.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { BookComponent } from './components/libreria/book/book.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import { AddbookComponent } from './components/libreria/book/addbook/addbook.component';
+import { OrdenComponent } from './components/tienda/orden/orden.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +26,19 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     RegisterComponent,
     CatalogoComponent,
     LibreriaComponent,
-    NavBarComponent
+    NavBarComponent,
+    BookComponent,
+    AddbookComponent,
+    OrdenComponent
   ],
   imports: [
+    MatButtonModule,
+    MatSelectModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

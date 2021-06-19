@@ -1,17 +1,24 @@
 <app-nav-bar></app-nav-bar>
 
 <div class="container" id="custom-cards">
-  <h2 class="border-bottom">Books</h2>
+  <h2 class="border-bottom" >Books</h2>
+  <div class="text-center">
+    <button mat-raised-button color="accent" routerLink="/libreria/book/addbook"> Agregar libro </button>
+  </div>
+  <br>
   <div class="row row-cols-1 row-cols-lg-3 ">
     <div *ngFor="let book of books" class="col">
-      <div class="card" style="width: 20rem; margin-bottom: 5px;">
-        <img class="card-img-top" src="{{book.foto}}" alt="Card image cap" style="height: 25rem;">
+      <div class="card" style="width: 15rem; margin-bottom: 5px;">
+        <img class="card-img-top" alt="{{book.titulo}}" style="height: 20rem;"
+          src="https://boxshot.com/support/3d-book-covers/how-to-make-a-3d-book-cover-in-photoshop/sample.jpg" >
         <div class="card-body">
-          <h5 class="card-title">{{book.titulo}}</h5>
-          <p class="card-text">By {{book.autor}}</p>
-          <p class="card-text">Editorial: {{book.id_editorial}}</p>
-          <p class="card-text">{{book.precio}}</p>
-          <a class="btn btn-primary" (click)="editBook(book.id)">Editar</a>
+          <h4 class="card-title">{{book.titulo}}</h4>
+          <p><b>Autor:</b> {{book.autor}}<br>
+            <b>Cantidad en Stock:</b> {{book.cantidad}}<br>
+            <b>Categorias:</b> {{book.categorias}}<br>
+            <b>Fecha creacion:</b> {{book.fecha_creado}}</p>
+          <p>Q{{book.precio}}</p>
+          <a class="btn btn-primary" routerLink="/libreria/book/{{book.id}}">Editar</a>
           <a class="btn btn-danger" (click)="deleteBook(book.id)">Delete</a>
         </div>
       </div>
