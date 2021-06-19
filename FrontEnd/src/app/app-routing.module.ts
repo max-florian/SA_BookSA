@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'libreria', component: LibreriaComponent },
   { path: 'libreria/book/addbook',component:AddbookComponent},
   { path: 'libreria/book/:idLibro',component:BookComponent},
-  { path: 'libreria/ordenes',component:OrdenComponent},
+  { path: 'tienda/ordenes',component:OrdenComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' },
 ];
