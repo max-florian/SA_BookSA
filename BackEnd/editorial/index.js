@@ -20,5 +20,5 @@ app.use(`/api/${app.get('servicename')}`, routes);
 
 // Listen
 app.listen(process.env.PORT || 4000, async () => {
-  console.log(`Servidor ${app.get('servicename')} levantado en el puerto ${process.env.APP_PORT}`);
+  console.log(`Servidor ${app.get('servicename')} levantado en el puerto ${process.env.PORT}`);
 });

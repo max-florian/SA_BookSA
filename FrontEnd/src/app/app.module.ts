@@ -13,6 +13,7 @@ import { LibreriaComponent } from './components/libreria/libreria.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BookComponent } from './components/libreria/book/book.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ViewUsersComponent } from './components/view-users/view-users.component';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
@@ -29,7 +30,9 @@ import { OrdenComponent } from './components/tienda/orden/orden.component';
     NavBarComponent,
     BookComponent,
     AddbookComponent,
-    OrdenComponent
+    OrdenComponent,
+    NavBarComponent,
+    ViewUsersComponent,
   ],
   imports: [
     MatButtonModule,
