@@ -35,4 +35,14 @@ export class ViewUsersComponent implements OnInit {
       })
   }
 
+  approveUserClickHandler(id_editorial:number, index:number){
+    this.usersService.approveUser(id_editorial).subscribe(
+      (response:any) => {
+        this.users[index].estado = 1; 
+      }, (error) => {
+        console.log(error);
+      }
+    )
+  }
+
 }
