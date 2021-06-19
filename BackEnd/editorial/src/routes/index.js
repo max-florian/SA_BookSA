@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {approve, getUsers} = require('../controllers');
+const {approve, getUsers, deleteUser} = require('../controllers');
 
 router.post('/aprobar', approve);
 
