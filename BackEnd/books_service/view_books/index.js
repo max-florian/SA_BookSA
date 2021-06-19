@@ -1,7 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 var bodyParser = require('body-parser');
-require('dotenv').config();
+// require('dotenv').config();  
 var jsonParser = bodyParser.json()
 
 const app = express().use(cors());
@@ -14,7 +14,7 @@ app.get('/api/viewbooks/books/', jsonParser, async function (req, res) {
                 data: []
         };
 
-        let sql = `select l.*, group_concat(g.nombre) as categorias
+        let sql = `select l.*, group_concat(g.nombre) as categorias,
                         date_format(l.fecha_creado,"%d/%m/%Y %H:%i:%s") as fecha_creado
                 from libros l
                 join libro_generos lg
