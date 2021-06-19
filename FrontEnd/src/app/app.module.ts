@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,8 @@ import { AddbookComponent } from './components/libreria/book/addbook/addbook.com
 import { OrdenComponent } from './components/tienda/orden/orden.component';
 import { NavBarEditorialComponent } from './components/navigation/nav-bar-editorial/nav-bar-editorial.component';
 import { ProductoComponent } from './components/catalogo/producto/producto.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { OrdenDetalleComponent } from './components/checkout/orden-detalle/orden-detalle.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { ProductoComponent } from './components/catalogo/producto/producto.compo
     NavBarComponent,
     ViewUsersComponent,
     ProductoComponent,
-    NavBarEditorialComponent
+    NavBarEditorialComponent,
+    CheckoutComponent,
+    OrdenDetalleComponent,
   ],
   imports: [
     MatButtonModule,
@@ -44,6 +48,7 @@ import { ProductoComponent } from './components/catalogo/producto/producto.compo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
   ],

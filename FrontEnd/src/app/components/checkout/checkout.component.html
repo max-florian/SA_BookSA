@@ -1,0 +1,54 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="m-4">
+  <button class="btn btn-secondary" (click)="atrasClickHandler()">Atras</button>
+</div>
+
+<div class="m-4">
+  <app-orden-detalle [items]="carrito" [canRemoveItem]="true" (removeRequest)="removerItemClickHandler($event)"></app-orden-detalle>
+</div>
+
+<div class="card m-4">
+  <div class="card-header">
+    <h4>Datos de pago</h4>
+  </div>
+  <div class="px-5 py-3">
+    <div class="form-group">
+      <p>Total a pagar: {{totalCompra | currency:'GTQ':'symbol-narrow'}}</p>
+    </div>
+    <div class="form-group">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="inlineRadioEfectivo" checked>
+        <label class="form-check-label" for="inlineRadioEfectivo">Efectivo</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card m-4">
+  <div class="card-header">
+    <h4>Tu informacion</h4>
+  </div>
+  <form class="px-5 py-3" [formGroup]="datosForm" (ngSubmit)="onSubmitDatos()">
+    <div class="form-group" *ngIf="loggedUser">
+      <label for="inputUsername">Username</label>
+      <input formControlName="username" type="text" class="form-control" id="inputUsername" aria-describedby="usernamelHelp">
+    </div>
+    <div class="form-group">
+      <div class="form-check form-check-inline">
+        <input formControlName="tipoOrden" class="form-check-input" type="radio" id="inlineRadio1" value="domicilio">
+        <label class="form-check-label" for="inlineRadio1">Entrega a domicilio</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input formControlName="tipoOrden" class="form-check-input" type="radio" id="inlineRadio2" value="recogerTienda">
+        <label class="form-check-label" for="inlineRadio2">Recoger en tienda</label>
+      </div>
+    </div>
+    <div class="form-group" *ngIf="tipoOrden?.value == 'domicilio'">
+      <label for="inputDireccion">Direccion</label>
+      <input formControlName="direccion" type="text" class="form-control" id="inputDireccion" aria-describedby="direccionHelp">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!datosForm.valid">Confirmar</button>
+  </form>
+  <!-- Default form contact -->
+</div>

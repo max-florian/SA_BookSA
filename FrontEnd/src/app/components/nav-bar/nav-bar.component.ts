@@ -12,7 +12,7 @@ import { TokenService } from 'src/app/services/token.service';
 export class NavBarComponent implements OnInit {
 
   isLogged = false;
-  carritoSize$:Observable<number> = new Observable<number>();
+  carritoSize$:Observable<number>;
 
   username = "";
 
@@ -22,12 +22,13 @@ export class NavBarComponent implements OnInit {
     private tokenService: TokenService,
     private cartService: CartService,
     private router: Router
-  ) { }
+  ) { 
+    this.carritoSize$ = this.cartService.carritoSize$;
+  }
 
   ngOnInit(): void {
     this.isLogged = this.tokenService.isLogged();
     this.username = this.tokenService.getCaracteristicas().name;
-    this.carritoSize$ = this.cartService.carritoSize$;
     this.carritoVisible = this.router.url != '/checkout'
   }
 

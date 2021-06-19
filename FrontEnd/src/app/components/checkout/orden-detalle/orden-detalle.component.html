@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-header">
+    <h4>Tu pedido</h4>
+  </div>
+  <div class="px-5 py-3">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Item</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Subtotal</th>
+          <th *ngIf="canRemoveItem" scope="col">Remover</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items; let i=index;">
+          <th scope="row">1</th>
+          <td>{{item.nombre}}</td>
+          <td>{{item.cantidad}}</td>
+          <td>{{item.precio * item.cantidad | currency:'GTQ':'symbol-narrow'}}</td>
+          <td *ngIf="canRemoveItem"><a (click)="removerItemClickHandler(i, item.product_id, item.cantidad)"><i class="fas fa-trash-alt" style="color:tomato"></i></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
