@@ -12,7 +12,7 @@ export class CatalogoService {
   constructor(private httpClient:HttpClient) { }
 
   getGeneros(){
-    return this.httpClient.get(this.serverCatalogo + '/generos')
+    return this.httpClient.get(this.serverCatalogo + '/catalogos/generos')
   }
 
 }

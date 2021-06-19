@@ -14,25 +14,25 @@ export class BooksService {
   constructor(private httpClient: HttpClient) { }
   
   getBooks(){
-    return this.httpClient.get(this.serverViewBooks + '?idEditorial=' + 31);
+    return this.httpClient.get(this.serverViewBooks + '/books?idEditorial=' + 31);
   }
 
   getBook(id:number){
-    return this.httpClient.get(this.serverViewBooks + '/' + id);
+    return this.httpClient.get(this.serverViewBooks + '/books/' + id);
   }
 
   editBook(id:number,book:any){
-    return this.httpClient.put(this.serverEditBook + '/' + id,book);
+    return this.httpClient.put(this.serverEditBook + '/books/' + id,book);
   }
 
 
   deleteBook(id:number){
-    return this.httpClient.delete(this.serverViewBooks + '/' + id)
+    return this.httpClient.delete(this.serverViewBooks + '/books/' + id)
   }
 
   createBook(book:any){
     book.idEditorial = 31
     console.log(book)
-    return this.httpClient.post(this.serverAddBook,book);
+    return this.httpClient.post(this.serverAddBook + '/add_book',book);
   }
 }
