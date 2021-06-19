@@ -19,6 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import { AddbookComponent } from './components/libreria/book/addbook/addbook.component';
 import { OrdenComponent } from './components/tienda/orden/orden.component';
+import { NavBarEditorialComponent } from './components/navigation/nav-bar-editorial/nav-bar-editorial.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { OrdenComponent } from './components/tienda/orden/orden.component';
     OrdenComponent,
     NavBarComponent,
     ViewUsersComponent,
+    NavBarEditorialComponent
   ],
   imports: [
     MatButtonModule,

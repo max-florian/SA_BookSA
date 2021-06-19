@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TiendaService } from 'src/app/services/tienda.service';
 
 @Component({
   selector: 'app-orden',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdenComponent implements OnInit {
 
-  constructor() { }
+  ordenes:any = []
+  orden:any = {}
+
+  constructor(
+    private tiendaService:TiendaService
+  ) { }
 
   ngOnInit(): void {
+    this.tiendaService.getOrdenes().subscribe((json:any) => {
+      console.log(json)
+      this.ordenes = json.data.response.data
+    })
+  }
+
+  abrirModal(index:number){
+    this.orden = this.ordenes[index]
   }
 
 }

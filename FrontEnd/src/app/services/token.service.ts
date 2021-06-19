@@ -5,16 +5,18 @@ import { Injectable } from '@angular/core';
 })
 export class TokenService {
   
-  caracteristicas: any = [];
-  
   constructor() { }
 
   addCaracteristicas(data: any) {
-    this.caracteristicas = data;
+    localStorage.setItem('data',JSON.stringify(data))
   }
 
   getCaracteristicas(): any {
-    return this.caracteristicas;
+    return JSON.parse(localStorage.getItem('data') + ' ');
+  }
+
+  deleteCaracteristicas(){
+    localStorage.removeItem('data')
   }
 
 

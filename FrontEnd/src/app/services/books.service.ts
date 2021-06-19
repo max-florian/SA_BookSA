@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { environment } from 'src/environments/environment';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,14 @@ export class BooksService {
   serverEditBook:string = environment.serverEditBook
   serverAddBook:string = environment.serverAddBook
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient,
+    private tokenService:TokenService  
+  ) { }
   
   getBooks(){
-    return this.httpClient.get(this.serverViewBooks + '/books?idEditorial=' + 31);
+    const data = this.tokenService.getCaracteristicas()
+    return this.httpClient.get(this.serverViewBooks + '/books?idEditorial=' + data.id);
   }
 
   getBook(id:number){
@@ -31,8 +36,7 @@ export class BooksService {
   }
 
   createBook(book:any){
-    book.idEditorial = 31
-    console.log(book)
+    book.idEditorial = this.tokenService.getCaracteristicas().id
     return this.httpClient.post(this.serverAddBook + '/add_book',book);
   }
 }
