@@ -7,7 +7,7 @@ var jsonParser = bodyParser.json()
 const app = express().use(cors());
 const mysql = require('./database');
 
-app.get('/books/', jsonParser, async function (req, res) {
+app.get('/api/viewbooks/books/', jsonParser, async function (req, res) {
         let {idEditorial} = req.body;
         let code = 200;
         let response = {
@@ -37,7 +37,7 @@ app.get('/books/', jsonParser, async function (req, res) {
        res.status(code).json(response);
 });
 
-app.get('/books/:idLibro', jsonParser, async function (req, res) {
+app.get('/api/viewbooks/books/:idLibro', jsonParser, async function (req, res) {
         let {idLibro}=req.params;
         let code = 200;
         let response = {
@@ -71,7 +71,7 @@ app.get('/books/:idLibro', jsonParser, async function (req, res) {
        res.status(code).json(response);
 });
 
-app.delete('/books/:idLibro', jsonParser, async function (req, res) {
+app.delete('/api/viewbooks/books/:idLibro', jsonParser, async function (req, res) {
         let {idLibro}=req.params;
         let code = 200;
         let response = {

@@ -7,7 +7,7 @@ var jsonParser = bodyParser.json()
 const app = express().use(cors());
 const mysql = require('./database');
 
-app.post('/add_book', jsonParser, async function (req, res) {
+app.post('/api/addbooks/add_book', jsonParser, async function (req, res) {
         let {titulo, autor, precio, cantidad, generos} = req.body;
         let idEditorial = req.body.id_editorial;
         let code = 200;

@@ -7,7 +7,7 @@ var jsonParser = bodyParser.json()
 const app = express().use(cors());
 const mysql = require('./database');
 
-app.put('/books/:idLibro', jsonParser, async function (req, res) {
+app.put('/api/editbooks/books/:idLibro', jsonParser, async function (req, res) {
         let {autor, precio, cantidad, generos} = req.body;
         let idLibro = req.params.idLibro
         let code = 200;

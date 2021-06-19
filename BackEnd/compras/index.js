@@ -28,9 +28,9 @@ var app = express().use(cors());
 // }));
 // app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/store/', indexRouter);
-app.use('/store/cart', cartRouter);
-app.use('/store/order', orderRouter);
+app.use('/api/compras/store/', indexRouter);
+app.use('/api/compras/store/cart', cartRouter);
+app.use('/api/compras/store/order', orderRouter);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {

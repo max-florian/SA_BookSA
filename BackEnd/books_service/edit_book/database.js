@@ -18,13 +18,4 @@ const connection = mysql.createConnection({
         multipleStatements: true
 });
 
-// const connection = mysql.createConnection({
-//         host     : 'sadatabase.c1fhm8nxvuiq.us-east-2.rds.amazonaws.com',
-//         user     : 'admin',
-//         password : 'Abc123!!',
-//         database : 'booksa',
-//         multipleStatements: true
-// });
-
-
 exports.execute = execute;

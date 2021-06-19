@@ -7,7 +7,7 @@ var jsonParser = bodyParser.json()
 const app = express().use(cors());
 const mysql = require('./database');
 
-app.get('/catalogos/generos', jsonParser, async function (req, res) {
+app.get('/api/catalogos/catalogos/generos', jsonParser, async function (req, res) {
         code = 200;
         response = {
                 data: []
@@ -29,7 +29,7 @@ app.listen(port, () => {
         console.log("Microservicio catalogos activo en puerto = " + port);
 });
 
-app.get('/catalogos/catalogo/', jsonParser, async function (req, res) {
+app.get('/api/catalogos/catalogos/catalogo/', jsonParser, async function (req, res) {
         let {editorial, genero} = req.query;
         let code = 200;
         let response = {
@@ -77,7 +77,7 @@ app.get('/catalogos/catalogo/', jsonParser, async function (req, res) {
        res.status(code).json(response);
 });
 
-app.get('/catalogos/pagos/', jsonParser, async function (req, res) {
+app.get('/api/catalogos/catalogos/pagos/', jsonParser, async function (req, res) {
         let {editorial, genero} = req.query;
         let code = 200;
         let response = {
@@ -98,7 +98,7 @@ app.get('/catalogos/pagos/', jsonParser, async function (req, res) {
        res.status(code).json(response);
 });
 
-app.get('/catalogos/envio/', jsonParser, async function (req, res) {
+app.get('/api/catalogos/catalogos/envio/', jsonParser, async function (req, res) {
         let {editorial, genero} = req.query;
         let code = 200;
         let response = {
