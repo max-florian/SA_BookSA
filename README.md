@@ -3,9 +3,11 @@
 ## Descripción del Proyecto
 
 BookSA es una empresa de venta de libros guatemalteca enfocada a las ventas en linea. El sistema consiste en un ambiente donde interactuan principalmente 2 tipos de usuario, los clientes y los editoriales. Los usuarios tipo cliente solo podran adquirir libros de las distintas editoreales y los usuarios tipo editorial subir sus libros para que esten disponibles para los usuarios tipo cliente. Ademas de contar con un usuario tipo administrador que pueda autorizar el acceso de los usuarios tipo editorial que se quieran registrar.
+
 ---
 ### Lenguaje
 El lenguaje que predomina en el desarrollo del proyecto es Javascript.
+
 ---
 ### Herramientas de Desarrollo Utilizadas
 - <ins>NodeJS</ins>: Es un entorno en tiempo de ejecución multiplataforma, de código abierto, para la capa del servidor (pero no limitándose a ello) basado en el lenguaje de programación JavaScript, asíncrono, con E/S de datos en una arquitectura orientada a eventos y basado en el motor V8 de Google.
