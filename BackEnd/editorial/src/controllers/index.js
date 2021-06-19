@@ -27,5 +27,29 @@ async function approve(req, res){
   .json(result);
 }
 
+async function getUsers(req, res){
+  const {token} = req.body;
+
+  let result = {
+    code: 200,
+    message: 'Usuarios'
+  };
+
+  let query = 'SELECT * FROM usuarios WHERE tipo != "admin" && estado != 0;';
+
+  await db.execute(query, [])
+  .then(rows => {  
+    result.data = rows;
+  }).catch(e => {
+    console.log(e);
+    result.code = 422;
+    result.message = 'Error al obtener usuarios';
+  })
+
+  res.status(result.code)
+  .json(result);
+}
+
 
 module.exports.approve = approve;
+module.exports.getUsers = getUsers;
