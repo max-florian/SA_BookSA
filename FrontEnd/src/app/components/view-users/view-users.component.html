@@ -22,7 +22,7 @@
           <td>{{user.estado == 1 ? 'Activo' : 'Pendiente'}}</td>
           <td>{{user.tipo | titlecase}}</td>
           <td>
-            <a><i class="fas fa-ban" style="color:darkred" title="Eliminar"></i></a>
+            <a (click)="deleteUserClickHandler(user.id, i)"><i class="fas fa-ban" style="color:darkred" title="Eliminar"></i></a>
             &nbsp;
             <a *ngIf="user.estado != 1"><i class="fas fa-check-circle" style="color:#31703a" title="Aprobar"></i></a>        
           </td>

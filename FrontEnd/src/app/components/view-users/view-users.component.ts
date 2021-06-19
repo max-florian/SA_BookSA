@@ -8,7 +8,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class ViewUsersComponent implements OnInit {
 
-  users:any = [];
+  users:Array<any> = [];
 
   constructor(private usersService: UsersService) { }
 
@@ -24,6 +24,15 @@ export class ViewUsersComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+
+  deleteUserClickHandler(id_user:number, index:number){
+    this.usersService.deleteUser(id_user).subscribe(
+      (response:any) => {
+        this.users.splice(index, 1)
+      }, (error) => {
+        console.log(error);
+      })
   }
 
 }
