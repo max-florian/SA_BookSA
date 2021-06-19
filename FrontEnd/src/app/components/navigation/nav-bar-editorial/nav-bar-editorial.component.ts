@@ -18,7 +18,7 @@ export class NavBarEditorialComponent implements OnInit {
   }
 
   logout(){
-    this.tokenService.deleteCaracteristicas()
+    this.tokenService.logout()
     this.router.navigate(['/'])
   }
 
