@@ -38,6 +38,7 @@ export default class User extends Model<UserAttributes, UserCreationAttributes> 
     @Column({ field: 'clave' })
     password!: string
 
+    @Length({ min: 8, max: 15, msg: 'El telefono tiene que ser entre 8 y 15 caracteres' })
     @Column({ field: 'telefono' })
     phone!: string
 
