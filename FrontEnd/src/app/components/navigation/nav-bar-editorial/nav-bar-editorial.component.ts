@@ -9,15 +9,20 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class NavBarEditorialComponent implements OnInit {
 
+  isLogged = false;
+  username = "";
+
   constructor(
     private router:Router,
     private tokenService:TokenService
   ) { }
 
   ngOnInit(): void {
+    this.isLogged = this.tokenService.isLogged();
+    this.username = this.tokenService.getCaracteristicas().name;
   }
 
-  logout(){
+  logoutClickHandler(){
     this.tokenService.logout()
     this.router.navigate(['/'])
   }
