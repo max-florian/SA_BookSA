@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { WebService } from 'src/app/services/web.service';
 import { TokenService } from 'src/app/services/token.service';
-import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { NavBarComponent } from '../../navigation/nav-bar/nav-bar.component';
 import jwt_decode from "jwt-decode";
 
 @Component({
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         if(tokendecodificado.type == 'cliente'){
           this.router.navigate(['/catalogo']);
         }else if(tokendecodificado.type == 'editorial'){
-          this.router.navigate(['/libreria']);
+          this.router.navigate(['/editorial']);
         }else{
           this.router.navigate(['/admin']);
         }

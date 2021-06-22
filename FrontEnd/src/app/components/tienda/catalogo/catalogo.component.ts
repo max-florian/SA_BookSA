@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { BooksService } from 'src/app/services/books.service';
 import { CartService } from 'src/app/services/cart.service';
 import { WebService } from 'src/app/services/web.service';
-import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { NavBarComponent } from '../../navigation/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-catalogo',

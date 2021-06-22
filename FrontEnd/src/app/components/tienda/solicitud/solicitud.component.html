@@ -1,8 +1,8 @@
-<app-nav-bar-editorial></app-nav-bar-editorial>
+<app-nav-bar></app-nav-bar>
 
 <div class="container">
   <h2 class="border-bottom">{{book.titulo}}</h2>
-  <a mat-button color="primary" href="/libreria">Regresar</a>
+  <a mat-button color="primary" href="/catalogo">Regresar</a>
   <div class="row row-cols-1 row-cols-lg-2">
     <div class="col-md-6 text-center">
       <img class="card-img-top" style="height: 25rem;width: 20rem;"
@@ -63,7 +63,7 @@
         </mat-select>
       </form>
       <br>
-      <button mat-raised-button color="primary" (click)="crearLibro()">Crear libro</button>
+      <button mat-raised-button color="primary" (click)="solicitarLibro()">Solicitar libro</button>
     </div>
   </div>
 </div>

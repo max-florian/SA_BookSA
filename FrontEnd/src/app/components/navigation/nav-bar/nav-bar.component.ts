@@ -28,7 +28,8 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLogged = this.tokenService.isLogged();
-    this.username = this.tokenService.getCaracteristicas().name;
+    let caracteristicas = this.tokenService.getCaracteristicas()
+    this.username =caracteristicas ? caracteristicas.name : 'name';
     this.carritoVisible = this.router.url != '/checkout'
   }
 

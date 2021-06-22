@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/token.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -9,11 +11,20 @@ import { UsersService } from 'src/app/services/users.service';
 export class ViewUsersComponent implements OnInit {
 
   users:Array<any> = [];
+  isLogged = false;
+  username = "";
 
-  constructor(private usersService: UsersService) { }
+  constructor(
+    private usersService: UsersService,
+    private router:Router,
+    private tokenService:TokenService
+  ) { }
 
   ngOnInit(): void {
     this.getUsers();
+    this.isLogged = this.tokenService.isLogged();
+    let caracteristicas = this.tokenService.getCaracteristicas()
+    this.username =caracteristicas ? caracteristicas.name : 'name';
   }
 
   getUsers(){
@@ -43,6 +54,11 @@ export class ViewUsersComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+
+  logoutClickHandler(){
+    this.tokenService.logout()
+    this.router.navigate(['/'])
   }
 
 }
