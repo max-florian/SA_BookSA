@@ -51,4 +51,9 @@ export class CartService {
   registrarOrden(data:any){
     return this.http.post(`${this.serverCompras}/store/order`, data);
   }
+
+  getPaises(){
+    return this.http.get(``);
+  }
+
 }

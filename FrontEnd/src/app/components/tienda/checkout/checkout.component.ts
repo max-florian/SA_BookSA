@@ -36,6 +36,9 @@ export class CheckoutComponent implements OnInit {
 
   totalCompra: number = 0;
   loggedUser: any = null;
+
+  paises = [];
+  paisseleccionado: any = null;
   
   constructor(
     private cartService: CartService,
