@@ -45,9 +45,15 @@ class Order {
 
 		if (saved) {
 			query = '';
+			let InventoryQuery = '';
+
 			let params = [];
+			let inventoryParams = [];
 			for (var i = 0; i < details.length; i++) {
 				query += `insert into detalle_ordenes (id_orden, id_libro, precio, cantidad) values (?,?,?,?); `;
+				inventoryParams = `update libros set cantidad = if(cantidad - ? <0, 0, cantidad - ?);`;
+				inventoryParams.push(details[i].cantidad, details[i].cantidad);
+
 				params.push(orderId)
 				params.push(details[i].product_id);
 				params.push(details[i].precio);
@@ -58,6 +64,12 @@ class Order {
 				.then(result => {}).catch(error => {
 					console.log(error);
 					saved = false;
+					// catch error
+				});
+
+			await db.execute(InventoryQuery, inventoryParams)
+				.then(result => {}).catch(error => {
+					console.log(error);
 					// catch error
 				});
 		}
@@ -111,9 +123,9 @@ class Order {
 	static async getAllOrders (userId, userType){
 		let query = `select 
 						o.id,
-						o.fecha_crea as date,
+						date_format(o.fecha_crea,"%d/%m/%Y %H:%i:%s") as date,
 						u.id as user_id,
-						concat(u.nombre,' ', u.apellido) as nombre,
+						concat(u.nombre,' ', ifnull(u.apellido,'')) as nombre,
 					    u.correo
 					from ordenes o
 					inner join usuarios u
