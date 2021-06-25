@@ -14,6 +14,7 @@ export class CartService {
   carritoSize$: Observable<number> = this.carritoSizeSubject.asObservable();
 
   serverCompras = environment.serverCompras;
+  serverCatalogo = environment.serverCatalogo;
 
   constructor(private http: HttpClient, private tokenService: TokenService) { }
 
@@ -53,7 +54,7 @@ export class CartService {
   }
 
   getPaises(){
-    return this.http.get(``);
+    return this.http.get(`${this.serverCatalogo}/paises`);
   }
 
 }
