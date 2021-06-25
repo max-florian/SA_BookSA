@@ -28,6 +28,7 @@ import { OrdenEditorialComponent } from './components/editorial/orden-editorial/
 import { SolicitudComponent } from './components/tienda/solicitud/solicitud.component';
 import { CalculadoraComponent } from './components/tienda/calculadora/calculadora.component';
 import { BitacoraComponent } from './components/admin/bitacora/bitacora.component';
+import { NavBarAdminComponent } from './components/navigation/nav-bar-admin/nav-bar-admin.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { BitacoraComponent } from './components/admin/bitacora/bitacora.componen
     SolicitudComponent,
     CalculadoraComponent,
     BitacoraComponent,
+    NavBarAdminComponent,
   ],
   imports: [
     MatButtonModule,
