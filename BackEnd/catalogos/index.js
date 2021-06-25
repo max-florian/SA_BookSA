@@ -119,5 +119,26 @@ app.get('/api/catalogos/catalogos/envio/', jsonParser, async function (req, res)
        res.status(code).json(response);
 });
 
+app.get('/api/catalogos/paises/', jsonParser, async function (req, res) {
+        let {editorial, genero} = req.query;
+        let code = 200;
+        let response = {
+                data: []
+        };
+
+        let sql = `select * from paises where estado = 1 `
+
+        await mysql.execute(sql)
+                .then( result => {
+                        response.data = result;
+                }).catch( error => {
+                        console.log(error);
+                        code = 422;
+                        response.message = `Error al obtener registros`
+                });
+
+       res.status(code).json(response);
+});
+
 
 module.exports = app;
