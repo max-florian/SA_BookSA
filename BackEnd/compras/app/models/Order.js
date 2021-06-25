@@ -51,7 +51,7 @@ class Order {
 			let inventoryParams = [];
 			for (var i = 0; i < details.length; i++) {
 				query += `insert into detalle_ordenes (id_orden, id_libro, precio, cantidad) values (?,?,?,?); `;
-				inventoryParams = `update libros set cantidad = if(cantidad - ? <0, 0, cantidad - ?);`;
+				InventoryQuery += `update libros set cantidad = if(cantidad - ? < 0, 0, cantidad - ?);`;
 				inventoryParams.push(details[i].cantidad, details[i].cantidad);
 
 				params.push(orderId)
