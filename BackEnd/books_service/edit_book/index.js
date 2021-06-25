@@ -94,7 +94,7 @@ app.put('/api/editbooks/books/:idLibro', jsonParser, async function (req, res) {
        res.status(code).json(response);
 });
 
-const port = process.env['PORT'] || 3000;
+const port = process.env['PORT'] || 3002;
 
 app.listen(port, () => {
         console.log("Microservicio editar libro activo en puerto = " + port);
