@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BitacoraComponent implements OnInit {
   
+  entries:Array<any> = [];
   constructor(
   ) { }
 

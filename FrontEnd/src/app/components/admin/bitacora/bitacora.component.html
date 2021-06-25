@@ -1,5 +1,20 @@
 <app-nav-bar-admin></app-nav-bar-admin>
 <div class="container">
   <h2 class="border-bottom">Bitacora</h2>
-  <p>bitacora works!</p>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Libro</th>
+        <th scope="col">Accion</th>
+        <th scope="col">Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of entries; let i=index;">
+        <td>{{entry.id_libro}}</td>
+        <td>{{entry.accion | titlecase}}</td>
+        <td>{{entry.fecha}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
