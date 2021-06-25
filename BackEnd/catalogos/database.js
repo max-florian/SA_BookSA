@@ -10,11 +10,19 @@ async function execute(query, params) {
     } );
 }
 
+// const connection = mysql.createConnection({
+//         host     : process.env.MYSQL_HOST,
+//         user     : process.env.MYSQL_USERNAME,
+//         password : process.env.MYSQL_PASSWORD,
+//         database : process.env.MYSQL_DATABASE,
+//         multipleStatements: true
+// });
+
 const connection = mysql.createConnection({
-        host     : process.env.MYSQL_HOST,
-        user     : process.env.MYSQL_USERNAME,
-        password : process.env.MYSQL_PASSWORD,
-        database : process.env.MYSQL_DATABASE,
+        host     : 'sadatabase.c1fhm8nxvuiq.us-east-2.rds.amazonaws.com',
+        user     : 'admin',
+        password : 'Abc123!!',
+        database : 'booksa',
         multipleStatements: true
 });
 
