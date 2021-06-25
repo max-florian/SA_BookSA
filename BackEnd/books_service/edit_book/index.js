@@ -90,6 +90,10 @@ app.put('/api/editbooks/books/:idLibro', jsonParser, async function (req, res) {
                         res.status(400).json(response);
                 });
 
+        let queryBitacora = 'insert into bitacora_libros (id_libro, accion) values (?,"editar")'
+        await mysql.execute(queryBitacora,[id])
+                .then( result => {}).catch( error => { console.log(error);});
+
 
        res.status(code).json(response);
 });
