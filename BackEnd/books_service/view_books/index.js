@@ -89,6 +89,10 @@ app.delete('/api/viewbooks/books/:idLibro', jsonParser, async function (req, res
                         response.message = `Error al eliminar libro`
                 });
 
+        let queryBitacora = 'insert into bitacora_libros (id_libro, accion) values (?,"eliminar")';
+        await mysql.execute(queryBitacora,[idLibro])
+                .then( result => {}).catch( error => { console.log(error);});
+
        res.status(code).json(response);
 });
 
