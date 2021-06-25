@@ -89,11 +89,15 @@ app.delete('/api/viewbooks/books/:idLibro', jsonParser, async function (req, res
                         response.message = `Error al eliminar libro`
                 });
 
+        let queryBitacora = 'insert into bitacora_libros (id_libro, accion) values (?,"eliminar")';
+        await mysql.execute(queryBitacora,[idLibro])
+                .then( result => {}).catch( error => { console.log(error);});
+
        res.status(code).json(response);
 });
 
 
-const port = process.env['PORT'] || 3000;
+const port = process.env['PORT'] || 3003;
 
 app.listen(port, () => {
         console.log("Microservicio ver libro(s) activo en puerto = " + port);

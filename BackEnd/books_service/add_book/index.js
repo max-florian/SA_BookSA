@@ -105,10 +105,15 @@ app.post('/api/addbooks/add_book', jsonParser, async function (req, res) {
                 });
 
 
+        let queryBitacora = 'insert into bitacora_libros (id_libro, accion) values (?,"crear")'
+        await mysql.execute(queryBitacora,[id])
+                .then( result => {}).catch( error => { console.log(error);});
+
+
        res.status(code).json(response);
 });
 
-const port = process.env['PORT'] || 3000;
+const port = process.env['PORT'] || 3001;
 
 app.listen(port, () => {
         console.log("Microservicio agregar libro activo en puerto = " + port);
