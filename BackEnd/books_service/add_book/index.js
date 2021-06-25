@@ -105,7 +105,7 @@ app.post('/api/addbooks/add_book', jsonParser, async function (req, res) {
                 });
 
 
-        let queryBitacora = 'insert into bitacora_libros (id_libro, accion) values (?,`crear`)'
+        let queryBitacora = 'insert into bitacora_libros (id_libro, accion) values (?,"crear")'
         await mysql.execute(queryBitacora,[id])
                 .then( result => {}).catch( error => { console.log(error);});
 
