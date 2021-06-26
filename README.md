@@ -42,6 +42,10 @@ El lenguaje que predomina en el desarrollo del proyecto es Javascript.
 * editorial 
 * frontend 
 * viewbooks
+* bitacora
+* solicitud
+
+Para obtener a detalle esta documentación, consultar la [colección](BackEnd/BookSA.postman_collection.json) de postman  y el [enviroment](BackEnd/BookSA%20Enviroment.postman_environment.json) 
 
 ### Arquitectura
 ![](imagenes_documentacion/arquitectura.png)  
