@@ -29,7 +29,8 @@ export class SolicitudService {
   }
 
   addRequest(book:any){
-    const data = this.tokenService.getCaracteristicas()
+    book.url = 'https://201503595.s3.us-east-2.amazonaws.com/booksa/libroX.jpg'
+    console.log(book)
     return this.httpClient.post(this.serverSolicitud + '/add',book);
   }
 }

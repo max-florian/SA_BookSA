@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/services/books.service';
 import { CatalogoService } from 'src/app/services/catalogo.service';
+import { SolicitudService } from 'src/app/services/solicitud.service';
 
 @Component({
   selector: 'app-solicitud',
@@ -12,17 +13,15 @@ export class SolicitudComponent implements OnInit {
   book = {
     titulo:'',
     autor:'',
-    precio: 1,
-    cantidad: 1,
     generos:[],
-    pdf: ''
+    file: ''
   }
 
   selectedGen:any = []
   generoList:any = []
 
   constructor(
-    private bookService:BooksService,
+    private solicitudService:SolicitudService,
     private catalogoService:CatalogoService
   ) { }
 
@@ -35,9 +34,9 @@ export class SolicitudComponent implements OnInit {
   solicitarLibro(){
     if(window.confirm('¿Confirma la solicitud del nuevo libro?')){
       this.book.generos = this.selectedGen
-      //this.bookService.createBook(this.book).subscribe((json:any) => {
-      //  window.alert(json.message)
-      //})
+      this.solicitudService.addRequest(this.book).subscribe((json:any) => {
+        window.alert(json.message)
+      })
     }
   }
 

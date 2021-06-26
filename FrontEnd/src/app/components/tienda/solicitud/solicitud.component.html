@@ -33,34 +33,19 @@
             Autor is required.
           </div>
         </div>
-
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" id="cantidad" name="cantidad" class="form-control"
-          required minlength="4" appForbiddenName="0"   
-          [(ngModel)]="book.cantidad" #cantidad="ngModel">
-        <div *ngIf="cantidad.invalid && (cantidad.dirty || cantidad.touched)"
-          class="alert">
-          <div *ngIf="cantidad.errors?.required" >
-            Cantidad is required.
-          </div>
-        </div>
-          
-        <label>Precio (Q)</label>
-        <input type="number" id="precio" name="precio" class="form-control"
-          required minlength="4"
-          [(ngModel)]="book.precio" #precio="ngModel">
-        <div *ngIf="precio.invalid && (precio.dirty || precio.touched)"
-          class="alert">
-          <div *ngIf="precio.errors?.required" >
-            Cantidad is required.
-          </div>
-        </div>
-
         <br>
         <label for="generos">Generos:</label>
         <mat-select id="selectedGen" name="selectedGen" [(ngModel)]="selectedGen" multiple>
           <mat-option *ngFor="let genero of generoList" [value]="genero.id">{{genero.nombre}}</mat-option>
         </mat-select>
+
+        <br>
+        <br>
+        <label for="autor">Portada (Opcional): </label>
+        <input type="file" id="file" name="file" class="form-control"
+          required minlength="4" placeholder="Agregue la portada del libro"
+          [(ngModel)]="book.file" #autor="ngModel">
+
       </form>
       <br>
       <button mat-raised-button color="primary" (click)="solicitarLibro()">Solicitar libro</button>
