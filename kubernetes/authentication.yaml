@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authentication
+spec:
+  selector:
+    matchLabels:
+      app: authentication
+  template:
+    metadata:
+      labels:
+        app: authentication
+    spec:
+      containers:
+        - name: authentication
+          image: alexizzarevalo/book-sa-authentication
+          env:
+            - name: PORT
+              value: "3000"
+            - name: APP_NAME
+              value: authentication
+          envFrom:
+            - secretRef:
+                name: db-secret
+            - secretRef:
+                name: auth-secret
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "50Mi"
+              cpu: "50m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: authentication
+spec:
+  type: LoadBalancer
+  selector:
+    app: authentication
+  ports:
+    - port: 3000
+      targetPort: 3000
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: authentication
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: authentication
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 5

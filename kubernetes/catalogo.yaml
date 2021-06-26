@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalogos
+spec:
+  selector:
+    matchLabels:
+      app: catalogos
+  template:
+    metadata:
+      labels:
+        app: catalogos
+    spec:
+      containers:
+        - name: catalogos
+          image: alexizzarevalo/book-sa-catalogos
+          env:
+            - name: PORT
+              value: "3000"
+          envFrom:
+            - secretRef:
+                name: db-secret
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "50Mi"
+              cpu: "50m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalogos
+spec:
+  type: LoadBalancer
+  selector:
+    app: catalogos
+  ports:
+    - port: 3004
+      targetPort: 3000
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: catalogos
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: catalogos
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 5

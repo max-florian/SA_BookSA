@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: viewbooks
+spec:
+  selector:
+    matchLabels:
+      app: viewbooks
+  template:
+    metadata:
+      labels:
+        app: viewbooks
+    spec:
+      containers:
+        - name: viewbooks
+          image: alexizzarevalo/book-sa-viewbooks
+          env:
+            - name: PORT
+              value: "3000"
+          envFrom:
+            - secretRef:
+                name: db-secret
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "50Mi"
+              cpu: "50m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: viewbooks
+spec:
+  type: LoadBalancer
+  selector:
+    app: viewbooks
+  ports:
+    - port: 3003
+      targetPort: 3000
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: viewbooks
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: viewbooks
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 5

@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: editbooks
+spec:
+  selector:
+    matchLabels:
+      app: editbooks
+  template:
+    metadata:
+      labels:
+        app: editbooks
+    spec:
+      containers:
+        - name: editbooks
+          image: alexizzarevalo/book-sa-editbooks
+          env:
+            - name: PORT
+              value: "3000"
+          envFrom:
+            - secretRef:
+                name: db-secret
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "50Mi"
+              cpu: "50m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: editbooks
+spec:
+  type: LoadBalancer
+  selector:
+    app: editbooks
+  ports:
+    - port: 3002
+      targetPort: 3000
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: editbooks
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: editbooks
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 5

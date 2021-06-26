@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: addbooks
+spec:
+  selector:
+    matchLabels:
+      app: addbooks
+  template:
+    metadata:
+      labels:
+        app: addbooks
+    spec:
+      containers:
+        - name: addbooks
+          image: alexizzarevalo/book-sa-addbooks
+          env:
+            - name: PORT
+              value: "3000"
+          envFrom:
+            - secretRef:
+                name: db-secret
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "50Mi"
+              cpu: "50m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: addbooks
+spec:
+  type: LoadBalancer
+  selector:
+    app: addbooks
+  ports:
+    - port: 3001
+      targetPort: 3000
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: addbooks
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: addbooks
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 5

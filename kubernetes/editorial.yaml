@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: editorial
+spec:
+  selector:
+    matchLabels:
+      app: editorial
+  template:
+    metadata:
+      labels:
+        app: editorial
+    spec:
+      containers:
+        - name: editorial
+          image: alexizzarevalo/book-sa-editorial
+          env:
+            - name: PORT
+              value: "3000"
+            - name: APP_NAME
+              value: editorial
+          envFrom:
+            - secretRef:
+                name: db-secret
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "50Mi"
+              cpu: "50m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: editorial
+spec:
+  type: LoadBalancer
+  selector:
+    app: editorial
+  ports:
+    - port: 3006
+      targetPort: 3000
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: editorial
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: editorial
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 5
