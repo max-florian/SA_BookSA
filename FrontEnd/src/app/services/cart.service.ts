@@ -54,7 +54,7 @@ export class CartService {
   }
 
   getPaises(){
-    return this.http.get(`http://104.198.210.183:3004/api/catalogos/paises`);
+    return this.http.get(`${this.serverCatalogo}/paises`);
   }
 
 }
