@@ -8,4 +8,5 @@ export const environment = {
   serverCatalogo: '#{serverCatalogo}#',
   serverCompras: '#{serverCompras}#',
   serverEditorial: '#{serverEditorial}#',
+  serverSolicitud: '#{serverSolicitud}#',
 };

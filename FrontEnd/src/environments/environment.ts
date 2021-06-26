@@ -12,6 +12,7 @@ export const environment = {
   serverCatalogo: 'http://34.67.7.63:3004/api/catalogos',
   serverCompras: 'http://34.67.7.63:3005/api/compras',
   serverEditorial: 'http://34.67.7.63:3006/api/editorial',
+  serverSolicitud: 'http://34.67.7.63:3006/api/solicitud',
 };
 
 /*
