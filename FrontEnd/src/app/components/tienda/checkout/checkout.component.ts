@@ -36,6 +36,9 @@ export class CheckoutComponent implements OnInit {
 
   totalCompra: number = 0;
   loggedUser: any = null;
+
+  paises: any = [];
+  paisseleccionado: any = null;
   
   constructor(
     private cartService: CartService,
@@ -46,6 +49,10 @@ export class CheckoutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.cartService.getPaises().subscribe((data:any) => {
+      this.paises = data.data;
+      //console.log(this.paises);
+    }); 
     this.cartService.getCart().subscribe((response: any)=> {
       this.cart_id = response.cart_id;
 
@@ -54,7 +61,9 @@ export class CheckoutComponent implements OnInit {
         let cart_size = response.reduce((total_items:number, item:any) => total_items + item.cantidad, 0);
         this.cartService.pushCartSize(cart_size);
         this.calculateTotalCompra();
-      });      
+      });   
+      
+      
     })
 
 
