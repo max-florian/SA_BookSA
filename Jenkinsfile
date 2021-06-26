@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             when {
-                expression { BRANCH_NAME ==~ /(develop|main)/ }
+                branch 'feature/kubernetes'
             }
             steps {
                 sh 'docker-compose -f docker-compose.build.yaml build'
