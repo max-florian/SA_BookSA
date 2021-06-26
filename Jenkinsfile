@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Deploy') {
             when {
-                    expression { BRANCH_NAME ==~ /(develop|main)/ }
+                expression { BRANCH_NAME ==~ /(develop|main)/ }
             }
             steps {
                 sh '/home/alexizzarevalo/.local/bin/fab2 deploy'
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Deploy k8s') {
             when {
-                    expression { BRANCH_NAME ==~ /(feature/kubernetes)/ }
+                branch 'feature/kubernetes'
             }
             steps {
                 sh 'kubectl create secret generic auth-secret --from-file=/home/alexizzarevalo/.env/auth.env'
