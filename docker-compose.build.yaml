@@ -29,6 +29,10 @@ services:
     build: ./BackEnd/editorial
     image: alexizzarevalo/book-sa-editorial
 
+  bitacora:
+    build: ./BackEnd/bitacora
+    image: alexizzarevalo/book-sa-bitacora
+
   frontend:
     build: ./FrontEnd
     image: alexizzarevalo/book-sa-frontend
