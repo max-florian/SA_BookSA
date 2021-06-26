@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: compras
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: compras
+  template:
+    metadata:
+      labels:
+        app: compras
+    spec:
+      containers:
+        - name: compras
+          image: alexizzarevalo/book-sa-compras
+          env:
+            - name: PORT
+              value: "3000"
+          envFrom:
+            - secretRef:
+                name: db-secret
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: compras
+spec:
+  type: LoadBalancer
+  selector:
+    app: compras
+  ports:
+    - port: 3005
+      targetPort: 3000
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: compras
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: compras
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 5
