@@ -5,13 +5,17 @@
     <thead class="thead-dark">
       <tr>
         <th scope="col">Libro</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Editorial</th>
         <th scope="col">Accion</th>
         <th scope="col">Fecha</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let entry of entries; let i=index;">
-        <td>{{entry.id_libro}}</td>
+        <td>{{entry.titulo}}</td>
+        <td>{{entry.autor}}</td>
+        <td>{{entry.nombre + ' ' + (entry.apellido == null ? '' : entry.apellido)}}</td>
         <td>{{entry.accion | titlecase}}</td>
         <td>{{entry.fecha}}</td>
       </tr>
