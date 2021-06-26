@@ -8,7 +8,7 @@ import { TokenService } from './token.service';
 })
 export class SolicitudService {
   
-  serverSolicitud:string = environment.serverCatalogo
+  serverSolicitud:string = environment.serverSolicitud
   constructor(
     private httpClient: HttpClient,
     private tokenService:TokenService 
