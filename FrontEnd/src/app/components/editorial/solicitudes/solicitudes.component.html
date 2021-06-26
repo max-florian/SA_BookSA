@@ -12,6 +12,7 @@
                     <th scope="col">Autor</th>
                     <th scope="col">Generos</th>
                     <th scope="col">URL</th>
+                    <th scope="col">Fecha solicitud</th>
                     <th scope="col">Acciones</th>
                   </tr>
                 </thead>
@@ -22,7 +23,8 @@
                         <td>{{request.autor}}</td>
                         <td>{{request.generos}}</td>
                         <td>{{request.url}}</td>
-                        <td><button (click)="approveRequest(i)">Aprobar</button></td>
+                        <td>{{request.fecha_creado}}</td>
+                        <td><button (click)="approveRequest(request.id)">Aprobar</button></td>
                     </tr>
                 </tbody>
             </table>
