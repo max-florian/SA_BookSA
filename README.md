@@ -33,6 +33,28 @@ El lenguaje que predomina en el desarrollo del proyecto es Javascript.
 - ![](imagenes_documentacion/prueba_viewbook2.PNG)
 - ![](imagenes_documentacion/prueba_viewbook3.PNG)  
 ---
-### Arquitectura a implementar
+## Listado de microservicios
+* addbooks
+* authentication 
+* catalogos 
+* compras 
+* editbooks 
+* editorial 
+* frontend 
+* viewbooks
+
+### Arquitectura
 ![](imagenes_documentacion/arquitectura.png)  
 ![](imagenes_documentacion/kub.PNG)
+
+### Diagrama ER de la base de datos
+![](imagenes_documentacion/SA_ER.png) 
+---
+## Infraestructura como codigo
+lorem ipsum
+
+### Balanceador de carga
+lorem ipsum
+
+### Duplicidad de servicios
+lorem ipsum
