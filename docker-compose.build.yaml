@@ -33,6 +33,10 @@ services:
     build: ./BackEnd/solicitud
     image: alexizzarevalo/book-sa-solicitud
 
+  bitacora:
+    build: ./BackEnd/bitacora
+    image: alexizzarevalo/book-sa-bitacora
+
   frontend:
     build: ./FrontEnd
     image: alexizzarevalo/book-sa-frontend

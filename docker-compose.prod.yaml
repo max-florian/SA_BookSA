@@ -49,6 +49,12 @@ services:
     ports:
       - 3006:4000
 
+  bitacora:
+    image: alexizzarevalo/book-sa-bitacora
+    env_file: .env
+    ports:
+      - 3007:4000
+
   solicitud:
     image: alexizzarevalo/book-sa-solicitud
     env_file: .env
@@ -67,6 +73,7 @@ services:
       - serverCatalogo=/api/catalogos
       - serverCompras=/api/compras
       - serverEditorial=/api/editorial
+      - serverBitacora=/api/bitacora
       - serverEditorial=/api/solicitud
     ports:
       - 80:80
