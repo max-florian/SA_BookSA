@@ -55,6 +55,14 @@ services:
     ports:
       - 3007:4000
 
+  solicitud:
+    image: alexizzarevalo/book-sa-solicitud
+    env_file: .env
+    environment:
+      - APP_NAME=solicitud
+    ports:
+      - 3008:4000
+
   frontend:
     image: alexizzarevalo/book-sa-frontend
     environment: 
@@ -66,5 +74,6 @@ services:
       - serverCompras=/api/compras
       - serverEditorial=/api/editorial
       - serverBitacora=/api/bitacora
+      - serverEditorial=/api/solicitud
     ports:
       - 80:80

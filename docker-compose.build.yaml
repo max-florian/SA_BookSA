@@ -28,6 +28,10 @@ services:
   editorial:
     build: ./BackEnd/editorial
     image: alexizzarevalo/book-sa-editorial
+    
+  solicitud:
+    build: ./BackEnd/solicitud
+    image: alexizzarevalo/book-sa-solicitud
 
   bitacora:
     build: ./BackEnd/bitacora
