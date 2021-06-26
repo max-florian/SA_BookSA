@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: viewbooks
 spec:
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: viewbooks

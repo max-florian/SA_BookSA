@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: catalogos
 spec:
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: catalogos

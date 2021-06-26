@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: editorial
 spec:
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: editorial

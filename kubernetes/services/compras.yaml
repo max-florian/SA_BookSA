@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: compras
 spec:
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: compras

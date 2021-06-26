@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: editbooks
 spec:
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: editbooks
