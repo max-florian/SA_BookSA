@@ -42,6 +42,7 @@ spec:
   ports:
     - port: 3006
       targetPort: 3000
+      nodePort: 30006
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
