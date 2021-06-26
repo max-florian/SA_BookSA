@@ -34,7 +34,7 @@ kind: Service
 metadata:
   name: catalogos
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: catalogos
   ports:

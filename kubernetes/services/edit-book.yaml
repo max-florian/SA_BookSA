@@ -34,7 +34,7 @@ kind: Service
 metadata:
   name: editbooks
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: editbooks
   ports:

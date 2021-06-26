@@ -34,7 +34,7 @@ kind: Service
 metadata:
   name: viewbooks
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: viewbooks
   ports:
