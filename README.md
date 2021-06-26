@@ -34,4 +34,5 @@ El lenguaje que predomina en el desarrollo del proyecto es Javascript.
 - ![](imagenes_documentacion/prueba_viewbook3.PNG)  
 ---
 ### Arquitectura a implementar
-![](imagenes_documentacion/arquitectura.png)
+![](imagenes_documentacion/arquitectura.png)  
+![](imagenes_documentacion/kub.PNG)
