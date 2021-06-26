@@ -1,40 +1,24 @@
-<!-- As a heading -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <span class="navbar-brand mb-0 h1">BookSA</span>
-
-  <div *ngIf="isLogged" class="collapse navbar-collapse" id="navbarSupportedContent">   
-
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect routerLink="/admin"><i class="fas fa-th"></i>Administrar usuarios</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect routerLink="/admin/bitacora"><i class="fas fa-receipt"></i> Bitacora</a>
-      </li>
-    </ul>
-
-    <!-- Links -->
-    <ul class="navbar-nav ml-auto nav-flex-icons">
-      <li class="nav-item dropdown">
-        
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span id="username-navbar">{{ username }}</span>
-          &nbsp;
-          <i class="fas fa-user-alt"></i>
-        </a>
-        
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item waves-light" mdbWavesEffect >Perfil</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect (click)="logoutClickHandler()">Salir</a>
-        </div>
-      
-      </li>
-    </ul>
-  
-  </div>
-</nav>
+<app-nav-bar-admin></app-nav-bar-admin>
 <div class="container">
   <h2 class="border-bottom">Bitacora</h2>
-  <p>bitacora works!</p>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Libro</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Editorial</th>
+        <th scope="col">Accion</th>
+        <th scope="col">Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of entries; let i=index;">
+        <td>{{entry.titulo}}</td>
+        <td>{{entry.autor}}</td>
+        <td>{{entry.nombre + ' ' + (entry.apellido == null ? '' : entry.apellido)}}</td>
+        <td>{{entry.accion | titlecase}}</td>
+        <td>{{entry.fecha}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
