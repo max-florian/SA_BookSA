@@ -23,7 +23,7 @@ export class CalculadoraComponent implements OnInit {
   }
 
   getTotal(){
-    this.total = this.cantidad * this.pctimpuesto;
+    this.total = this.cantidad +(this.cantidad * this.pctimpuesto);
   }
 
 }
