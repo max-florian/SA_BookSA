@@ -48,17 +48,37 @@ El lenguaje que predomina en el desarrollo del proyecto es Javascript.
 Para obtener a detalle esta documentación, consultar la [colección](BackEnd/BookSA.postman_collection.json) de postman  y el [enviroment](BackEnd/BookSA%20Enviroment.postman_environment.json) 
 
 ### Arquitectura
-![](imagenes_documentacion/arquitectura.png)  
+
+![](imagenes_documentacion/arquitectura.png) 
+
+#### Servicios NodePort
+
 ![](imagenes_documentacion/kub.PNG)
+
+#### Escalamiento horizontal
+
+![](imagenes_documentacion/hpa.png) 
 
 ### Diagrama ER de la base de datos
 ![](imagenes_documentacion/SA_ER.png) 
 ---
 ## Infraestructura como codigo
-lorem ipsum
+Se utiliza un Cluster de Kubernetes para levantar y administrar los servicios de forma declarativa.
+
+Los archivos de IaC se encuentran en `kubernetes/`
+
+Por cada microservicio se crea un **Deployment**, **Service** y un **HorizontalPodAutoscaling**
+
+- **Deployment**: Describe una carga de trabajo. En este caso se asocia 1 Pod para cada microservicio
+- **Service**: Expone el deployment anterior para que los otros puedan conectarse a él.
+- **HorizontalPodAutoscaling**: Se utiliza para auto escalar los servicios en dado caso la carga de los mismos aumente. Se utiliza como métrica el uso del CPU con un porcentaje de 5%.
+    * El máximo de Pods a escalar son 3 por cada servicio.
+    * El mínimo es un Pod.
 
 ### Balanceador de carga
-lorem ipsum
+
+Cada servicio generado balancea automáticamente entre todos los pods como se muestra en la imagen de la sección **Servicios NodePort**
 
 ### Duplicidad de servicios
-lorem ipsum
+
+Se crean más servicios cuando el uso del CPU entre todos los Pods correspondientes supera el 5%
