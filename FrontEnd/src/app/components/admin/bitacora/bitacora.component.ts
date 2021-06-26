@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { TokenService } from 'src/app/services/token.service';
+import { BitacoraService } from 'src/app/services/bitacora.service';
 
 @Component({
   selector: 'app-bitacora',
@@ -8,24 +7,23 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./bitacora.component.css']
 })
 export class BitacoraComponent implements OnInit {
-
-  isLogged = false;
-  username = "";
   
+  entries:Array<any> = [];
   constructor(
-    private router:Router,
-    private tokenService:TokenService
+    private bitacoraService: BitacoraService
   ) { }
 
   ngOnInit(): void {
-    this.isLogged = this.tokenService.isLogged();
-    let caracteristicas = this.tokenService.getCaracteristicas()
-    this.username =caracteristicas ? caracteristicas.name : 'name';
+    this.getBitacora();
   }
 
-  logoutClickHandler(){
-    this.tokenService.logout()
-    this.router.navigate(['/'])
+  getBitacora(){
+    this.bitacoraService.getBitacoraBooks().subscribe(
+      (response:any) => {
+        this.entries = response.data;
+      }, (error) => {
+        console.log(error);
+      })
   }
 
 }

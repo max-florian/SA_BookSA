@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bitacora
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: bitacora
+  template:
+    metadata:
+      labels:
+        app: bitacora
+    spec:
+      containers:
+        - name: bitacora
+          image: alexizzarevalo/book-sa-bitacora
+          env:
+            - name: PORT
+              value: "3000"
+            - name: APP_NAME
+              value: bitacora
+          envFrom:
+            - secretRef:
+                name: db-secret
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bitacora
+spec:
+  type: LoadBalancer
+  selector:
+    app: bitacora
+  ports:
+    - port: 3007
+      targetPort: 3000
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: bitacora
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: bitacora
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 5
