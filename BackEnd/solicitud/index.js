@@ -177,6 +177,10 @@ app.patch('/api/solicitud/aprobar/:idLibro', async function (req, res) {
                         response.message = `Error al insertar registro`
                 });
 
+        let queryBitacora = 'insert into bitacora_libros (id_libro, accion) values (?,"aprobar solicitud")'
+        await mysql.execute(queryBitacora,[idLibro])
+                .then( result => {}).catch( error => { console.log(error);});
+
        res.status(code).json(response);
 });
 
