@@ -23,8 +23,6 @@ pipeline {
                 branch 'feature/kubernetes'
             }
             steps {
-                sh 'kubectl create secret generic auth-secret --from-file=/home/alexizzarevalo/.env/auth.env'
-                sh 'kubectl create secret generic db-secret --from-file=/home/alexizzarevalo/.env/.env'
                 sh '/usr/local/bin/kubectl apply -R -f ./kubernetes/services/'
             }
         }

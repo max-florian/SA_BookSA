@@ -15,3 +15,4 @@ https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkth
 https://stackoverflow.com/questions/54106725/docker-kubernetes-mac-autoscaler-unable-to-find-metrics
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-metrics-apis
 https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#horizontalpodautoscalerspec-v1-autoscaling
+https://github.com/stakater/Reloader#readme
