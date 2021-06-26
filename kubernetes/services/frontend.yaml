@@ -33,6 +33,8 @@ spec:
               value: /api/editorial
             - name: serverBitacora
               value: /api/bitacora
+            - name: serverSolicitud
+              value: /api/solicitud
           ports:
             - containerPort: 80
           resources:

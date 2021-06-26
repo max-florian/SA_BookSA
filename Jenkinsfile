@@ -23,7 +23,7 @@ pipeline {
                 expression { BRANCH_NAME ==~ /(develop|main)/ }
             }
             steps {
-                sh '/usr/local/bin/kubectl delete deployments addbooks authentication catalogos compras editbooks editorial viewbooks frontend bitacora solicitud'
+                sh '/usr/local/bin/kubectl delete --ignore-not-found deployments addbooks authentication catalogos compras editbooks editorial viewbooks frontend bitacora solicitud'
                 sh '/usr/local/bin/kubectl apply -R -f ./kubernetes/services/'
             }
         }
