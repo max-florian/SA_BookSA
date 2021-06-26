@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \n    \"autor\": \"no recuerdo\",\n    \"precio\": \"20.00\",\n    \"cantidad\": 2,\n    \"idEditorial\": 31\n}",
+							"raw": "{\n    \"titulo\" :\"La Metamorfosis\",\n    \"autor\": \"Lafka\",\n    \"precio\": \"120.00\",\n    \"cantidad\": 34,\n    \"idEditorial\": 31,\n    \"generos\": [1,11,12]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -23,18 +23,565 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/add_book",
-							"protocol": "http",
+							"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+							"protocol": "{{protocol}}",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
+							"port": "{{add_book_port}}",
 							"path": [
+								"api",
+								"addbooks",
 								"add_book"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Agregar Libro - Campos Faltantes",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"titulo\" :\"Maria\",\n    \"autor\": \"Jorge Isaac\",\n    \"precio\": \"120.00\",\n    \"idEditorial\": 31,\n    \"generos\": [1,11,12]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_book_port}}",
+									"path": [
+										"api",
+										"addbooks",
+										"add_book"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-v7hP65yvqET5T3DWABjA9ivalhI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:48:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Por favor revise los campos faltantes\"\n}"
+						},
+						{
+							"name": "Agregar Libro - Usuario Incorrecto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"titulo\" :\"Maria\",\n    \"autor\": \"Jorge Isaac\",\n    \"precio\": \"120.00\",\n    \"cantidad\": 10,\n    \"idEditorial\": 39,\n    \"generos\": [1]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_book_port}}",
+									"path": [
+										"api",
+										"addbooks",
+										"add_book"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"20-K32ft5FcONKq2RLswb72WWVESpk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:50:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Usuario incorrecto\"\n}"
+						},
+						{
+							"name": "Agregar Libro - sucess",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"titulo\" :\"Maria\",\n    \"autor\": \"Jorge Isaac\",\n    \"precio\": \"120.00\",\n    \"cantidad\": 12,\n    \"idEditorial\": 31,\n    \"generos\": [1,11,12]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_book_port}}",
+									"path": [
+										"api",
+										"addbooks",
+										"add_book"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29-gfCYtmXXUkcJER9CJEyJHXU7lTA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:47:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Maria agregado correctamete\"\n}"
+						},
+						{
+							"name": "Agregar Libro - Cantidad menor a 0",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"titulo\" :\"Maria\",\n    \"autor\": \"Jorge Isaac\",\n    \"precio\": \"120.00\",\n    \"cantidad\": -10,\n    \"idEditorial\": 31,\n    \"generos\": [1]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_book_port}}",
+									"path": [
+										"api",
+										"addbooks",
+										"add_book"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-n0INtiJgWl3KICS9LUGcabFrfZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:50:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"La cantidad debe ser mayor a 0\"\n}"
+						},
+						{
+							"name": "Agregar Libro - Precio o cantidad incorrectos",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"titulo\" :\"Maria\",\n    \"autor\": \"Jorge Isaac\",\n    \"precio\": \"120.00\",\n    \"cantidad\": \"ola\",\n    \"idEditorial\": 31,\n    \"generos\": [1]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_book_port}}",
+									"path": [
+										"api",
+										"addbooks",
+										"add_book"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-zhuaDwSnUac+a15IWMhVj4i/L3c\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:49:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"La cantidad y el precio deben ser un valor numerico\"\n}"
+						},
+						{
+							"name": "Agregar Libro - Generos Vacios",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"titulo\" :\"Maria\",\n    \"autor\": \"Jorge Isaac\",\n    \"precio\": \"120.00\",\n    \"cantidad\": 12,\n    \"idEditorial\": 31,\n    \"generos\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_book_port}}",
+									"path": [
+										"api",
+										"addbooks",
+										"add_book"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-sPHU7jU7Z7JV7h8P6kx2aTLETSU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:49:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Debe escoger al menos un  genero\"\n}"
+						},
+						{
+							"name": "Agregar Libro - Generos Incorrectos",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"titulo\" :\"Maria\",\n    \"autor\": \"Jorge Isaac\",\n    \"precio\": \"120.00\",\n    \"cantidad\": 12,\n    \"idEditorial\": 31,\n    \"generos\": \"fallo\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_book_port}}",
+									"path": [
+										"api",
+										"addbooks",
+										"add_book"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-FpmSUA6DYUMVbq1I6QKd7fkWQZQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:48:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Generos incorrectos\"\n}"
+						},
+						{
+							"name": "Agregar Libro - Generos incorrectos",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"titulo\" :\"Maria\",\n    \"autor\": \"Jorge Isaac\",\n    \"precio\": \"120.00\",\n    \"cantidad\": 10,\n    \"idEditorial\": 31,\n    \"generos\": [99]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_book_port}}",
+									"path": [
+										"api",
+										"addbooks",
+										"add_book"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32-4kWs0AjS37tQo/XRh73JQFgIZqs\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:51:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Problema al guardar generos de libro\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Ver Libros",
@@ -54,19 +601,175 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/books/",
-							"protocol": "http",
+							"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books?idEditorial=31",
+							"protocol": "{{protocol}}",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
+							"port": "{{view_book_port}}",
 							"path": [
-								"books",
-								""
+								"api",
+								"viewbooks",
+								"books"
+							],
+							"query": [
+								{
+									"key": "idEditorial",
+									"value": "31"
+								}
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Ver Libros - Vacio",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idEditorial\": 41\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books?idEditorial=41",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{view_book_port}}",
+									"path": [
+										"api",
+										"viewbooks",
+										"books"
+									],
+									"query": [
+										{
+											"key": "idEditorial",
+											"value": "41"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b-EFAlOux7Kcr/ZEgGkn2r+oFAbu4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:53:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": []\n}"
+						},
+						{
+							"name": "Ver Libros - Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idEditorial\": 31\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books?idEditorial=31",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{view_book_port}}",
+									"path": [
+										"api",
+										"viewbooks",
+										"books"
+									],
+									"query": [
+										{
+											"key": "idEditorial",
+											"value": "31"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3958"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f76-pJFU7Za9Pwml9dqhyTmJ9xMRMJc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:52:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 9,\n            \"titulo\": \"El diario de Sofia\",\n            \"autor\": \"Jostein Gaarder\",\n            \"id_editorial\": 31,\n            \"precio\": 200,\n            \"cantidad\": 0,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"11/06/2021 06:38:07\",\n            \"url\": null,\n            \"categorias\": \"Relatos,Fisolofia\"\n        },\n        {\n            \"id\": 10,\n            \"titulo\": \"Veinte mil leguas de viaje submarino\",\n            \"autor\": \"Julio Verne\",\n            \"id_editorial\": 31,\n            \"precio\": 150.75,\n            \"cantidad\": 97,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"19/06/2021 02:08:16\",\n            \"url\": null,\n            \"categorias\": \"Fantasía,Relatos,Psicologicos\"\n        },\n        {\n            \"id\": 11,\n            \"titulo\": \"Viaje al centro de la Tierra\",\n            \"autor\": \"Julio Verne\",\n            \"id_editorial\": 31,\n            \"precio\": 125.5,\n            \"cantidad\": 22,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"19/06/2021 02:09:16\",\n            \"url\": null,\n            \"categorias\": \"Suspenso,Teatro,Ciencia Ficción\"\n        },\n        {\n            \"id\": 12,\n            \"titulo\": \"La vuelta al mundo en ochenta días\",\n            \"autor\": \"Julio Verne\",\n            \"id_editorial\": 31,\n            \"precio\": 145.79,\n            \"cantidad\": 32,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"19/06/2021 03:39:42\",\n            \"url\": null,\n            \"categorias\": \"Aventura,Fantasía,Novelas\"\n        },\n        {\n            \"id\": 13,\n            \"titulo\": \"La isla misteriosa\",\n            \"autor\": \"Julio Verne\",\n            \"id_editorial\": 31,\n            \"precio\": 185.99,\n            \"cantidad\": 8,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"19/06/2021 03:43:08\",\n            \"url\": null,\n            \"categorias\": \"Suspenso,Drama,Ciencia Ficción\"\n        },\n        {\n            \"id\": 14,\n            \"titulo\": \"De la Tierra a la Luna\",\n            \"autor\": \"Julio Verne\",\n            \"id_editorial\": 31,\n            \"precio\": 189.85,\n            \"cantidad\": 17,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"19/06/2021 04:15:11\",\n            \"url\": null,\n            \"categorias\": \"Ciencia Ficción,Ficción Histórica,Aventura,Fantasía\"\n        },\n        {\n            \"id\": 15,\n            \"titulo\": \"Inteligencia Artificial, 2da ed.\",\n            \"autor\": \"Luis Espino\",\n            \"id_editorial\": 31,\n            \"precio\": 2,\n            \"cantidad\": 0,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"19/06/2021 04:59:08\",\n            \"url\": null,\n            \"categorias\": \"Terror,Negra,No ficción\"\n        },\n        {\n            \"id\": 16,\n            \"titulo\": \"El alquimista\",\n            \"autor\": \"Paulo Coelho\",\n            \"id_editorial\": 31,\n            \"precio\": 79.98,\n            \"cantidad\": 34,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"19/06/2021 07:13:56\",\n            \"url\": null,\n            \"categorias\": \"Novelas,Poesía,Romatico\"\n        },\n        {\n            \"id\": 19,\n            \"titulo\": \"titulo\",\n            \"autor\": \"no recuerdo\",\n            \"id_editorial\": 31,\n            \"precio\": 20,\n            \"cantidad\": 0,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"19/06/2021 18:21:03\",\n            \"url\": null,\n            \"categorias\": \"Realismo\"\n        },\n        {\n            \"id\": 22,\n            \"titulo\": \"Probando la creacion de libros 22/06/2021\",\n            \"autor\": \"Cristian Castellanos\",\n            \"id_editorial\": 31,\n            \"precio\": 150.5,\n            \"cantidad\": 2,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"22/06/2021 07:06:30\",\n            \"url\": null,\n            \"categorias\": \"Realismo,Terror\"\n        },\n        {\n            \"id\": 23,\n            \"titulo\": \"Test\",\n            \"autor\": \"test\",\n            \"id_editorial\": 31,\n            \"precio\": 1,\n            \"cantidad\": 0,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"23/06/2021 18:19:13\",\n            \"url\": null,\n            \"categorias\": \"Realismo,Terror\"\n        },\n        {\n            \"id\": 24,\n            \"titulo\": \"Test ya funciona\",\n            \"autor\": \"Test\",\n            \"id_editorial\": 31,\n            \"precio\": 1,\n            \"cantidad\": 0,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"23/06/2021 18:24:00\",\n            \"url\": null,\n            \"categorias\": \"Realismo,Terror\"\n        },\n        {\n            \"id\": 25,\n            \"titulo\": \"La Metamorfosis\",\n            \"autor\": \"Lafka\",\n            \"id_editorial\": 31,\n            \"precio\": 120,\n            \"cantidad\": 34,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"25/06/2021 02:19:29\",\n            \"url\": null,\n            \"categorias\": \"Realismo,Relatos,Psicologicos\"\n        },\n        {\n            \"id\": 28,\n            \"titulo\": \"La Metamorfosis\",\n            \"autor\": \"Lafka\",\n            \"id_editorial\": 31,\n            \"precio\": 120,\n            \"cantidad\": 34,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"25/06/2021 02:44:05\",\n            \"url\": null,\n            \"categorias\": \"Realismo,Relatos,Psicologicos\"\n        },\n        {\n            \"id\": 29,\n            \"titulo\": \"Maria\",\n            \"autor\": \"Jorge Isaac\",\n            \"id_editorial\": 31,\n            \"precio\": 120,\n            \"cantidad\": 12,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"25/06/2021 02:47:54\",\n            \"url\": null,\n            \"categorias\": \"Realismo,Relatos,Psicologicos\"\n        },\n        {\n            \"id\": 31,\n            \"titulo\": \"Maria\",\n            \"autor\": \"Jorge Isaac\",\n            \"id_editorial\": 31,\n            \"precio\": 120,\n            \"cantidad\": 12,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"25/06/2021 02:49:14\",\n            \"url\": null,\n            \"categorias\": \"Realismo\"\n        },\n        {\n            \"id\": 32,\n            \"titulo\": \"Maria\",\n            \"autor\": \"Jorge Isaac\",\n            \"id_editorial\": 31,\n            \"precio\": 120,\n            \"cantidad\": -10,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"25/06/2021 02:50:19\",\n            \"url\": null,\n            \"categorias\": \"Realismo\"\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "Ver Libro",
@@ -74,19 +777,142 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/books/9",
-							"protocol": "http",
+							"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books/9",
+							"protocol": "{{protocol}}",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
+							"port": "{{view_book_port}}",
 							"path": [
+								"api",
+								"viewbooks",
 								"books",
 								"9"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Ver Libro - success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books/9",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{view_book_port}}",
+									"path": [
+										"api",
+										"viewbooks",
+										"books",
+										"9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "358"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"166-/T8npjNd105wfEINyn4ktk7TA9M\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:53:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 9,\n            \"titulo\": \"El diario de Sofia\",\n            \"autor\": \"Jostein Gaarder\",\n            \"id_editorial\": 31,\n            \"precio\": 200,\n            \"cantidad\": 0,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"2021-06-11T06:38:07.000Z\",\n            \"url\": null\n        }\n    ],\n    \"generos\": [\n        {\n            \"id\": 11,\n            \"nombre\": \"Relatos\",\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            }\n        },\n        {\n            \"id\": 35,\n            \"nombre\": \"Fisolofia\",\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "Ver Libro - Sin datos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books/99",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{view_book_port}}",
+									"path": [
+										"api",
+										"viewbooks",
+										"books",
+										"99"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"18-HwKKdSRGC7YM3KIjhm6993nWgco\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:53:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"generos\": []\n}"
+						}
+					]
 				},
 				{
 					"name": "Borrar Libro",
@@ -94,19 +920,82 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/books/9",
-							"protocol": "http",
+							"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books/26",
+							"protocol": "{{protocol}}",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
+							"port": "{{view_book_port}}",
 							"path": [
+								"api",
+								"viewbooks",
 								"books",
-								"9"
+								"26"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Borrar Libro - success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books/9",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{view_book_port}}",
+									"path": [
+										"api",
+										"viewbooks",
+										"books",
+										"9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27-+QzLAWc74wh3oejf3r2E57YMKIk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:53:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Libro eliminado con exito\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Editar Libro",
@@ -115,7 +1004,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"autor\": \"Jostein Gaarder\",\n    \"precio\": \"200.00\",\n    \"cantidad\": 3,\n    \"generos\": [35, 11]\n}",
+							"raw": "{\n    \"autor\": \"Jostein Gaarder\",\n    \"precio\": \"230.00\",\n    \"cantidad\": 3,\n    \"generos\": [35, 11]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -123,19 +1012,367 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/books/9",
-							"protocol": "http",
+							"raw": "{{protocol}}://{{url}}:{{edit_book_port}}/api/editbooks/books/26",
+							"protocol": "{{protocol}}",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
+							"port": "{{edit_book_port}}",
 							"path": [
+								"api",
+								"editbooks",
 								"books",
-								"9"
+								"26"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Editar Libro - Generos vacios",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"autor\": \"Jostein Gaarder\",\n    \"precio\": \"230.00\",\n    \"cantidad\": 3,\n    \"generos\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{edit_book_port}}/api/editbooks/books/26",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{edit_book_port}}",
+									"path": [
+										"api",
+										"editbooks",
+										"books",
+										"26"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-sPHU7jU7Z7JV7h8P6kx2aTLETSU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:55:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Debe escoger al menos un  genero\"\n}"
+						},
+						{
+							"name": "Editar Libro - Generos incorrectos",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"autor\": \"Jostein Gaarder\",\n    \"precio\": \"230.00\",\n    \"cantidad\": 3,\n    \"generos\": [99, 11]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{edit_book_port}}/api/editbooks/books/26",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{edit_book_port}}",
+									"path": [
+										"api",
+										"editbooks",
+										"books",
+										"26"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32-4kWs0AjS37tQo/XRh73JQFgIZqs\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:55:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Problema al guardar generos de libro\"\n}"
+						},
+						{
+							"name": "Editar Libro - success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"autor\": \"Jostein Gaarder\",\n    \"precio\": \"230.00\",\n    \"cantidad\": 3,\n    \"generos\": [35, 11]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{edit_book_port}}/api/editbooks/books/26",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{edit_book_port}}",
+									"path": [
+										"api",
+										"editbooks",
+										"books",
+										"26"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-wgD8uF8Z9nkr1UrKmULfOxHlLuI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:54:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Libro modificado correctamete\"\n}"
+						},
+						{
+							"name": "Editar Libro - cantidad incorrecta",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"autor\": \"Jostein Gaarder\",\n    \"precio\": \"230.00\",\n    \"cantidad\": -3,\n    \"generos\": [1]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{edit_book_port}}/api/editbooks/books/26",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{edit_book_port}}",
+									"path": [
+										"api",
+										"editbooks",
+										"books",
+										"26"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-n0INtiJgWl3KICS9LUGcabFrfZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:55:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"La cantidad debe ser mayor a 0\"\n}"
+						},
+						{
+							"name": "Editar Libro - Campos faltantes",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n    \"precio\": \"230.00\",\n    \"cantidad\": 3,\n    \"generos\": [35, 11]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{edit_book_port}}/api/editbooks/books/26",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{edit_book_port}}",
+									"path": [
+										"api",
+										"editbooks",
+										"books",
+										"26"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-v7hP65yvqET5T3DWABjA9ivalhI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 02:54:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Por favor revise los campos faltantes\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -148,13 +1385,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/generos",
-							"protocol": "http",
+							"raw": "{{protocol}}://{{url}}:{{catalog_port}}/api/catalogos/catalogos/generos",
+							"protocol": "{{protocol}}",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
+							"port": "{{catalog_port}}",
 							"path": [
+								"api",
+								"catalogos",
+								"catalogos",
 								"generos"
 							]
 						}
@@ -225,13 +1465,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/catalogo?genero=35&editorial=31",
-							"protocol": "http",
+							"raw": "{{protocol}}://{{url}}:{{catalog_port}}/api/catalogos/catalogos/catalogo?genero=35&editorial=31",
+							"protocol": "{{protocol}}",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
+							"port": "{{catalog_port}}",
 							"path": [
+								"api",
+								"catalogos",
+								"catalogos",
 								"catalogo"
 							],
 							"query": [
@@ -324,13 +1567,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/catalogos/pagos",
-							"protocol": "http",
+							"raw": "{{protocol}}://{{url}}:{{catalog_port}}/api/catalogos/catalogos/pagos",
+							"protocol": "{{protocol}}",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
+							"port": "{{catalog_port}}",
 							"path": [
+								"api",
+								"catalogos",
 								"catalogos",
 								"pagos"
 							]
@@ -402,15 +1647,96 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/catalogos/envio",
-							"protocol": "http",
+							"raw": "{{protocol}}://{{url}}:{{catalog_port}}/api/catalogos/catalogos/envio",
+							"protocol": "{{protocol}}",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
+							"port": "{{catalog_port}}",
 							"path": [
+								"api",
+								"catalogos",
 								"catalogos",
 								"envio"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Generos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/generos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"generos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1068"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42c-1AMqfEc4WnmrMHnL9lSk0jcMj3I\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 Jun 2021 17:46:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Realismo\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Terror\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Suspenso\"\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Teatro\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Drama\"\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Ciencia Ficción\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Negra\"\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"Ficción Histórica\"\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"Aventura\"\n        },\n        {\n            \"id\": 10,\n            \"nombre\": \"Fantasía\"\n        },\n        {\n            \"id\": 11,\n            \"nombre\": \"Relatos\"\n        },\n        {\n            \"id\": 12,\n            \"nombre\": \"Psicologicos\"\n        },\n        {\n            \"id\": 13,\n            \"nombre\": \"Fiscia\"\n        },\n        {\n            \"id\": 14,\n            \"nombre\": \"Matemática\"\n        },\n        {\n            \"id\": 15,\n            \"nombre\": \"Novelas\"\n        },\n        {\n            \"id\": 16,\n            \"nombre\": \"Poesía\"\n        },\n        {\n            \"id\": 17,\n            \"nombre\": \"Cocina\"\n        },\n        {\n            \"id\": 18,\n            \"nombre\": \"Manga\"\n        },\n        {\n            \"id\": 19,\n            \"nombre\": \"Comics\"\n        },\n        {\n            \"id\": 20,\n            \"nombre\": \"Autobiografía\"\n        },\n        {\n            \"id\": 21,\n            \"nombre\": \"Autoayuda\"\n        },\n        {\n            \"id\": 22,\n            \"nombre\": \"Aventuras\"\n        },\n        {\n            \"id\": 23,\n            \"nombre\": \"Deporte\"\n        },\n        {\n            \"id\": 24,\n            \"nombre\": \"Cuentos\"\n        },\n        {\n            \"id\": 25,\n            \"nombre\": \"Infantil\"\n        },\n        {\n            \"id\": 26,\n            \"nombre\": \"Humor\"\n        },\n        {\n            \"id\": 27,\n            \"nombre\": \"Marketing\"\n        },\n        {\n            \"id\": 28,\n            \"nombre\": \"Salud\"\n        },\n        {\n            \"id\": 29,\n            \"nombre\": \"Videojuegos\"\n        },\n        {\n            \"id\": 30,\n            \"nombre\": \"Social\"\n        },\n        {\n            \"id\": 31,\n            \"nombre\": \"Microrelatos\"\n        },\n        {\n            \"id\": 32,\n            \"nombre\": \"No ficción\"\n        },\n        {\n            \"id\": 33,\n            \"nombre\": \"Romatico\"\n        },\n        {\n            \"id\": 34,\n            \"nombre\": \"Tecnologia\"\n        },\n        {\n            \"id\": 35,\n            \"nombre\": \"Fisolofia\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Paises",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{url}}:{{catalog_port}}/api/catalogos/paises",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{catalog_port}}",
+							"path": [
+								"api",
+								"catalogos",
+								"paises"
 							]
 						}
 					},
@@ -674,6 +2000,635 @@
 						}
 					},
 					"response": []
+				}
+			]
+		},
+		{
+			"name": "Solicitud",
+			"item": [
+				{
+					"name": "Crear Solicitud",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"titular\",\n    \"autor\": \"juanito\",\n    \"generos\": [1],\n    \"url\": \"fotos.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/add",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{add_solicitud_port}}",
+							"path": [
+								"api",
+								"solicitud",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear Solicitud - Generos Vacíos",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"titulo\": \"titular\",\n    \"autor\": \"juanito\",\n    \"generos\": [],\n    \"url\": \"fotos.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/add",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_solicitud_port}}",
+									"path": [
+										"api",
+										"solicitud",
+										"add"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-sPHU7jU7Z7JV7h8P6kx2aTLETSU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 14:27:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Debe escoger al menos un  genero\"\n}"
+						},
+						{
+							"name": "Crear Solicitud - Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"titulo\": \"titular\",\n    \"autor\": \"juanito\",\n    \"generos\": [1],\n    \"url\": \"fotos.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/add",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_solicitud_port}}",
+									"path": [
+										"api",
+										"solicitud",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"38-v+7IwqeREDd6qn6dqFCbaH5CEGE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 14:25:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Solicitud de titular agregada correctamete\"\n}"
+						},
+						{
+							"name": "Crear Solicitud - Datos Faltantes",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"autor\": \"juanito\",\n    \"generos\": [1],\n    \"url\": \"fotos.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/add",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_solicitud_port}}",
+									"path": [
+										"api",
+										"solicitud",
+										"add"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-v7hP65yvqET5T3DWABjA9ivalhI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 14:26:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Por favor revise los campos faltantes\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Ver Solicitudes ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{add_solicitud_port}}",
+							"path": [
+								"api",
+								"solicitud",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Ver Solicitudes  - success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_solicitud_port}}",
+									"path": [
+										"api",
+										"solicitud",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "759"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f7-otYjbaAc0fZDE3x7Dh3gIAaLsPI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 14:29:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"\",\n    \"data\": [\n        {\n            \"id\": 36,\n            \"titulo\": \"titular\",\n            \"autor\": \"juanito\",\n            \"id_editorial\": null,\n            \"precio\": null,\n            \"cantidad\": 0,\n            \"estado\": 2,\n            \"fecha_creado\": \"26/06/2021 14:23:42\",\n            \"url\": \"fotos.com\",\n            \"categorias\": \"Realismo\"\n        },\n        {\n            \"id\": 37,\n            \"titulo\": \"titular\",\n            \"autor\": \"juanito\",\n            \"id_editorial\": null,\n            \"precio\": null,\n            \"cantidad\": 0,\n            \"estado\": 2,\n            \"fecha_creado\": \"26/06/2021 14:24:32\",\n            \"url\": \"fotos.com\",\n            \"categorias\": \"Realismo\"\n        },\n        {\n            \"id\": 38,\n            \"titulo\": \"titular\",\n            \"autor\": \"juanito\",\n            \"id_editorial\": null,\n            \"precio\": null,\n            \"cantidad\": 0,\n            \"estado\": 2,\n            \"fecha_creado\": \"26/06/2021 14:25:25\",\n            \"url\": \"fotos.com\",\n            \"categorias\": \"Realismo\"\n        },\n        {\n            \"id\": 39,\n            \"titulo\": \"titular\",\n            \"autor\": \"juanito\",\n            \"id_editorial\": null,\n            \"precio\": null,\n            \"cantidad\": 0,\n            \"estado\": 2,\n            \"fecha_creado\": \"26/06/2021 14:25:55\",\n            \"url\": \"fotos.com\",\n            \"categorias\": \"Realismo\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Aprobar Solicitud",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"precio\": 20.3,\n    \"cantidad\":153,\n    \"idEditorial\": 31\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/aprobar/37",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{add_solicitud_port}}",
+							"path": [
+								"api",
+								"solicitud",
+								"aprobar",
+								"37"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Aprobar Solicitud - Cantidad o precio incorrecto",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"precio\": \"banana\",\n    \"cantidad\":153,\n    \"idEditorial\": 31\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/aprobar/37",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_solicitud_port}}",
+									"path": [
+										"api",
+										"solicitud",
+										"aprobar",
+										"37"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-zhuaDwSnUac+a15IWMhVj4i/L3c\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 14:36:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"La cantidad y el precio deben ser un valor numerico\"\n}"
+						},
+						{
+							"name": "Aprobar Solicitud - cantidad incorrecta",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"precio\": 20.3,\n    \"cantidad\":-1,\n    \"idEditorial\": 31\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/aprobar/37",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_solicitud_port}}",
+									"path": [
+										"api",
+										"solicitud",
+										"aprobar",
+										"37"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-n0INtiJgWl3KICS9LUGcabFrfZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 14:36:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"La cantidad debe ser mayor a 0\"\n}"
+						},
+						{
+							"name": "Aprobar Solicitud - Success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"precio\": 20.3,\n    \"cantidad\":153,\n    \"idEditorial\": 31\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/aprobar/37",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_solicitud_port}}",
+									"path": [
+										"api",
+										"solicitud",
+										"aprobar",
+										"37"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2d-1UvIpdjTBQ/NsX9JvTlu6VHMJK8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 14:35:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Solicitud aprobada correctamete\"\n}"
+						},
+						{
+							"name": "Aprobar Solicitud - Success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"precio\": 20.3,\n    \"cantidad\":153,\n    \"idEditorial\": 31\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/aprobar/37",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{add_solicitud_port}}",
+									"path": [
+										"api",
+										"solicitud",
+										"aprobar",
+										"37"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2d-1UvIpdjTBQ/NsX9JvTlu6VHMJK8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 14:35:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Solicitud aprobada correctamete\"\n}"
+						}
+					]
 				}
 			]
 		}
