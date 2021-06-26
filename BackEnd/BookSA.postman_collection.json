@@ -6,6 +6,843 @@
 	},
 	"item": [
 		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"p.casiano33@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{url}}/api/authentication/login",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"authentication",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login - Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"p.casiano33@gmail.com\",\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}/api/authentication/login",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"authentication",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "355"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"163-sleWEc2f53MYsbnU9YBio3jXb0Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 16:44:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Sesión iniciada con éxito\",\n    \"statuscode\": 200,\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzEsImVtYWlsIjoicC5jYXNpYW5vMzNAZ21haWwuY29tIiwibmFtZSI6IlBhb2xhIiwibGFzdG5hbWUiOiJDYXNpYW5vIiwidHlwZSI6ImVkaXRvcmlhbCIsImlhdCI6MTYyNDcyNTg4NywiZXhwIjoxNjI0NzU0Njg3fQ.NG2OMqt5hDins1xlnWr1LepyY_fRfaSU4vRNM8lomFQ\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Nombre\", \n    \"lastname\" : \"Apellido\", \n    \"email\" : \"nombre@apellido.com\", \n    \"password\" : \"password\", \n    \"status\" : \"1\", \n    \"phone\" : \"52555566\", \n    \"type\" : \"cliente\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{url}}/api/authentication/register",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"authentication",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register - faltan campos",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n     \n    \"lastname\" : \"Apellido\", \n    \"email\" : \"nombre@apellido.com\", \n    \"password\" : \"password\", \n    \"status\" : \"1\", \n    \"phone\" : \"52555566\", \n    \"type\" : \"cliente\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}/api/authentication/register",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"authentication",
+										"register"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "233"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e9-Y3xbgMilt3nZxwTWwVaK+cE+krM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 16:47:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"No se pudo completar el registro\",\n    \"statuscode\": 500,\n    \"data\": {\n        \"errors\": [\n            {\n                \"message\": \"Ya hay una cuenta con el correo electrónico\",\n                \"value\": \"nombre@apellido.com\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Register - success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"Nombre\", \n    \"lastname\" : \"Apellido\", \n    \"email\" : \"nombre@apellido.com\", \n    \"password\" : \"password\", \n    \"status\" : \"1\", \n    \"phone\" : \"52555566\", \n    \"type\" : \"cliente\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{url}}/api/authentication/register",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"authentication",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "341"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"155-OkIfu1bQ7LxLZlJUnuy+OrMCbfQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 16:47:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Registro exitoso\",\n    \"statuscode\": 200,\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsImVtYWlsIjoibm9tYnJlQGFwZWxsaWRvLmNvbSIsIm5hbWUiOiJOb21icmUiLCJsYXN0bmFtZSI6IkFwZWxsaWRvIiwidHlwZSI6ImNsaWVudGUiLCJpYXQiOjE2MjQ3MjYwMzksImV4cCI6MTYyNDc1NDgzOX0.dfaIi1jkyeI8VNKdt14yaqPOzVb_p5aYHJMPYUEH8CY\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Verify Token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}://{{url}}/api/authentication/verify-token",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"authentication",
+								"verify-token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Verify Token - invalido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{url}}/api/authentication/verify-token",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"authentication",
+										"verify-token"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-z7BohJlSo2vKv/aTNIi9Q867IAU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 16:55:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statuscode\": 401,\n    \"message\": \"Token inválido\",\n    \"data\": {}\n}"
+						},
+						{
+							"name": "Verify Token - success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{protocol}}://{{url}}/api/authentication/verify-token",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"authentication",
+										"verify-token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"44-YNDsRjVaL68NyHKwHz+E//BjdNo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 16:55:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statuscode\": 200,\n    \"message\": \"Token correcto\",\n    \"data\": {}\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Catalogos",
+			"item": [
+				{
+					"name": "Generos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{url}}/api/catalogos/catalogos/generos",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"catalogos",
+								"catalogos",
+								"generos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Generos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/generos",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"generos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1068"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42c-1AMqfEc4WnmrMHnL9lSk0jcMj3I\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 Jun 2021 17:46:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Realismo\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Terror\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Suspenso\"\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Teatro\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Drama\"\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Ciencia Ficción\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Negra\"\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"Ficción Histórica\"\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"Aventura\"\n        },\n        {\n            \"id\": 10,\n            \"nombre\": \"Fantasía\"\n        },\n        {\n            \"id\": 11,\n            \"nombre\": \"Relatos\"\n        },\n        {\n            \"id\": 12,\n            \"nombre\": \"Psicologicos\"\n        },\n        {\n            \"id\": 13,\n            \"nombre\": \"Fiscia\"\n        },\n        {\n            \"id\": 14,\n            \"nombre\": \"Matemática\"\n        },\n        {\n            \"id\": 15,\n            \"nombre\": \"Novelas\"\n        },\n        {\n            \"id\": 16,\n            \"nombre\": \"Poesía\"\n        },\n        {\n            \"id\": 17,\n            \"nombre\": \"Cocina\"\n        },\n        {\n            \"id\": 18,\n            \"nombre\": \"Manga\"\n        },\n        {\n            \"id\": 19,\n            \"nombre\": \"Comics\"\n        },\n        {\n            \"id\": 20,\n            \"nombre\": \"Autobiografía\"\n        },\n        {\n            \"id\": 21,\n            \"nombre\": \"Autoayuda\"\n        },\n        {\n            \"id\": 22,\n            \"nombre\": \"Aventuras\"\n        },\n        {\n            \"id\": 23,\n            \"nombre\": \"Deporte\"\n        },\n        {\n            \"id\": 24,\n            \"nombre\": \"Cuentos\"\n        },\n        {\n            \"id\": 25,\n            \"nombre\": \"Infantil\"\n        },\n        {\n            \"id\": 26,\n            \"nombre\": \"Humor\"\n        },\n        {\n            \"id\": 27,\n            \"nombre\": \"Marketing\"\n        },\n        {\n            \"id\": 28,\n            \"nombre\": \"Salud\"\n        },\n        {\n            \"id\": 29,\n            \"nombre\": \"Videojuegos\"\n        },\n        {\n            \"id\": 30,\n            \"nombre\": \"Social\"\n        },\n        {\n            \"id\": 31,\n            \"nombre\": \"Microrelatos\"\n        },\n        {\n            \"id\": 32,\n            \"nombre\": \"No ficción\"\n        },\n        {\n            \"id\": 33,\n            \"nombre\": \"Romatico\"\n        },\n        {\n            \"id\": 34,\n            \"nombre\": \"Tecnologia\"\n        },\n        {\n            \"id\": 35,\n            \"nombre\": \"Fisolofia\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Catalogo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{url}}/api/catalogos/catalogos/catalogo?genero=35&editorial=31",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"catalogos",
+								"catalogos",
+								"catalogo"
+							],
+							"query": [
+								{
+									"key": "genero",
+									"value": "35"
+								},
+								{
+									"key": "editorial",
+									"value": "31"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Catalogo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/catalogo",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"catalogo"
+									],
+									"query": [
+										{
+											"key": "genero",
+											"value": "35",
+											"disabled": true
+										},
+										{
+											"key": "editorial",
+											"value": "31",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "247"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f7-Gm+ndQ+j2IHxoayOQyFcMJ4MaDU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 Jun 2021 18:00:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 8,\n            \"titulo\": \"El diario de Sofia\",\n            \"autor\": \"no recuerdo\",\n            \"id_editorial\": 31,\n            \"precio\": 20,\n            \"cantidad\": 2,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"2021-06-11T12:37:40.000Z\",\n            \"categorias\": \"Relatos,Fisolofia\",\n            \"editorial\": \"Paola\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Metodos Pago",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{url}}/api/catalogos/catalogos/pagos",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"catalogos",
+								"catalogos",
+								"pagos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Generos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/generos",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"generos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1068"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42c-1AMqfEc4WnmrMHnL9lSk0jcMj3I\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 Jun 2021 17:46:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Realismo\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Terror\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Suspenso\"\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Teatro\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Drama\"\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Ciencia Ficción\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Negra\"\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"Ficción Histórica\"\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"Aventura\"\n        },\n        {\n            \"id\": 10,\n            \"nombre\": \"Fantasía\"\n        },\n        {\n            \"id\": 11,\n            \"nombre\": \"Relatos\"\n        },\n        {\n            \"id\": 12,\n            \"nombre\": \"Psicologicos\"\n        },\n        {\n            \"id\": 13,\n            \"nombre\": \"Fiscia\"\n        },\n        {\n            \"id\": 14,\n            \"nombre\": \"Matemática\"\n        },\n        {\n            \"id\": 15,\n            \"nombre\": \"Novelas\"\n        },\n        {\n            \"id\": 16,\n            \"nombre\": \"Poesía\"\n        },\n        {\n            \"id\": 17,\n            \"nombre\": \"Cocina\"\n        },\n        {\n            \"id\": 18,\n            \"nombre\": \"Manga\"\n        },\n        {\n            \"id\": 19,\n            \"nombre\": \"Comics\"\n        },\n        {\n            \"id\": 20,\n            \"nombre\": \"Autobiografía\"\n        },\n        {\n            \"id\": 21,\n            \"nombre\": \"Autoayuda\"\n        },\n        {\n            \"id\": 22,\n            \"nombre\": \"Aventuras\"\n        },\n        {\n            \"id\": 23,\n            \"nombre\": \"Deporte\"\n        },\n        {\n            \"id\": 24,\n            \"nombre\": \"Cuentos\"\n        },\n        {\n            \"id\": 25,\n            \"nombre\": \"Infantil\"\n        },\n        {\n            \"id\": 26,\n            \"nombre\": \"Humor\"\n        },\n        {\n            \"id\": 27,\n            \"nombre\": \"Marketing\"\n        },\n        {\n            \"id\": 28,\n            \"nombre\": \"Salud\"\n        },\n        {\n            \"id\": 29,\n            \"nombre\": \"Videojuegos\"\n        },\n        {\n            \"id\": 30,\n            \"nombre\": \"Social\"\n        },\n        {\n            \"id\": 31,\n            \"nombre\": \"Microrelatos\"\n        },\n        {\n            \"id\": 32,\n            \"nombre\": \"No ficción\"\n        },\n        {\n            \"id\": 33,\n            \"nombre\": \"Romatico\"\n        },\n        {\n            \"id\": 34,\n            \"nombre\": \"Tecnologia\"\n        },\n        {\n            \"id\": 35,\n            \"nombre\": \"Fisolofia\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Metodos Envio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{url}}/api/catalogos/catalogos/envio",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"catalogos",
+								"catalogos",
+								"envio"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Generos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/generos",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"generos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1068"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42c-1AMqfEc4WnmrMHnL9lSk0jcMj3I\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 Jun 2021 17:46:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Realismo\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Terror\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Suspenso\"\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Teatro\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Drama\"\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Ciencia Ficción\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Negra\"\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"Ficción Histórica\"\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"Aventura\"\n        },\n        {\n            \"id\": 10,\n            \"nombre\": \"Fantasía\"\n        },\n        {\n            \"id\": 11,\n            \"nombre\": \"Relatos\"\n        },\n        {\n            \"id\": 12,\n            \"nombre\": \"Psicologicos\"\n        },\n        {\n            \"id\": 13,\n            \"nombre\": \"Fiscia\"\n        },\n        {\n            \"id\": 14,\n            \"nombre\": \"Matemática\"\n        },\n        {\n            \"id\": 15,\n            \"nombre\": \"Novelas\"\n        },\n        {\n            \"id\": 16,\n            \"nombre\": \"Poesía\"\n        },\n        {\n            \"id\": 17,\n            \"nombre\": \"Cocina\"\n        },\n        {\n            \"id\": 18,\n            \"nombre\": \"Manga\"\n        },\n        {\n            \"id\": 19,\n            \"nombre\": \"Comics\"\n        },\n        {\n            \"id\": 20,\n            \"nombre\": \"Autobiografía\"\n        },\n        {\n            \"id\": 21,\n            \"nombre\": \"Autoayuda\"\n        },\n        {\n            \"id\": 22,\n            \"nombre\": \"Aventuras\"\n        },\n        {\n            \"id\": 23,\n            \"nombre\": \"Deporte\"\n        },\n        {\n            \"id\": 24,\n            \"nombre\": \"Cuentos\"\n        },\n        {\n            \"id\": 25,\n            \"nombre\": \"Infantil\"\n        },\n        {\n            \"id\": 26,\n            \"nombre\": \"Humor\"\n        },\n        {\n            \"id\": 27,\n            \"nombre\": \"Marketing\"\n        },\n        {\n            \"id\": 28,\n            \"nombre\": \"Salud\"\n        },\n        {\n            \"id\": 29,\n            \"nombre\": \"Videojuegos\"\n        },\n        {\n            \"id\": 30,\n            \"nombre\": \"Social\"\n        },\n        {\n            \"id\": 31,\n            \"nombre\": \"Microrelatos\"\n        },\n        {\n            \"id\": 32,\n            \"nombre\": \"No ficción\"\n        },\n        {\n            \"id\": 33,\n            \"nombre\": \"Romatico\"\n        },\n        {\n            \"id\": 34,\n            \"nombre\": \"Tecnologia\"\n        },\n        {\n            \"id\": 35,\n            \"nombre\": \"Fisolofia\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Paises",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{url}}/api/catalogos/paises",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"catalogos",
+								"paises"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Generos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/generos",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"generos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1068"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42c-1AMqfEc4WnmrMHnL9lSk0jcMj3I\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 Jun 2021 17:46:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Realismo\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Terror\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Suspenso\"\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Teatro\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Drama\"\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Ciencia Ficción\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Negra\"\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"Ficción Histórica\"\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"Aventura\"\n        },\n        {\n            \"id\": 10,\n            \"nombre\": \"Fantasía\"\n        },\n        {\n            \"id\": 11,\n            \"nombre\": \"Relatos\"\n        },\n        {\n            \"id\": 12,\n            \"nombre\": \"Psicologicos\"\n        },\n        {\n            \"id\": 13,\n            \"nombre\": \"Fiscia\"\n        },\n        {\n            \"id\": 14,\n            \"nombre\": \"Matemática\"\n        },\n        {\n            \"id\": 15,\n            \"nombre\": \"Novelas\"\n        },\n        {\n            \"id\": 16,\n            \"nombre\": \"Poesía\"\n        },\n        {\n            \"id\": 17,\n            \"nombre\": \"Cocina\"\n        },\n        {\n            \"id\": 18,\n            \"nombre\": \"Manga\"\n        },\n        {\n            \"id\": 19,\n            \"nombre\": \"Comics\"\n        },\n        {\n            \"id\": 20,\n            \"nombre\": \"Autobiografía\"\n        },\n        {\n            \"id\": 21,\n            \"nombre\": \"Autoayuda\"\n        },\n        {\n            \"id\": 22,\n            \"nombre\": \"Aventuras\"\n        },\n        {\n            \"id\": 23,\n            \"nombre\": \"Deporte\"\n        },\n        {\n            \"id\": 24,\n            \"nombre\": \"Cuentos\"\n        },\n        {\n            \"id\": 25,\n            \"nombre\": \"Infantil\"\n        },\n        {\n            \"id\": 26,\n            \"nombre\": \"Humor\"\n        },\n        {\n            \"id\": 27,\n            \"nombre\": \"Marketing\"\n        },\n        {\n            \"id\": 28,\n            \"nombre\": \"Salud\"\n        },\n        {\n            \"id\": 29,\n            \"nombre\": \"Videojuegos\"\n        },\n        {\n            \"id\": 30,\n            \"nombre\": \"Social\"\n        },\n        {\n            \"id\": 31,\n            \"nombre\": \"Microrelatos\"\n        },\n        {\n            \"id\": 32,\n            \"nombre\": \"No ficción\"\n        },\n        {\n            \"id\": 33,\n            \"nombre\": \"Romatico\"\n        },\n        {\n            \"id\": 34,\n            \"nombre\": \"Tecnologia\"\n        },\n        {\n            \"id\": 35,\n            \"nombre\": \"Fisolofia\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Libros",
 			"item": [
 				{
@@ -23,12 +860,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+							"raw": "{{protocol}}://{{url}}/api/addbooks/add_book",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{add_book_port}}",
 							"path": [
 								"api",
 								"addbooks",
@@ -52,12 +888,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"raw": "{{protocol}}://{{url}}/api/addbooks/add_book",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_book_port}}",
 									"path": [
 										"api",
 										"addbooks",
@@ -120,12 +955,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"raw": "{{protocol}}://{{url}}/api/addbooks/add_book",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_book_port}}",
 									"path": [
 										"api",
 										"addbooks",
@@ -188,12 +1022,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"raw": "{{protocol}}://{{url}}/api/addbooks/add_book",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_book_port}}",
 									"path": [
 										"api",
 										"addbooks",
@@ -256,12 +1089,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"raw": "{{protocol}}://{{url}}/api/addbooks/add_book",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_book_port}}",
 									"path": [
 										"api",
 										"addbooks",
@@ -324,12 +1156,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"raw": "{{protocol}}://{{url}}/api/addbooks/add_book",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_book_port}}",
 									"path": [
 										"api",
 										"addbooks",
@@ -392,12 +1223,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"raw": "{{protocol}}://{{url}}/api/addbooks/add_book",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_book_port}}",
 									"path": [
 										"api",
 										"addbooks",
@@ -460,12 +1290,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"raw": "{{protocol}}://{{url}}/api/addbooks/add_book",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_book_port}}",
 									"path": [
 										"api",
 										"addbooks",
@@ -528,12 +1357,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_book_port}}/api/addbooks/add_book",
+									"raw": "{{protocol}}://{{url}}/api/addbooks/add_book",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_book_port}}",
 									"path": [
 										"api",
 										"addbooks",
@@ -601,12 +1429,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books?idEditorial=31",
+							"raw": "{{protocol}}://{{url}}/api/viewbooks/books?idEditorial=31",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{view_book_port}}",
 							"path": [
 								"api",
 								"viewbooks",
@@ -636,12 +1463,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books?idEditorial=41",
+									"raw": "{{protocol}}://{{url}}/api/viewbooks/books?idEditorial=41",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{view_book_port}}",
 									"path": [
 										"api",
 										"viewbooks",
@@ -710,12 +1536,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books?idEditorial=31",
+									"raw": "{{protocol}}://{{url}}/api/viewbooks/books?idEditorial=31",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{view_book_port}}",
 									"path": [
 										"api",
 										"viewbooks",
@@ -777,12 +1602,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books/9",
+							"raw": "{{protocol}}://{{url}}/api/viewbooks/books/9",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{view_book_port}}",
 							"path": [
 								"api",
 								"viewbooks",
@@ -798,12 +1622,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books/9",
+									"raw": "{{protocol}}://{{url}}/api/viewbooks/books/9",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{view_book_port}}",
 									"path": [
 										"api",
 										"viewbooks",
@@ -858,12 +1681,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books/99",
+									"raw": "{{protocol}}://{{url}}/api/viewbooks/books/99",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{view_book_port}}",
 									"path": [
 										"api",
 										"viewbooks",
@@ -920,12 +1742,11 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books/26",
+							"raw": "{{protocol}}://{{url}}/api/viewbooks/books/26",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{view_book_port}}",
 							"path": [
 								"api",
 								"viewbooks",
@@ -941,12 +1762,11 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{view_book_port}}/api/viewbooks/books/9",
+									"raw": "{{protocol}}://{{url}}/api/viewbooks/books/9",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{view_book_port}}",
 									"path": [
 										"api",
 										"viewbooks",
@@ -1012,12 +1832,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{protocol}}://{{url}}:{{edit_book_port}}/api/editbooks/books/26",
+							"raw": "{{protocol}}://{{url}}/api/editbooks/books/26",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{edit_book_port}}",
 							"path": [
 								"api",
 								"editbooks",
@@ -1042,12 +1861,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{edit_book_port}}/api/editbooks/books/26",
+									"raw": "{{protocol}}://{{url}}/api/editbooks/books/26",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{edit_book_port}}",
 									"path": [
 										"api",
 										"editbooks",
@@ -1111,12 +1929,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{edit_book_port}}/api/editbooks/books/26",
+									"raw": "{{protocol}}://{{url}}/api/editbooks/books/26",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{edit_book_port}}",
 									"path": [
 										"api",
 										"editbooks",
@@ -1180,12 +1997,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{edit_book_port}}/api/editbooks/books/26",
+									"raw": "{{protocol}}://{{url}}/api/editbooks/books/26",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{edit_book_port}}",
 									"path": [
 										"api",
 										"editbooks",
@@ -1249,12 +2065,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{edit_book_port}}/api/editbooks/books/26",
+									"raw": "{{protocol}}://{{url}}/api/editbooks/books/26",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{edit_book_port}}",
 									"path": [
 										"api",
 										"editbooks",
@@ -1318,12 +2133,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{edit_book_port}}/api/editbooks/books/26",
+									"raw": "{{protocol}}://{{url}}/api/editbooks/books/26",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{edit_book_port}}",
 									"path": [
 										"api",
 										"editbooks",
@@ -1377,633 +2191,6 @@
 			]
 		},
 		{
-			"name": "Catalogos",
-			"item": [
-				{
-					"name": "Generos",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{protocol}}://{{url}}:{{catalog_port}}/api/catalogos/catalogos/generos",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{url}}"
-							],
-							"port": "{{catalog_port}}",
-							"path": [
-								"api",
-								"catalogos",
-								"catalogos",
-								"generos"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Generos",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/generos",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"generos"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "1068"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"42c-1AMqfEc4WnmrMHnL9lSk0jcMj3I\""
-								},
-								{
-									"key": "Date",
-									"value": "Sat, 12 Jun 2021 17:46:32 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Realismo\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Terror\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Suspenso\"\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Teatro\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Drama\"\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Ciencia Ficción\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Negra\"\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"Ficción Histórica\"\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"Aventura\"\n        },\n        {\n            \"id\": 10,\n            \"nombre\": \"Fantasía\"\n        },\n        {\n            \"id\": 11,\n            \"nombre\": \"Relatos\"\n        },\n        {\n            \"id\": 12,\n            \"nombre\": \"Psicologicos\"\n        },\n        {\n            \"id\": 13,\n            \"nombre\": \"Fiscia\"\n        },\n        {\n            \"id\": 14,\n            \"nombre\": \"Matemática\"\n        },\n        {\n            \"id\": 15,\n            \"nombre\": \"Novelas\"\n        },\n        {\n            \"id\": 16,\n            \"nombre\": \"Poesía\"\n        },\n        {\n            \"id\": 17,\n            \"nombre\": \"Cocina\"\n        },\n        {\n            \"id\": 18,\n            \"nombre\": \"Manga\"\n        },\n        {\n            \"id\": 19,\n            \"nombre\": \"Comics\"\n        },\n        {\n            \"id\": 20,\n            \"nombre\": \"Autobiografía\"\n        },\n        {\n            \"id\": 21,\n            \"nombre\": \"Autoayuda\"\n        },\n        {\n            \"id\": 22,\n            \"nombre\": \"Aventuras\"\n        },\n        {\n            \"id\": 23,\n            \"nombre\": \"Deporte\"\n        },\n        {\n            \"id\": 24,\n            \"nombre\": \"Cuentos\"\n        },\n        {\n            \"id\": 25,\n            \"nombre\": \"Infantil\"\n        },\n        {\n            \"id\": 26,\n            \"nombre\": \"Humor\"\n        },\n        {\n            \"id\": 27,\n            \"nombre\": \"Marketing\"\n        },\n        {\n            \"id\": 28,\n            \"nombre\": \"Salud\"\n        },\n        {\n            \"id\": 29,\n            \"nombre\": \"Videojuegos\"\n        },\n        {\n            \"id\": 30,\n            \"nombre\": \"Social\"\n        },\n        {\n            \"id\": 31,\n            \"nombre\": \"Microrelatos\"\n        },\n        {\n            \"id\": 32,\n            \"nombre\": \"No ficción\"\n        },\n        {\n            \"id\": 33,\n            \"nombre\": \"Romatico\"\n        },\n        {\n            \"id\": 34,\n            \"nombre\": \"Tecnologia\"\n        },\n        {\n            \"id\": 35,\n            \"nombre\": \"Fisolofia\"\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "Catalogo",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{protocol}}://{{url}}:{{catalog_port}}/api/catalogos/catalogos/catalogo?genero=35&editorial=31",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{url}}"
-							],
-							"port": "{{catalog_port}}",
-							"path": [
-								"api",
-								"catalogos",
-								"catalogos",
-								"catalogo"
-							],
-							"query": [
-								{
-									"key": "genero",
-									"value": "35"
-								},
-								{
-									"key": "editorial",
-									"value": "31"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Catalogo",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/catalogo",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"catalogo"
-									],
-									"query": [
-										{
-											"key": "genero",
-											"value": "35",
-											"disabled": true
-										},
-										{
-											"key": "editorial",
-											"value": "31",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "247"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"f7-Gm+ndQ+j2IHxoayOQyFcMJ4MaDU\""
-								},
-								{
-									"key": "Date",
-									"value": "Sat, 12 Jun 2021 18:00:22 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [\n        {\n            \"id\": 8,\n            \"titulo\": \"El diario de Sofia\",\n            \"autor\": \"no recuerdo\",\n            \"id_editorial\": 31,\n            \"precio\": 20,\n            \"cantidad\": 2,\n            \"estado\": {\n                \"type\": \"Buffer\",\n                \"data\": [\n                    1\n                ]\n            },\n            \"fecha_creado\": \"2021-06-11T12:37:40.000Z\",\n            \"categorias\": \"Relatos,Fisolofia\",\n            \"editorial\": \"Paola\"\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "Metodos Pago",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{protocol}}://{{url}}:{{catalog_port}}/api/catalogos/catalogos/pagos",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{url}}"
-							],
-							"port": "{{catalog_port}}",
-							"path": [
-								"api",
-								"catalogos",
-								"catalogos",
-								"pagos"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Generos",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/generos",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"generos"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "1068"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"42c-1AMqfEc4WnmrMHnL9lSk0jcMj3I\""
-								},
-								{
-									"key": "Date",
-									"value": "Sat, 12 Jun 2021 17:46:32 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Realismo\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Terror\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Suspenso\"\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Teatro\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Drama\"\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Ciencia Ficción\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Negra\"\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"Ficción Histórica\"\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"Aventura\"\n        },\n        {\n            \"id\": 10,\n            \"nombre\": \"Fantasía\"\n        },\n        {\n            \"id\": 11,\n            \"nombre\": \"Relatos\"\n        },\n        {\n            \"id\": 12,\n            \"nombre\": \"Psicologicos\"\n        },\n        {\n            \"id\": 13,\n            \"nombre\": \"Fiscia\"\n        },\n        {\n            \"id\": 14,\n            \"nombre\": \"Matemática\"\n        },\n        {\n            \"id\": 15,\n            \"nombre\": \"Novelas\"\n        },\n        {\n            \"id\": 16,\n            \"nombre\": \"Poesía\"\n        },\n        {\n            \"id\": 17,\n            \"nombre\": \"Cocina\"\n        },\n        {\n            \"id\": 18,\n            \"nombre\": \"Manga\"\n        },\n        {\n            \"id\": 19,\n            \"nombre\": \"Comics\"\n        },\n        {\n            \"id\": 20,\n            \"nombre\": \"Autobiografía\"\n        },\n        {\n            \"id\": 21,\n            \"nombre\": \"Autoayuda\"\n        },\n        {\n            \"id\": 22,\n            \"nombre\": \"Aventuras\"\n        },\n        {\n            \"id\": 23,\n            \"nombre\": \"Deporte\"\n        },\n        {\n            \"id\": 24,\n            \"nombre\": \"Cuentos\"\n        },\n        {\n            \"id\": 25,\n            \"nombre\": \"Infantil\"\n        },\n        {\n            \"id\": 26,\n            \"nombre\": \"Humor\"\n        },\n        {\n            \"id\": 27,\n            \"nombre\": \"Marketing\"\n        },\n        {\n            \"id\": 28,\n            \"nombre\": \"Salud\"\n        },\n        {\n            \"id\": 29,\n            \"nombre\": \"Videojuegos\"\n        },\n        {\n            \"id\": 30,\n            \"nombre\": \"Social\"\n        },\n        {\n            \"id\": 31,\n            \"nombre\": \"Microrelatos\"\n        },\n        {\n            \"id\": 32,\n            \"nombre\": \"No ficción\"\n        },\n        {\n            \"id\": 33,\n            \"nombre\": \"Romatico\"\n        },\n        {\n            \"id\": 34,\n            \"nombre\": \"Tecnologia\"\n        },\n        {\n            \"id\": 35,\n            \"nombre\": \"Fisolofia\"\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "Metodos Envio",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{protocol}}://{{url}}:{{catalog_port}}/api/catalogos/catalogos/envio",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{url}}"
-							],
-							"port": "{{catalog_port}}",
-							"path": [
-								"api",
-								"catalogos",
-								"catalogos",
-								"envio"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Generos",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/generos",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"generos"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "1068"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"42c-1AMqfEc4WnmrMHnL9lSk0jcMj3I\""
-								},
-								{
-									"key": "Date",
-									"value": "Sat, 12 Jun 2021 17:46:32 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Realismo\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Terror\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Suspenso\"\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Teatro\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Drama\"\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Ciencia Ficción\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Negra\"\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"Ficción Histórica\"\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"Aventura\"\n        },\n        {\n            \"id\": 10,\n            \"nombre\": \"Fantasía\"\n        },\n        {\n            \"id\": 11,\n            \"nombre\": \"Relatos\"\n        },\n        {\n            \"id\": 12,\n            \"nombre\": \"Psicologicos\"\n        },\n        {\n            \"id\": 13,\n            \"nombre\": \"Fiscia\"\n        },\n        {\n            \"id\": 14,\n            \"nombre\": \"Matemática\"\n        },\n        {\n            \"id\": 15,\n            \"nombre\": \"Novelas\"\n        },\n        {\n            \"id\": 16,\n            \"nombre\": \"Poesía\"\n        },\n        {\n            \"id\": 17,\n            \"nombre\": \"Cocina\"\n        },\n        {\n            \"id\": 18,\n            \"nombre\": \"Manga\"\n        },\n        {\n            \"id\": 19,\n            \"nombre\": \"Comics\"\n        },\n        {\n            \"id\": 20,\n            \"nombre\": \"Autobiografía\"\n        },\n        {\n            \"id\": 21,\n            \"nombre\": \"Autoayuda\"\n        },\n        {\n            \"id\": 22,\n            \"nombre\": \"Aventuras\"\n        },\n        {\n            \"id\": 23,\n            \"nombre\": \"Deporte\"\n        },\n        {\n            \"id\": 24,\n            \"nombre\": \"Cuentos\"\n        },\n        {\n            \"id\": 25,\n            \"nombre\": \"Infantil\"\n        },\n        {\n            \"id\": 26,\n            \"nombre\": \"Humor\"\n        },\n        {\n            \"id\": 27,\n            \"nombre\": \"Marketing\"\n        },\n        {\n            \"id\": 28,\n            \"nombre\": \"Salud\"\n        },\n        {\n            \"id\": 29,\n            \"nombre\": \"Videojuegos\"\n        },\n        {\n            \"id\": 30,\n            \"nombre\": \"Social\"\n        },\n        {\n            \"id\": 31,\n            \"nombre\": \"Microrelatos\"\n        },\n        {\n            \"id\": 32,\n            \"nombre\": \"No ficción\"\n        },\n        {\n            \"id\": 33,\n            \"nombre\": \"Romatico\"\n        },\n        {\n            \"id\": 34,\n            \"nombre\": \"Tecnologia\"\n        },\n        {\n            \"id\": 35,\n            \"nombre\": \"Fisolofia\"\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "Paises",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{protocol}}://{{url}}:{{catalog_port}}/api/catalogos/paises",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{url}}"
-							],
-							"port": "{{catalog_port}}",
-							"path": [
-								"api",
-								"catalogos",
-								"paises"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Generos",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/generos",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"generos"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "1068"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"42c-1AMqfEc4WnmrMHnL9lSk0jcMj3I\""
-								},
-								{
-									"key": "Date",
-									"value": "Sat, 12 Jun 2021 17:46:32 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Realismo\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Terror\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Suspenso\"\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Teatro\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Drama\"\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Ciencia Ficción\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Negra\"\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"Ficción Histórica\"\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"Aventura\"\n        },\n        {\n            \"id\": 10,\n            \"nombre\": \"Fantasía\"\n        },\n        {\n            \"id\": 11,\n            \"nombre\": \"Relatos\"\n        },\n        {\n            \"id\": 12,\n            \"nombre\": \"Psicologicos\"\n        },\n        {\n            \"id\": 13,\n            \"nombre\": \"Fiscia\"\n        },\n        {\n            \"id\": 14,\n            \"nombre\": \"Matemática\"\n        },\n        {\n            \"id\": 15,\n            \"nombre\": \"Novelas\"\n        },\n        {\n            \"id\": 16,\n            \"nombre\": \"Poesía\"\n        },\n        {\n            \"id\": 17,\n            \"nombre\": \"Cocina\"\n        },\n        {\n            \"id\": 18,\n            \"nombre\": \"Manga\"\n        },\n        {\n            \"id\": 19,\n            \"nombre\": \"Comics\"\n        },\n        {\n            \"id\": 20,\n            \"nombre\": \"Autobiografía\"\n        },\n        {\n            \"id\": 21,\n            \"nombre\": \"Autoayuda\"\n        },\n        {\n            \"id\": 22,\n            \"nombre\": \"Aventuras\"\n        },\n        {\n            \"id\": 23,\n            \"nombre\": \"Deporte\"\n        },\n        {\n            \"id\": 24,\n            \"nombre\": \"Cuentos\"\n        },\n        {\n            \"id\": 25,\n            \"nombre\": \"Infantil\"\n        },\n        {\n            \"id\": 26,\n            \"nombre\": \"Humor\"\n        },\n        {\n            \"id\": 27,\n            \"nombre\": \"Marketing\"\n        },\n        {\n            \"id\": 28,\n            \"nombre\": \"Salud\"\n        },\n        {\n            \"id\": 29,\n            \"nombre\": \"Videojuegos\"\n        },\n        {\n            \"id\": 30,\n            \"nombre\": \"Social\"\n        },\n        {\n            \"id\": 31,\n            \"nombre\": \"Microrelatos\"\n        },\n        {\n            \"id\": 32,\n            \"nombre\": \"No ficción\"\n        },\n        {\n            \"id\": 33,\n            \"nombre\": \"Romatico\"\n        },\n        {\n            \"id\": 34,\n            \"nombre\": \"Tecnologia\"\n        },\n        {\n            \"id\": 35,\n            \"nombre\": \"Fisolofia\"\n        }\n    ]\n}"
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Tienda",
-			"item": [
-				{
-					"name": "Crear carrito",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"user_id\": 31\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/store/cart/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"store",
-								"cart",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Carrito",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/store/cart/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"store",
-								"cart",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Totales Carrito",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/store/cart/1/totals",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"store",
-								"cart",
-								"1",
-								"totals"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Agregar Producto a Carrito",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"product_id\": 1,\n    \"quantity\": 4,\n    \"replace\": false\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/store/cart/1/product",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"store",
-								"cart",
-								"1",
-								"product"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Agregar Producto a Carrito",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"product_id\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/store/cart/1/product/delete",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"store",
-								"cart",
-								"1",
-								"product",
-								"delete"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Crear Orden",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"cart_id\": 1,\n    \"address\": \"\",\n    \"payment\": 1,\n    \"shipping\":2\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/store/order/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"store",
-								"order",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Ver Ordenes",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"cart_id\": 1,\n    \"address\": \"\",\n    \"payment\": 1,\n    \"shipping\":2\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/store/order/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"store",
-								"order",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "Solicitud",
 			"item": [
 				{
@@ -2021,12 +2208,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/add",
+							"raw": "{{protocol}}://{{url}}/api/solicitud/add",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{add_solicitud_port}}",
 							"path": [
 								"api",
 								"solicitud",
@@ -2050,12 +2236,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/add",
+									"raw": "{{protocol}}://{{url}}/api/solicitud/add",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_solicitud_port}}",
 									"path": [
 										"api",
 										"solicitud",
@@ -2118,12 +2303,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/add",
+									"raw": "{{protocol}}://{{url}}/api/solicitud/add",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_solicitud_port}}",
 									"path": [
 										"api",
 										"solicitud",
@@ -2186,12 +2370,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/add",
+									"raw": "{{protocol}}://{{url}}/api/solicitud/add",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_solicitud_port}}",
 									"path": [
 										"api",
 										"solicitud",
@@ -2247,12 +2430,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/",
+							"raw": "{{protocol}}://{{url}}/api/solicitud/",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{add_solicitud_port}}",
 							"path": [
 								"api",
 								"solicitud",
@@ -2267,12 +2449,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/",
+									"raw": "{{protocol}}://{{url}}/api/solicitud/",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_solicitud_port}}",
 									"path": [
 										"api",
 										"solicitud",
@@ -2337,12 +2518,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/aprobar/37",
+							"raw": "{{protocol}}://{{url}}/api/solicitud/aprobar/37",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{add_solicitud_port}}",
 							"path": [
 								"api",
 								"solicitud",
@@ -2367,12 +2547,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/aprobar/37",
+									"raw": "{{protocol}}://{{url}}/api/solicitud/aprobar/37",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_solicitud_port}}",
 									"path": [
 										"api",
 										"solicitud",
@@ -2436,12 +2615,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/aprobar/37",
+									"raw": "{{protocol}}://{{url}}/api/solicitud/aprobar/37",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_solicitud_port}}",
 									"path": [
 										"api",
 										"solicitud",
@@ -2505,12 +2683,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/aprobar/37",
+									"raw": "{{protocol}}://{{url}}/api/solicitud/aprobar/37",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_solicitud_port}}",
 									"path": [
 										"api",
 										"solicitud",
@@ -2574,12 +2751,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{protocol}}://{{url}}:{{add_solicitud_port}}/api/solicitud/aprobar/37",
+									"raw": "{{protocol}}://{{url}}/api/solicitud/aprobar/37",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{add_solicitud_port}}",
 									"path": [
 										"api",
 										"solicitud",
@@ -2627,6 +2803,291 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"message\": \"Solicitud aprobada correctamete\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Tienda",
+			"item": [
+				{
+					"name": "Crear carrito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 31\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}//{{url}}/store/cart/",
+							"host": [
+								"{{protocol}}"
+							],
+							"path": [
+								"",
+								"{{url}}",
+								"store",
+								"cart",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Carrito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}//{{url}}/store/cart/1",
+							"host": [
+								"{{protocol}}"
+							],
+							"path": [
+								"",
+								"{{url}}",
+								"store",
+								"cart",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Totales Carrito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}//{{url}}/store/cart/1/totals",
+							"host": [
+								"{{protocol}}"
+							],
+							"path": [
+								"",
+								"{{url}}",
+								"store",
+								"cart",
+								"1",
+								"totals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar Producto a Carrito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_id\": 1,\n    \"quantity\": 4,\n    \"replace\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}//{{url}}/store/cart/1/product",
+							"host": [
+								"{{protocol}}"
+							],
+							"path": [
+								"",
+								"{{url}}",
+								"store",
+								"cart",
+								"1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar Producto a Carrito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}//{{url}}/store/cart/1/product/delete",
+							"host": [
+								"{{protocol}}"
+							],
+							"path": [
+								"",
+								"{{url}}",
+								"store",
+								"cart",
+								"1",
+								"product",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Orden",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cart_id\": 1,\n    \"address\": \"\",\n    \"payment\": 1,\n    \"shipping\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}//{{url}}/store/order/",
+							"host": [
+								"{{protocol}}"
+							],
+							"path": [
+								"",
+								"{{url}}",
+								"store",
+								"order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ver Ordenes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cart_id\": 1,\n    \"address\": \"\",\n    \"payment\": 1,\n    \"shipping\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}//{{url}}/store/order/1",
+							"host": [
+								"{{protocol}}"
+							],
+							"path": [
+								"",
+								"{{url}}",
+								"store",
+								"order",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bitacora",
+			"item": [
+				{
+					"name": "Bitacora",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{url}}/api/bitacora/books",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"bitacora",
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Bitacora - Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{url}}/api/bitacora/books",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"bitacora",
+										"books"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.20.1"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 17:00:12 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "6586"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"19ba-KU3XShG8xixer0rjBBiuyMyRwAU\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Registros obtenidos\",\n    \"data\": [\n        {\n            \"bitacora_libros\": 1,\n            \"id_libro\": 27,\n            \"accion\": \"crear\",\n            \"fecha\": \"2021-06-25T02:21:07.000Z\",\n            \"id\": 31,\n            \"titulo\": \"La Metamorfosis\",\n            \"autor\": \"Lafka\",\n            \"id_editorial\": 31,\n            \"precio\": 120,\n            \"cantidad\": 34,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-11T01:19:46.000Z\",\n            \"url\": null,\n            \"nombre\": \"Paola\",\n            \"apellido\": \"Casiano\",\n            \"correo\": \"p.casiano33@gmail.com\",\n            \"clave\": \"$2b$10$mrghH6MCbs0k5qylui2ldOCRNP1N3.gs8ZzcYTis4RB7GptL6ZINC\",\n            \"telefono\": \"52659927\",\n            \"tipo\": \"editorial\"\n        },\n        {\n            \"bitacora_libros\": 2,\n            \"id_libro\": 26,\n            \"accion\": \"editar\",\n            \"fecha\": \"2021-06-25T02:28:48.000Z\",\n            \"id\": 31,\n            \"titulo\": \"La Metamorfosis\",\n            \"autor\": \"Jostein Gaarder\",\n            \"id_editorial\": 31,\n            \"precio\": 230,\n            \"cantidad\": -3,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-11T01:19:46.000Z\",\n            \"url\": null,\n            \"nombre\": \"Paola\",\n            \"apellido\": \"Casiano\",\n            \"correo\": \"p.casiano33@gmail.com\",\n            \"clave\": \"$2b$10$mrghH6MCbs0k5qylui2ldOCRNP1N3.gs8ZzcYTis4RB7GptL6ZINC\",\n            \"telefono\": \"52659927\",\n            \"tipo\": \"editorial\"\n        },\n        {\n            \"bitacora_libros\": 3,\n            \"id_libro\": 26,\n            \"accion\": \"eliminar\",\n            \"fecha\": \"2021-06-25T02:33:33.000Z\",\n            \"id\": 31,\n            \"titulo\": \"La Metamorfosis\",\n            \"autor\": \"Jostein Gaarder\",\n            \"id_editorial\": 31,\n            \"precio\": 230,\n            \"cantidad\": -3,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-11T01:19:46.000Z\",\n            \"url\": null,\n            \"nombre\": \"Paola\",\n            \"apellido\": \"Casiano\",\n            \"correo\": \"p.casiano33@gmail.com\",\n            \"clave\": \"$2b$10$mrghH6MCbs0k5qylui2ldOCRNP1N3.gs8ZzcYTis4RB7GptL6ZINC\",\n            \"telefono\": \"52659927\",\n            \"tipo\": \"editorial\"\n        },\n        {\n            \"bitacora_libros\": 4,\n            \"id_libro\": 28,\n            \"accion\": \"crear\",\n            \"fecha\": \"2021-06-25T02:44:05.000Z\",\n            \"id\": 31,\n            \"titulo\": \"La Metamorfosis\",\n            \"autor\": \"Lafka\",\n            \"id_editorial\": 31,\n            \"precio\": 120,\n            \"cantidad\": 34,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-11T01:19:46.000Z\",\n            \"url\": null,\n            \"nombre\": \"Paola\",\n            \"apellido\": \"Casiano\",\n            \"correo\": \"p.casiano33@gmail.com\",\n            \"clave\": \"$2b$10$mrghH6MCbs0k5qylui2ldOCRNP1N3.gs8ZzcYTis4RB7GptL6ZINC\",\n            \"telefono\": \"52659927\",\n            \"tipo\": \"editorial\"\n        },\n        {\n            \"bitacora_libros\": 5,\n            \"id_libro\": 29,\n            \"accion\": \"crear\",\n            \"fecha\": \"2021-06-25T02:47:54.000Z\",\n            \"id\": 31,\n            \"titulo\": \"Maria\",\n            \"autor\": \"Jorge Isaac\",\n            \"id_editorial\": 31,\n            \"precio\": 120,\n            \"cantidad\": 12,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-11T01:19:46.000Z\",\n            \"url\": null,\n            \"nombre\": \"Paola\",\n            \"apellido\": \"Casiano\",\n            \"correo\": \"p.casiano33@gmail.com\",\n            \"clave\": \"$2b$10$mrghH6MCbs0k5qylui2ldOCRNP1N3.gs8ZzcYTis4RB7GptL6ZINC\",\n            \"telefono\": \"52659927\",\n            \"tipo\": \"editorial\"\n        },\n        {\n            \"bitacora_libros\": 6,\n            \"id_libro\": 31,\n            \"accion\": \"crear\",\n            \"fecha\": \"2021-06-25T02:49:49.000Z\",\n            \"id\": 31,\n            \"titulo\": \"Maria\",\n            \"autor\": \"Jorge Isaac\",\n            \"id_editorial\": 31,\n            \"precio\": 120,\n            \"cantidad\": 12,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-11T01:19:46.000Z\",\n            \"url\": null,\n            \"nombre\": \"Paola\",\n            \"apellido\": \"Casiano\",\n            \"correo\": \"p.casiano33@gmail.com\",\n            \"clave\": \"$2b$10$mrghH6MCbs0k5qylui2ldOCRNP1N3.gs8ZzcYTis4RB7GptL6ZINC\",\n            \"telefono\": \"52659927\",\n            \"tipo\": \"editorial\"\n        },\n        {\n            \"bitacora_libros\": 7,\n            \"id_libro\": 32,\n            \"accion\": \"crear\",\n            \"fecha\": \"2021-06-25T02:50:19.000Z\",\n            \"id\": 31,\n            \"titulo\": \"Maria\",\n            \"autor\": \"Jorge Isaac\",\n            \"id_editorial\": 31,\n            \"precio\": 120,\n            \"cantidad\": -10,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-11T01:19:46.000Z\",\n            \"url\": null,\n            \"nombre\": \"Paola\",\n            \"apellido\": \"Casiano\",\n            \"correo\": \"p.casiano33@gmail.com\",\n            \"clave\": \"$2b$10$mrghH6MCbs0k5qylui2ldOCRNP1N3.gs8ZzcYTis4RB7GptL6ZINC\",\n            \"telefono\": \"52659927\",\n            \"tipo\": \"editorial\"\n        },\n        {\n            \"bitacora_libros\": 8,\n            \"id_libro\": 33,\n            \"accion\": \"crear\",\n            \"fecha\": \"2021-06-25T02:50:59.000Z\",\n            \"id\": 39,\n            \"titulo\": \"Maria\",\n            \"autor\": \"Jorge Isaac\",\n            \"id_editorial\": 39,\n            \"precio\": 120,\n            \"cantidad\": 10,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-19T05:31:13.000Z\",\n            \"url\": null,\n            \"nombre\": \"Darwin\",\n            \"apellido\": null,\n            \"correo\": \"darwin@prueba.com\",\n            \"clave\": \"$2b$10$TCm/pWGsFhJwGeYAOCAUGOZSdBfFuw6dFkIl3nz3QTeNMHtv5n3su\",\n            \"telefono\": \"123456789\",\n            \"tipo\": \"cliente\"\n        },\n        {\n            \"bitacora_libros\": 9,\n            \"id_libro\": 35,\n            \"accion\": \"crear\",\n            \"fecha\": \"2021-06-25T02:51:44.000Z\",\n            \"id\": 31,\n            \"titulo\": \"Maria\",\n            \"autor\": \"Jorge Isaac\",\n            \"id_editorial\": 31,\n            \"precio\": 120,\n            \"cantidad\": 10,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-11T01:19:46.000Z\",\n            \"url\": null,\n            \"nombre\": \"Paola\",\n            \"apellido\": \"Casiano\",\n            \"correo\": \"p.casiano33@gmail.com\",\n            \"clave\": \"$2b$10$mrghH6MCbs0k5qylui2ldOCRNP1N3.gs8ZzcYTis4RB7GptL6ZINC\",\n            \"telefono\": \"52659927\",\n            \"tipo\": \"editorial\"\n        },\n        {\n            \"bitacora_libros\": 11,\n            \"id_libro\": 26,\n            \"accion\": \"editar\",\n            \"fecha\": \"2021-06-25T02:54:20.000Z\",\n            \"id\": 31,\n            \"titulo\": \"La Metamorfosis\",\n            \"autor\": \"Jostein Gaarder\",\n            \"id_editorial\": 31,\n            \"precio\": 230,\n            \"cantidad\": -3,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-11T01:19:46.000Z\",\n            \"url\": null,\n            \"nombre\": \"Paola\",\n            \"apellido\": \"Casiano\",\n            \"correo\": \"p.casiano33@gmail.com\",\n            \"clave\": \"$2b$10$mrghH6MCbs0k5qylui2ldOCRNP1N3.gs8ZzcYTis4RB7GptL6ZINC\",\n            \"telefono\": \"52659927\",\n            \"tipo\": \"editorial\"\n        },\n        {\n            \"bitacora_libros\": 12,\n            \"id_libro\": 26,\n            \"accion\": \"editar\",\n            \"fecha\": \"2021-06-25T02:54:27.000Z\",\n            \"id\": 31,\n            \"titulo\": \"La Metamorfosis\",\n            \"autor\": \"Jostein Gaarder\",\n            \"id_editorial\": 31,\n            \"precio\": 230,\n            \"cantidad\": -3,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-11T01:19:46.000Z\",\n            \"url\": null,\n            \"nombre\": \"Paola\",\n            \"apellido\": \"Casiano\",\n            \"correo\": \"p.casiano33@gmail.com\",\n            \"clave\": \"$2b$10$mrghH6MCbs0k5qylui2ldOCRNP1N3.gs8ZzcYTis4RB7GptL6ZINC\",\n            \"telefono\": \"52659927\",\n            \"tipo\": \"editorial\"\n        },\n        {\n            \"bitacora_libros\": 13,\n            \"id_libro\": 26,\n            \"accion\": \"editar\",\n            \"fecha\": \"2021-06-25T02:54:44.000Z\",\n            \"id\": 31,\n            \"titulo\": \"La Metamorfosis\",\n            \"autor\": \"Jostein Gaarder\",\n            \"id_editorial\": 31,\n            \"precio\": 230,\n            \"cantidad\": -3,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-11T01:19:46.000Z\",\n            \"url\": null,\n            \"nombre\": \"Paola\",\n            \"apellido\": \"Casiano\",\n            \"correo\": \"p.casiano33@gmail.com\",\n            \"clave\": \"$2b$10$mrghH6MCbs0k5qylui2ldOCRNP1N3.gs8ZzcYTis4RB7GptL6ZINC\",\n            \"telefono\": \"52659927\",\n            \"tipo\": \"editorial\"\n        },\n        {\n            \"bitacora_libros\": 14,\n            \"id_libro\": 26,\n            \"accion\": \"editar\",\n            \"fecha\": \"2021-06-25T02:55:00.000Z\",\n            \"id\": 31,\n            \"titulo\": \"La Metamorfosis\",\n            \"autor\": \"Jostein Gaarder\",\n            \"id_editorial\": 31,\n            \"precio\": 230,\n            \"cantidad\": -3,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-11T01:19:46.000Z\",\n            \"url\": null,\n            \"nombre\": \"Paola\",\n            \"apellido\": \"Casiano\",\n            \"correo\": \"p.casiano33@gmail.com\",\n            \"clave\": \"$2b$10$mrghH6MCbs0k5qylui2ldOCRNP1N3.gs8ZzcYTis4RB7GptL6ZINC\",\n            \"telefono\": \"52659927\",\n            \"tipo\": \"editorial\"\n        },\n        {\n            \"bitacora_libros\": 15,\n            \"id_libro\": 26,\n            \"accion\": \"editar\",\n            \"fecha\": \"2021-06-25T02:55:16.000Z\",\n            \"id\": 31,\n            \"titulo\": \"La Metamorfosis\",\n            \"autor\": \"Jostein Gaarder\",\n            \"id_editorial\": 31,\n            \"precio\": 230,\n            \"cantidad\": -3,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-11T01:19:46.000Z\",\n            \"url\": null,\n            \"nombre\": \"Paola\",\n            \"apellido\": \"Casiano\",\n            \"correo\": \"p.casiano33@gmail.com\",\n            \"clave\": \"$2b$10$mrghH6MCbs0k5qylui2ldOCRNP1N3.gs8ZzcYTis4RB7GptL6ZINC\",\n            \"telefono\": \"52659927\",\n            \"tipo\": \"editorial\"\n        },\n        {\n            \"bitacora_libros\": 16,\n            \"id_libro\": 26,\n            \"accion\": \"editar\",\n            \"fecha\": \"2021-06-25T02:55:31.000Z\",\n            \"id\": 31,\n            \"titulo\": \"La Metamorfosis\",\n            \"autor\": \"Jostein Gaarder\",\n            \"id_editorial\": 31,\n            \"precio\": 230,\n            \"cantidad\": -3,\n            \"estado\": 1,\n            \"fecha_creado\": \"2021-06-11T01:19:46.000Z\",\n            \"url\": null,\n            \"nombre\": \"Paola\",\n            \"apellido\": \"Casiano\",\n            \"correo\": \"p.casiano33@gmail.com\",\n            \"clave\": \"$2b$10$mrghH6MCbs0k5qylui2ldOCRNP1N3.gs8ZzcYTis4RB7GptL6ZINC\",\n            \"telefono\": \"52659927\",\n            \"tipo\": \"editorial\"\n        }\n    ]\n}"
 						}
 					]
 				}
