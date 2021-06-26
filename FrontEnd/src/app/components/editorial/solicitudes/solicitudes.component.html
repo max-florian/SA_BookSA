@@ -1,2 +1,31 @@
 <app-nav-bar-editorial></app-nav-bar-editorial>
-<p>solicitudes works!</p>
+
+<div class="container">
+    <h2 class="border-bottom">Solicitudes</h2>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Generos</th>
+                    <th scope="col">URL</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let request of requests, let i = index">
+                        <th scope="row">{{i + 1}}</th>
+                        <td>{{request.titulo}}</td>
+                        <td>{{request.autor}}</td>
+                        <td>{{request.generos}}</td>
+                        <td>{{request.url}}</td>
+                        <td><button (click)="approveRequest(i)">Aprobar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -10,6 +10,7 @@ export const environment = {
   serverEditBook: 'http://34.67.7.63:3002/api/editbooks',
   serverViewBooks: 'http://34.67.7.63:3003/api/viewbooks',
   serverCatalogo: 'http://34.67.7.63:3004/api/catalogos',
+  serverSolicitud: 'http://34.67.7.63:3004/api/solicitud',
   serverCompras: 'http://34.67.7.63:3005/api/compras',
   serverEditorial: 'http://34.67.7.63:3006/api/editorial',
 };
