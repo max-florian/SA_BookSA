@@ -14,6 +14,7 @@ export class CartService {
   carritoSize$: Observable<number> = this.carritoSizeSubject.asObservable();
 
   serverCompras = environment.serverCompras;
+  serverCatalogo = environment.serverCatalogo;
 
   constructor(private http: HttpClient, private tokenService: TokenService) { }
 
@@ -51,4 +52,9 @@ export class CartService {
   registrarOrden(data:any){
     return this.http.post(`${this.serverCompras}/store/order`, data);
   }
+
+  getPaises(){
+    return this.http.get(`http://104.198.210.183:3004/api/catalogos/paises`);
+  }
+
 }

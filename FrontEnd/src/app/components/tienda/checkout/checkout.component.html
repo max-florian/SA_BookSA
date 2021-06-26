@@ -27,6 +27,22 @@
 
 <div class="card m-4">
   <div class="card-header">
+    <h4>Calculo de Impuesto</h4>
+  </div>
+  <div class="px-5 py-3">
+    <div class="form-group">
+      <label for="inputUsuario">País</label>
+      <select [(ngModel)]="paisseleccionado" id="paisseleccionado">
+        <option *ngFor="let pais of paises" [ngValue]="pais.id">
+        {{pais.nombre}}
+        </option>
+      </select>
+  </div>
+  </div>
+</div>
+
+<div class="card m-4">
+  <div class="card-header">
     <h4>Tu informacion</h4>
   </div>
   <form class="px-5 py-3" [formGroup]="datosForm" (ngSubmit)="onSubmitDatos()">

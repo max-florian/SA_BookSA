@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: alexizzarevalo/book-sa-frontend
+          env:
+            - name: serverAuthentication
+              value: /api/authentication
+            - name: serverAddBook
+              value: /api/addbooks
+            - name: serverEditBook
+              value: /api/editbooks
+            - name: serverViewBooks
+              value: /api/viewbooks
+            - name: serverCatalogo
+              value: /api/catalogos
+            - name: serverCompras
+              value: /api/compras
+            - name: serverEditorial
+              value: /api/editorial
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "256m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  type: LoadBalancer
+  selector:
+    app: frontend
+  ports:
+    - port: 80
+      targetPort: 80
