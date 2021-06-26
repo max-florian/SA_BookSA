@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
 
-  serverAuthentication: 'http://34.67.7.63:3000/api/authentication',
+  serverAuthentication: 'http://35.222.176.39/api/authentication',
   serverAddBook: 'http://34.67.7.63:3001/api/addbooks',
   serverEditBook: 'http://34.67.7.63:3002/api/editbooks',
   serverViewBooks: 'http://34.67.7.63:3003/api/viewbooks',
@@ -13,7 +13,7 @@ export const environment = {
   serverCompras: 'http://34.67.7.63:3005/api/compras',
   serverEditorial: 'http://34.67.7.63:3006/api/editorial',
   serverBitacoraBooks: 'http://34.67.7.63:3007/api/bitacora',
-  serverSolicitud: 'http://34.67.7.63:3008/api/solicitud'
+  serverSolicitud: 'http://35.222.176.39/api/solicitud'
 };
 
 /*
