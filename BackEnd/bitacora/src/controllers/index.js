@@ -9,7 +9,8 @@ async function getBitacoraBooks(req, res){
   let query = 'select * from bitacora_libros inner join libros on bitacora_libros.id_libro = libros.id inner join usuarios on libros.id_editorial = usuarios.id;'
 
   await db.execute(query, [])
-  .then(result => {  
+  .then(rows => { 
+    result.data = rows; 
   }).catch(e => {
     console.log(e);
     result.code = 422;
