@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: solicitud
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: solicitud
+  template:
+    metadata:
+      labels:
+        app: solicitud
+    spec:
+      containers:
+        - name: solicitud
+          image: alexizzarevalo/book-sa-solicitud
+          env:
+            - name: PORT
+              value: "3000"
+            - name: APP_NAME
+              value: solicitud
+          envFrom:
+            - secretRef:
+                name: db-secret
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: solicitud
+spec:
+  type: LoadBalancer
+  selector:
+    app: solicitud
+  ports:
+    - port: 3008
+      targetPort: 3000
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: solicitud
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: solicitud
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 5
