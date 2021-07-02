@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   correo = "";
   contrasenia = "";
+  tienda = 0;
 
   constructor(private webService: WebService, private tokenService: TokenService,private router: Router) { }
 
@@ -21,9 +22,11 @@ export class LoginComponent implements OnInit {
   }
 
   iniciarSesion(){
+
     const data = {
       email: this.correo,
-      password: this.contrasenia
+      password: this.contrasenia,
+      tienda: this.tienda
     }
 
     this.webService.iniciarSesion(data).subscribe((response: any) => {

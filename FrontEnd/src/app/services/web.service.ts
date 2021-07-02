@@ -14,7 +14,7 @@ export class WebService {
   
   constructor(private http: HttpClient) { }
 
-  iniciarSesion(data: { email: string; password: string; }){
+  iniciarSesion(data: any){
     return this.http.post(`${this.serverAuthentication}/login`, data);
   }
 
