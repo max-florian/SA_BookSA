@@ -19,4 +19,8 @@ export class TiendaService {
     const id = this.tokenService.getCaracteristicas().id
     return this.httpClient.get( this.serverCompras+ '/store/order/' + id)
   }
+
+  updateOrden(orderId:number, nuevoEstado:number){
+    return this.httpClient.post( this.serverCompras+ '/store/order/update/' + orderId, {nuevoEstado})
+  }
 }

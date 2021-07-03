@@ -29,6 +29,8 @@ import { SolicitudComponent } from './components/tienda/solicitud/solicitud.comp
 import { CalculadoraComponent } from './components/tienda/calculadora/calculadora.component';
 import { BitacoraComponent } from './components/admin/bitacora/bitacora.component';
 import { NavBarAdminComponent } from './components/navigation/nav-bar-admin/nav-bar-admin.component';
+import {MatChipsModule} from '@angular/material/chips';
+import { OrdenAdminComponent } from './components/admin/orden-admin/orden-admin.component';
 
 @NgModule({
   declarations: [
@@ -53,10 +55,12 @@ import { NavBarAdminComponent } from './components/navigation/nav-bar-admin/nav-
     CalculadoraComponent,
     BitacoraComponent,
     NavBarAdminComponent,
+    OrdenAdminComponent,
   ],
   imports: [
     MatButtonModule,
     MatSelectModule,
+    MatChipsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

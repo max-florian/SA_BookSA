@@ -1,4 +1,4 @@
-<app-nav-bar></app-nav-bar>
+<app-nav-bar-admin></app-nav-bar-admin>
 
 <div class="container">
     <h2 class="border-bottom">Ordenes</h2>
@@ -64,6 +64,9 @@
                 {{chip.name}}
               </mat-chip>
             </mat-chip-list>
+            <br>
+            <button mat-button (click)="updateStatus(orden.id,-1)">Back</button>
+            <button mat-button (click)="updateStatus(orden.id, 1)">Next</button>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
