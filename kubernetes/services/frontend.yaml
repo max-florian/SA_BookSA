@@ -18,13 +18,13 @@ spec:
           image: alexizzarevalo/book-sa-frontend
           env:
             - name: serverAuthentication
-              value: /api/authentication
+              value: /api/esb/auth
             - name: serverAddBook
-              value: /api/addbooks
+              value: /api/esb/books
             - name: serverEditBook
               value: /api/editbooks
             - name: serverViewBooks
-              value: /api/viewbooks
+              value: /api/esb
             - name: serverCatalogo
               value: /api/catalogos
             - name: serverCompras

@@ -14,7 +14,7 @@ router.get('', jsonParser, function(req, res, next) {
 });
 
 // add book
-router.post('/add', jsonParser, function(req, res, next) {
+router.post('/add_book', jsonParser, function(req, res, next) {
 	(async() => {
 		let addBook = await new BooksController().addBook(req, res);
 		res.status(addBook.code).json(addBook.response);
