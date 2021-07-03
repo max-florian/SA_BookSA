@@ -1,8 +1,6 @@
 var Order = require('../models/Order.js');
 var Cart = require('../models/Cart.js');
 var ms = require('../responses/common.js');
-const mailjet = require ('node-mailjet')
-.connect('2f7b6d8bd7eb1c4a9d565bfc3d5d823b', 'acd671f55368eb18a8f55d3465bf1767');
 
 class OrderController {
 	createOrder = async function (request) {
@@ -10,8 +8,7 @@ class OrderController {
 		let address = request.address;
 		let paymentMethod = request.payment;
 		let shippingMethod = request.shipping;
-		let totals = null;
-		
+
 		let result = {
 			code: 200,
 			response: {
@@ -29,7 +26,7 @@ class OrderController {
 				return result;
 			}
 
-			totals = await Cart.getTotals(request.cart_id);
+			let totals = await Cart.getTotals(request.cart_id);
 
 			if (totals.length == 0) {
 				result.code = 422;
@@ -66,50 +63,6 @@ class OrderController {
 			result.code = 422;
 			result.response.message = ms.common_error;
 			console.log(error);
-		}
-
-		try {
-			const emailbody = "";
-
-			emailbody += "<h1>Factura<h1><br />"
-			emailbody += "ID LIBRO  TITULO  AUTOR  PRECIO  CANTIDAD<br />"
-
-			for (let i = 0; i < totals.length; i++) {
-				emailbody += totals[i]['product_id'] + " " + totals[i]['titulo'] + " " + totals[i]['autor'] + " " + totals[i]['precio'] + " " + totals[i]['cantidad'];
-				emailbody += "<br />"; 
-			}
-
-			const request = mailjet
-			.post("send", {'version': 'v3.1'})
-			.request({
-			"Messages":[
-				{
-				"From": {
-					"Email": "marco.paiz.19@gmail.com",
-					"Name": "BookSA"
-				},
-				"To": [
-					{
-					"Email": cart['correo'] ,
-					"Name": "Max"
-					}
-				],
-				"Subject": "Nueva Factura BookSA!",
-				"TextPart": "My first Mailjet email",
-				"HTMLPart": emailbody,
-				"CustomID": "AppGettingStartedTest"
-				}
-			]
-			})
-			request
-			.then((result) => {
-				console.log(result.body)
-			})
-			.catch((err) => {
-				console.log(err.statusCode)
-			})
-		} catch (error) {
-
 		}
 
 		return result;
