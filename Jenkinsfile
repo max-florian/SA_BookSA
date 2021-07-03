@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             when {
-                branch 'feature/esb-kubernetes'
+                expression { BRANCH_NAME ==~ /(develop|main)/ }
             }
             steps {
                 sh 'docker-compose -f docker-compose.build.yaml build'
@@ -20,7 +20,7 @@ pipeline {
         // }
         stage('Deploy k8s') {
             when {
-                branch 'feature/esb-kubernetes'
+                expression { BRANCH_NAME ==~ /(develop|main)/ }
             }
             steps {
                 sh '/usr/local/bin/kubectl delete --ignore-not-found deployments addbooks authentication catalogos compras editbooks editorial viewbooks frontend bitacora solicitud esb'
