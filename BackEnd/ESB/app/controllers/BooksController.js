@@ -30,14 +30,13 @@ class BooksController {
 			result.response.message = "Error al consultar";
 			result.response.statuscode = 422;
 		}
-		console.log(result);
 		return result;
 	}
 
 
-	login = async function (req, res) {
+	addBook = async function (req, res) {
 		const {group} = req.body;
-		const body = booksConfig.getLoginRequest(req, group);
+		const body = booksConfig.addBookRequest(req, group);
 
 		let result = {
 			code: 200,
@@ -54,13 +53,13 @@ class BooksController {
 		}
 
 		try {
-			let url = connectionData.getUrl(group, 'login');
+			let url = connectionData.getUrl(group, 'addBooks');
 			await axios.post(url, body)
 				.then((response) => {
-					result = booksConfig.formatResponse(response, group);
+					result = booksConfig.formatAddBookResponse(response, group);
 				}).catch((error) => {
 					console.log(error);
-					result = booksConfig.formatResponse(error.response, group);
+					result = booksConfig.formatAddBookResponse(error.response, group);
 				})
 			
 		}catch (error) {

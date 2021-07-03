@@ -13,6 +13,10 @@ urls['g0']['getBooks'] = {
 	'method': 'GET',
 	'path': '/api/catalogos/catalogos/catalogo'
 }
+urls['g0']['addBooks'] = {
+	'method': 'POST',
+	'path': '/api/addbooks/add_book'
+}
 //#########################################################################
 urls['g2'] = [];
 urls['g2']['host'] = 'http://3.15.230.185';
@@ -28,6 +32,11 @@ urls['g2']['register'] = {
 }
 urls['g2']['getBooks'] = {
 	'method': 'GET',
+	'path': '/libros/libros',
+	'port': 3000
+}
+urls['g2']['addBooks'] = {
+	'method': 'POST',
 	'path': '/libros/libros',
 	'port': 3000
 }
@@ -49,10 +58,15 @@ urls['g3']['getBooks'] = {
 	'path': '/book/getBooks',
 	'port': 47005
 }
+urls['g3']['addBooks'] = {
+	'method': 'GET',
+	'path': '/book/addBook',
+	'port': 47002
+}
 
 function getUrl(group, url, urlParams = null) {
 	let key = 'g'+group;
-	
+
 	if (key == 'g0' ) {
 		return urls[key]['host'] + urls[key][url].path;
 	}
