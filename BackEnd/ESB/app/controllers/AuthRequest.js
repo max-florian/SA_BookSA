@@ -1,11 +1,12 @@
 function  getGroupRequest(req, group) {
 	const { name, lastname, email, password, status, phone, type } = req.body;
-	switch (group) {
-		case 0:
+	let key = 'g'+group;
+	switch (key) {
+		case 'g0':
 			return req.body;
-		case 1: // Grupo 9 que no esta
+		case 'g1': // Grupo 9 que no esta
 			return [];
-		case 2: // Grupo 10
+		case 'g2': // Grupo 10
 			return {
 				"nombres": name,
 				"apellidos": lastname,
@@ -16,7 +17,7 @@ function  getGroupRequest(req, group) {
 				"tipo": type,
 				"aprobado": type === 'cliente'
 			}
-		case 3: //Grupo 11
+		case 'g3': //Grupo 11
 			let rolId = type ==='cliente'? 3:2
 			return {
 				"nombre": name,
@@ -34,14 +35,15 @@ function  getGroupRequest(req, group) {
 
 function  getLoginRequest(req, group) {
 	const { email, password } = req.body;
+	let key = 'g'+group;
 	switch (group) {
-		case 0:
+		case 'g0':
 			return req.body;
-		case 1: // Grupo 9 que no esta
+		case 'g1': // Grupo 9 que no esta
 			return [];
-		case 2: // Grupo 10
+		case 'g2': // Grupo 10
 			return req.body
-		case 3: //Grupo 11
+		case 'g3': //Grupo 11
 			return {
 				"user": email,
 				"password": password
@@ -52,15 +54,16 @@ function  getLoginRequest(req, group) {
 }
 
 function formatResponse(response, group) {
+	let key = 'g'+group;
 	switch (group) {
-		case 0:
+		case 'g0':
 			return  {
 				code: response.status,
 				response: response.data
 			};
-		// case 1: // Grupo 9 que no esta
+		// case 'g1': // Grupo 9 que no esta
 		// 	return [];
-		case 2: // Grupo 10
+		case 'g2': // Grupo 10
 			return  {
 				code: response.status,
 				response: {
@@ -68,7 +71,7 @@ function formatResponse(response, group) {
 					data: response.data
 				}
 			};
-		case 3: //Grupo 11
+		case 'g3': //Grupo 11
 			let status =response.status;
 
 			if (response.data === false) {
