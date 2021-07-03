@@ -36,7 +36,7 @@ function  getGroupRequest(req, group) {
 function  getLoginRequest(req, group) {
 	const { email, password } = req.body;
 	let key = 'g'+group;
-	switch (group) {
+	switch (key) {
 		case 'g0':
 			return req.body;
 		case 'g1': // Grupo 9 que no esta
@@ -55,7 +55,7 @@ function  getLoginRequest(req, group) {
 
 function formatResponse(response, group) {
 	let key = 'g'+group;
-	switch (group) {
+	switch (key) {
 		case 'g0':
 			return  {
 				code: response.status,
