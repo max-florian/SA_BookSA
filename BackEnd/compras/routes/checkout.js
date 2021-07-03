@@ -57,4 +57,12 @@ router.get('/:userId/details/:orderId', function(req, res, next) {
 	});
 });
 
+router.post('/update/:orderId', jsonParser, async function(req, res) {
+	let {orderId} = req.params;
+	let {nuevoEstado} = req.body;
+
+	let result = await new OrderController().updateOrder(orderId, nuevoEstado);
+	res.status(result.code).json(result.response);
+})
+
 module.exports = router;
