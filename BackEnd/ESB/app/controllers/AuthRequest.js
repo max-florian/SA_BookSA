@@ -42,28 +42,20 @@ function formatResponse(response, group) {
 		// case 1: // Grupo 9 que no esta
 		// 	return [];
 		case 2: // Grupo 10
-			console.log(response);
-			return {
-				"nombres": name,
-				"apellidos": lastname,
-				"email": email,
-				"password": password,
-				"direccion": '',
-				"celuar": phone,
-				"tipo": type,
-				"aprobado": type === 'cliente'
-			}
+			return  {
+				code: response.status,
+				response: {
+					statuscode: response.status
+				}
+			};
 		case 3: //Grupo 11
-			let rolId = type ==='cliente'? 3:2
-			return {
-				"nombre": name,
-				"apellido": lastname,
-				"correo": email,
-				"password": password,
-				"telefono": phone,
-				"id_rol": rolId,
-				"estado": rolId == 3
-			}
+			console.log(response);
+			return  {
+				code: response.status,
+				response: {
+					statuscode: response.status
+				}
+			};
 		default:
 			return null;
 	}

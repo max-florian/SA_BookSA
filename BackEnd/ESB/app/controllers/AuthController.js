@@ -17,7 +17,8 @@ class AuthController {
 
 		if (body == null) {
 			result.code = 404;
-			result.response = "Option not found"
+			result.response.statuscode = 404;
+			result.response.message = "Option not found"
 			return result;
 		}
 
@@ -28,14 +29,15 @@ class AuthController {
 				.then((response) => {
 					result = authConfig.formatResponse(response, group);
 				}).catch((error) => {
-					console.log(error.response);
+					console.log(error);
 					result = authConfig.formatResponse(error.response, group);
 				})
 			
 		}catch (error) {
 			console.log(error);
 			result.code = 422;
-			result.message = "Error al consultar";
+			result.response.message = "Error al consultar";
+			result.response.statuscode = 422;
 			//error log
 		}
 

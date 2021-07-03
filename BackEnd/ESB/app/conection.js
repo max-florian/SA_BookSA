@@ -14,6 +14,14 @@ urls['g2']['register'] = {
 	'port': 3000
 }
 
+urls['g3'] = [];
+urls['g3']['host'] = 'http://34.69.133.221';
+urls['g3']['register'] = {
+	'method': 'POST',
+	'path': '/registro',
+	'port': 47001
+}
+
 function getUrl(group, url, urlParams = null) {
 	let key = 'g'+group;
 	if (group === 0) {
