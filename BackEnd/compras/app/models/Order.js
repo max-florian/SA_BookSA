@@ -182,32 +182,15 @@ class Order {
 	}
 
 	static async updateOrder (orderId, status){
-		let canUpdate = true;
 		let result = {
 			code: 200,
 			response: {
-				message: ''
+				message: 'Orden actualizada con exito'
 			}
 		}
 
-		if (status === 5) {
-			let query = 'select status from `order` where id = ? and status > 2';
-			await db.execute(query,[orderId]).then(data => {
-				console.log(data);
-				canUpdate = data.length == 0;
-			}).catch(error => {
-				result.code.message = ms.common_error;
-				console.log(error);
-			});;
-		}
-
-		if (canUpdate) {
-			let query = `update \`order\` set status = ? where id = ?`;
-			await db.execute(query,[status, orderId]);
-		} else {
-			result.code = 422;
-			result.response.message = 'La orden ya ha sido procesada';
-		}
+		let query = `update ordenes set estado = ? where id = ?`;
+		await db.execute(query,[status, orderId]);
 
 		return result;
 	}
