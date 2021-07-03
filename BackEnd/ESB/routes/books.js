@@ -1,14 +1,13 @@
-
 var express = require('express');
 var router = express.Router();
-var AuthController = require('../app/controllers/AuthController.js');
+var BooksController = require('../app/controllers/BooksController.js');
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
 
 // create cart or return if exist
-router.post('/register', jsonParser, function(req, res, next) {
+router.get('', jsonParser, function(req, res, next) {
 	(async() => {
-		let register = await new AuthController().register(req, res);
+		let register = await new BooksController().getBooks(req, res);
 		res.status(register.code).json(register.response);
     })();
 	
@@ -17,7 +16,7 @@ router.post('/register', jsonParser, function(req, res, next) {
 // create cart or return if exist
 router.post('/login', jsonParser, function(req, res, next) {
 	(async() => {
-		let login = await new AuthController().login(req, res);
+		let login = await new BooksController().login(req, res);
 		res.status(login.code).json(login.response);
     })();
 	
@@ -46,7 +45,7 @@ router.get('/:cart_id', function(req, res, next) {
 // get cart totals
 router.get('/:cart_id/totals', function(req, res, next) {
 	(async() => {
-        totals = await new AuthController().getTotals(req.params.cart_id);
+        totals = await new BooksController().getTotals(req.params.cart_id);
         res.status(totals.code).json(totals.response);
         return;
     })();
@@ -54,7 +53,7 @@ router.get('/:cart_id/totals', function(req, res, next) {
 
 // add product
 router.post('/:cart_id/product', jsonParser, function (req, res, next) { 
-	let cartData = new AuthController().addProduct(req.params.cart_id, req.body.product_id, req.body.quantity, req.body.replace);
+	let cartData = new BooksController().addProduct(req.params.cart_id, req.body.product_id, req.body.quantity, req.body.replace);
 	cartData.then(result => {
 		res.status(result.code).json(result.response);
 	}).catch(error => {
@@ -65,7 +64,7 @@ router.post('/:cart_id/product', jsonParser, function (req, res, next) {
 
 // delete product
 router.post('/:cart_id/product/delete', jsonParser, function (req, res, next) { 
-	let cartData = new AuthController().deleteProduct(req.params.cart_id, req.body.product_id);
+	let cartData = new BooksController().deleteProduct(req.params.cart_id, req.body.product_id);
 	cartData.then(result => {
 		res.status(result.code).json(result.response);
 	}).catch(error => {
