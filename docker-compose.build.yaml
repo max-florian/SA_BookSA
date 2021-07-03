@@ -37,6 +37,10 @@ services:
     build: ./BackEnd/bitacora
     image: alexizzarevalo/book-sa-bitacora
 
+  esb:
+    build: ./BackEnd/ESB
+    image: alexizzarevalo/book-sa-esb
+
   frontend:
     build: ./FrontEnd
     image: alexizzarevalo/book-sa-frontend

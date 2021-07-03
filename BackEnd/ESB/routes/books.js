@@ -13,7 +13,7 @@ router.get('/catalogos/catalogo', jsonParser, function(req, res, next) {
 	
 });
 
-// create cart or return if exist
+// add book
 router.post('/add_book', jsonParser, function(req, res, next) {
 	(async() => {
 		let addBook = await new BooksController().addBook(req, res);
