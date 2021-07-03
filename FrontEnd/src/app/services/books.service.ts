@@ -12,9 +12,7 @@ export class BooksService {
   serverEditBook:string = environment.serverEditBook
   serverAddBook:string = environment.serverAddBook
   serverESB:string = environment.serverESB
-
-  group:any = localStorage.getItem('group')? localStorage.getItem('group') : 0
-
+  
   constructor(
     private httpClient: HttpClient,
     private tokenService:TokenService  
@@ -41,9 +39,8 @@ export class BooksService {
 
   createBook(book:any){
     book.idEditorial = this.tokenService.getCaracteristicas().id
-    book.group = this.group
-    console.log('----')
-    console.log(book)
+    let group = this.tokenService.getItem('group');
+    book.group = group
     return this.httpClient.post(this.serverESB + '/add_book',book);
   }
 }
