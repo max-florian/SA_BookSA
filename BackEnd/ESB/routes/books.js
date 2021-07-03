@@ -5,7 +5,7 @@ var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
 
 // view all books
-router.get('', jsonParser, function(req, res, next) {
+router.get('/catalogos/catalogo', jsonParser, function(req, res, next) {
 	(async() => {
 		let register = await new BooksController().getBooks(req, res);
 		res.status(register.code).json(register.response);
@@ -14,7 +14,7 @@ router.get('', jsonParser, function(req, res, next) {
 });
 
 // create cart or return if exist
-router.post('/add', jsonParser, function(req, res, next) {
+router.post('/add_book', jsonParser, function(req, res, next) {
 	(async() => {
 		let addBook = await new BooksController().addBook(req, res);
 		res.status(addBook.code).json(addBook.response);

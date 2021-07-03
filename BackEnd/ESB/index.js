@@ -12,8 +12,8 @@ var booksRouter = require('./routes/books');
 
 var app = express().use(cors());
 
-app.use('/api/esb/auth', authRouter);
-app.use('/api/esb/books', booksRouter);
+app.use('/api/esb', booksRouter);
+app.use('/api/esb/authentication', authRouter);
 // app.use('/api/esb/store', storeRouter);
 
 const port = process.env['PORT'] || 3009;
