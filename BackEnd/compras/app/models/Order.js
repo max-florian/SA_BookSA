@@ -123,6 +123,7 @@ class Order {
 	static async getAllOrders (userId, userType){
 		let query = `select 
 						o.id,
+						o.estado,
 						date_format(o.fecha_crea,"%d/%m/%Y %H:%i:%s") as date,
 						u.id as user_id,
 						concat(u.nombre,' ', ifnull(u.apellido,'')) as nombre,
