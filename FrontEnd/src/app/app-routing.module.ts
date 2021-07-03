@@ -14,6 +14,7 @@ import { OrdenEditorialComponent } from './components/editorial/orden-editorial/
 import { SolicitudComponent } from './components/tienda/solicitud/solicitud.component';
 import { CalculadoraComponent } from './components/tienda/calculadora/calculadora.component';
 import { BitacoraComponent } from './components/admin/bitacora/bitacora.component';
+import { OrdenAdminComponent } from './components/admin/orden-admin/orden-admin.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'tienda/calculadora', component: CalculadoraComponent},
   { path: 'admin', component: ViewUsersComponent},
   { path: 'admin/bitacora', component: BitacoraComponent},
+  { path: 'admin/ordenes', component: OrdenAdminComponent},
   { path: 'checkout', component: CheckoutComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' },

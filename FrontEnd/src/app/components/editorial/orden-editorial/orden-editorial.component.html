@@ -59,6 +59,11 @@
                     </tr>
                 </tbody>
             </table>
+            <mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection">
+              <mat-chip *ngFor="let chip of estados, let j = index" selected [color]=" j <= indexo ? 'accent' : 'none'">
+                {{chip.name}}
+              </mat-chip>
+            </mat-chip-list>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

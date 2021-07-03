@@ -6,13 +6,13 @@ export const environment = {
   production: false,
 
   serverAuthentication: 'http://35.222.176.39/api/authentication',
-  serverAddBook: 'http://34.67.7.63:3001/api/addbooks',
-  serverEditBook: 'http://34.67.7.63:3002/api/editbooks',
-  serverViewBooks: 'http://34.67.7.63:3003/api/viewbooks',
+  serverAddBook: 'http://35.222.176.39/api/addbooks',
+  serverEditBook: 'http://35.222.176.39/api/editbooks',
+  serverViewBooks: 'http://35.222.176.39/api/viewbooks',
   serverCatalogo: 'http://35.222.176.39/api/catalogos',
-  serverCompras: 'http://34.67.7.63:3005/api/compras',
-  serverEditorial: 'http://34.67.7.63:3006/api/editorial',
-  serverBitacoraBooks: 'http://34.67.7.63:3007/api/bitacora',
+  serverCompras: 'http://35.222.176.39/api/compras',
+  serverEditorial: 'http://35.222.176.39/api/editorial',
+  serverBitacoraBooks: 'http://35.222.176.39/api/bitacora',
   serverSolicitud: 'http://35.222.176.39/api/solicitud'
 };
 

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { TiendaService } from 'src/app/services/tienda.service';
 
 @Component({
-  selector: 'app-orden-editorial',
-  templateUrl: './orden-editorial.component.html',
-  styleUrls: ['./orden-editorial.component.css']
+  selector: 'app-orden-admin',
+  templateUrl: './orden-admin.component.html',
+  styleUrls: ['./orden-admin.component.css']
 })
-export class OrdenEditorialComponent implements OnInit {
+export class OrdenAdminComponent implements OnInit {
 
   ordenes:any = []
   orden:any = {}
@@ -34,6 +34,17 @@ export class OrdenEditorialComponent implements OnInit {
   abrirModal(index:number){
     this.indexo = this.ordenes[index].estado
     this.orden = this.ordenes[index]
+  }
+
+  updateStatus(orderId:number, offset:number){
+    const tmp = this.orden.estado + offset
+    if(tmp >= 0 && tmp <= 4){
+      this.orden.estado = tmp
+      this.indexo = tmp
+      this.tiendaService.updateOrden(orderId,tmp).subscribe((json:any)=>{
+        console.log(json.message)
+      })
+    }
   }
 
 }

@@ -82,3 +82,8 @@ Cada servicio generado balancea automáticamente entre todos los pods como se mu
 ### Duplicidad de servicios
 
 Se crean más servicios cuando el uso del CPU entre todos los Pods correspondientes supera el 5%
+
+## ESB
+Se etiquetan todas las peticiones del frontend con un campo llamado tienda, que es utilizado por el ESB para determinar a cual de los backend va redirigir la peticion.
+El ESB recibe la peticion transforma la solicitud para adaptarse a los diferentes backend. Recibe la respuesta y luego tambien la tranforma de ser necesario y la envia de vuelta al origen.
+![](imagenes_documentacion/ESB.png) 
