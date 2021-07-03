@@ -32,6 +32,25 @@ function  getGroupRequest(req, group) {
 	}
 }
 
+function  getLoginRequest(req, group) {
+	const { email, password } = req.body;
+	switch (group) {
+		case 0:
+			return req.body;
+		case 1: // Grupo 9 que no esta
+			return [];
+		case 2: // Grupo 10
+			return req.body
+		case 3: //Grupo 11
+			return {
+				"user": email,
+				"password": password
+			}
+		default:
+			return null;
+	}
+}
+
 function formatResponse(response, group) {
 	switch (group) {
 		case 0:
@@ -45,15 +64,22 @@ function formatResponse(response, group) {
 			return  {
 				code: response.status,
 				response: {
-					statuscode: response.status
+					statuscode: response.status,
+					data: response.data
 				}
 			};
 		case 3: //Grupo 11
-			console.log(response);
+			let status =response.status;
+
+			if (response.data === false) {
+				status = 422;
+			}
 			return  {
-				code: response.status,
+				code: status,
 				response: {
-					statuscode: response.status
+					statuscode: status,
+					message: response.data,
+					data: response.data
 				}
 			};
 		default:
@@ -63,5 +89,6 @@ function formatResponse(response, group) {
 
 module.exports = {
 	getGroupRequest,
-	formatResponse
+	formatResponse,
+	getLoginRequest,
 };

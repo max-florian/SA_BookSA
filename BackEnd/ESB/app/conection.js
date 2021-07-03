@@ -5,9 +5,18 @@ urls['g0']['register'] = {
 	'method': 'POST',
 	'path': '/api/authentication/register'
 }
+urls['g0']['login'] = {
+	'method': 'POST',
+	'path': '/api/authentication/login'
+}
 
 urls['g2'] = [];
 urls['g2']['host'] = 'http://3.15.230.185';
+urls['g2']['login'] = {
+	'method': 'POST',
+	'path': '/login/login',
+	'port': 3000
+}
 urls['g2']['register'] = {
 	'method': 'POST',
 	'path': '/cliente/cliente',
@@ -19,6 +28,11 @@ urls['g3']['host'] = 'http://34.69.133.221';
 urls['g3']['register'] = {
 	'method': 'POST',
 	'path': '/registro',
+	'port': 47001
+}
+urls['g3']['login'] = {
+	'method': 'POST',
+	'path': '/login',
 	'port': 47001
 }
 

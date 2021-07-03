@@ -7,13 +7,13 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session')
 
 var authRouter = require('./routes/auth');
-// var booksRouter = require('./routes/books');
+var booksRouter = require('./routes/books');
 // var storeRouter = require('./routes/store');
 
 var app = express().use(cors());
 
 app.use('/api/esb/auth', authRouter);
-// app.use('/api/esb/books', booksRouter);
+app.use('/api/esb/books', booksRouter);
 // app.use('/api/esb/store', storeRouter);
 
 const port = process.env['PORT'] || 3009;
