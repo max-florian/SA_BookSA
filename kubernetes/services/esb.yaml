@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: esb
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: esb
+  template:
+    metadata:
+      labels:
+        app: esb
+    spec:
+      containers:
+        - name: esb
+          image: alexizzarevalo/book-sa-esb
+          env:
+            - name: PORT
+              value: "3000"
+          envFrom:
+            - secretRef:
+                name: db-secret
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: esb
+spec:
+  type: NodePort
+  selector:
+    app: esb
+  ports:
+    - port: 3009
+      targetPort: 3000
+      nodePort: 30009
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: esb
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: esb
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 5
