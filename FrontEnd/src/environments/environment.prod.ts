@@ -9,5 +9,6 @@ export const environment = {
   serverCompras: '#{serverCompras}#',
   serverEditorial: '#{serverEditorial}#',
   serverBitacoraBooks: '#{serverBitacora}#',
-  serverSolicitud: '#{serverSolicitud}#'
+  serverSolicitud: '#{serverSolicitud}#',
+  serverESB: '#{serverESB}#'
 };

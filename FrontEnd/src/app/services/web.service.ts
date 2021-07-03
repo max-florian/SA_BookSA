@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TokenService } from './token.service';
 
 import { environment } from 'src/environments/environment';
 
@@ -11,19 +12,22 @@ export class WebService {
   serverAuthentication:string = environment.serverAuthentication
   serverCatalogo = environment.serverCatalogo
   serverCompras = environment.serverCompras
-  
-  constructor(private http: HttpClient) { }
+  serverESB = environment.serverESB
+
+  constructor(private http: HttpClient, private tokenService: TokenService) { }
 
   iniciarSesion(data: any){
-    return this.http.post(`${this.serverAuthentication}/login`, data);
+    return this.http.post(`${this.serverESB}/authentication/login`, data);
   }
 
   registrarse(data: any){
-    return this.http.post(`${this.serverAuthentication}/register`, data);
+    return this.http.post(`${this.serverESB}/authentication/register`, data);
   }
 
   getBooks(){
-    return this.http.get(`${this.serverCatalogo}/catalogos/catalogo`);
+    let group = this.tokenService.getItem('group');
+    console.log('Local Storage - group:',group)
+    return this.http.get(`${this.serverESB}/catalogos/catalogo?group=` + group);
   }
 
   crearcarrito(data: any){

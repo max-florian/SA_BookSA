@@ -13,7 +13,8 @@ export const environment = {
   serverCompras: 'http://35.222.176.39/api/compras',
   serverEditorial: 'http://35.222.176.39/api/editorial',
   serverBitacoraBooks: 'http://35.222.176.39/api/bitacora',
-  serverSolicitud: 'http://35.222.176.39/api/solicitud'
+  serverSolicitud: 'http://35.222.176.39/api/solicitud',
+  serverESB: 'http://localhost:3009/api/esb'
 };
 
 /*

@@ -15,7 +15,8 @@ export class AddbookComponent implements OnInit {
     autor:'',
     precio: 1,
     cantidad: 1,
-    generos:[]
+    generos:[],
+    group: 0
   }
 
   selectedGen:any = []
@@ -36,7 +37,8 @@ export class AddbookComponent implements OnInit {
     if(window.confirm('¿Confirma la creacion del nuevo libro?')){
       this.book.generos = this.selectedGen
       this.bookService.createBook(this.book).subscribe((json:any) => {
-        window.alert(json.message)
+        console.log(json)
+        window.alert(json.description)
       })
     }
   }

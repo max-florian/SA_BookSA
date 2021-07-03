@@ -16,8 +16,17 @@ export class TokenService {
     return dataString == null ? null : JSON.parse(dataString);
   }
 
+  setItem(key :string,  value: any ){
+    localStorage.setItem(key, value)
+  }
+
+  getItem(key:string):any {
+    return localStorage.getItem(key);
+  }
+
   logout(){
     localStorage.removeItem('data');
+    localStorage.removeItem('group');
   }
 
   isLogged(){

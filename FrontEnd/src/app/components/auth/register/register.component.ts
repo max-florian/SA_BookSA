@@ -17,6 +17,8 @@ export class RegisterComponent implements OnInit {
   numero = 11111111;
   direccion = "";
   status = 1;
+  group = 0
+
   constructor(private webService: WebService, private router: Router) { }
 
   ngOnInit(): void {
@@ -36,7 +38,8 @@ export class RegisterComponent implements OnInit {
       password: this.pass,
       status: this.status,
       type: this.tipousuario,
-      phone: this.numero
+      phone: this.numero,
+      group: this.group
     }
 
 
