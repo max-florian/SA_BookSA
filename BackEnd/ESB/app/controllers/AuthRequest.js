@@ -18,7 +18,7 @@ function  getGroupRequest(req, group) {
 				"aprobado": type === 'cliente'
 			}
 		case 'g3': //Grupo 11
-			let rolId = type ==='cliente'? 3:2
+			let rolId = type ==='cliente'? 3:1
 			return {
 				"nombre": name,
 				"apellido": lastname,
@@ -77,6 +77,7 @@ function formatResponse(response, group) {
 			if (response.data === false) {
 				status = 422;
 			}
+
 			return  {
 				code: status,
 				response: {
