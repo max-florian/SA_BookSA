@@ -11,6 +11,7 @@ for i in main*; do sed -i "s|#{serverCompras}#|$serverCompras|g" $i; done;
 for i in main*; do sed -i "s|#{serverEditorial}#|$serverEditorial|g" $i; done;
 for i in main*; do sed -i "s|#{serverBitacora}#|$serverBitacora|g" $i; done;
 for i in main*; do sed -i "s|#{serverSolicitud}#|$serverSolicitud|g" $i; done;
+for i in main*; do sed -i "s|#{serverESB}#|$serverESB|g" $i; done;
 
 # Start nginx
 /usr/sbin/nginx -g 'daemon off;'

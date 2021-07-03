@@ -18,13 +18,13 @@ spec:
           image: alexizzarevalo/book-sa-frontend
           env:
             - name: serverAuthentication
-              value: /api/esb/auth
+              value: /api/authentication
             - name: serverAddBook
-              value: /api/esb/books
+              value: /api/addbooks
             - name: serverEditBook
               value: /api/editbooks
             - name: serverViewBooks
-              value: /api/esb
+              value: /api/viewbooks
             - name: serverCatalogo
               value: /api/catalogos
             - name: serverCompras
@@ -35,6 +35,8 @@ spec:
               value: /api/bitacora
             - name: serverSolicitud
               value: /api/solicitud
+            - name: serverESB
+              value: /api/esb
           ports:
             - containerPort: 80
           resources:
