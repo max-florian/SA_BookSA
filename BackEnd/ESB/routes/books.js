@@ -5,7 +5,7 @@ var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
 
 // view all books
-router.get('', jsonParser, function(req, res, next) {
+router.get('/catalogos/catalogo', jsonParser, function(req, res, next) {
 	(async() => {
 		let register = await new BooksController().getBooks(req, res);
 		res.status(register.code).json(register.response);

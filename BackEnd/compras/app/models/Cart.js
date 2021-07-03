@@ -8,7 +8,7 @@ class Cart {
 
 	static async findCart(userId) {
 
-		let query = `select * from carros where id_usuario = ? `;
+		let query = `select carros.id, carros.id_usuario, usuarios.correo from carros, usuarios where carros.id_usuario=usuarios.id and carros.id_usuario = ? `;
 		let cart = null;
 
 		await db.execute(query, [userId])
