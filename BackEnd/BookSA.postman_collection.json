@@ -3092,6 +3092,310 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "ESB",
+			"item": [
+				{
+					"name": "ESB Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"cliente\", \n    \"lastname\" : \"G11\", \n    \"email\" : \"clienteg11@mail.com\", \n    \"password\" : \"password\", \n    \"status\" : \"1\", \n    \"phone\" : \"52887777\", \n    \"type\" : \"cliente\",\n    \"group\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{url}}/api/esb/authentication/register",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"esb",
+								"authentication",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ESB Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"brayan.chinchilla@tiendag11.com\", \n    \"password\" : \"password\", \n    \"group\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{url}}/api/esb/authentication/login",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"esb",
+								"authentication",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ESB get Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{url}}/api/esb/catalogos/catalogo?group=3",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"esb",
+								"catalogos",
+								"catalogo"
+							],
+							"query": [
+								{
+									"key": "group",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ESB Add Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\":\"My tile\",\n    \"precio\":200,\n    \"cantidad\":150,\n    \"idEditorial\":31,\n    \"generos\":[1,2,4],\n    \"autor\":\"juanita\",\n    \"group\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{url}}/api/esb/add_book",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"esb",
+								"add_book"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "G10 Requests",
+			"item": [
+				{
+					"name": "Registro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"nombres\": \"Usuario Nombre\",\n\"apellidos\": \"Usuario Apellido\",\n\"email\": \"usuario.aopellido@gmail.com\",\n\"password\": \"usua@123\",\n\"direccion\": \"Villa Canales, Guatemala\",\n\"celuar\": \"99554411\",\n\"tipo\": \"Cliente\",\n\"aprobado\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.15.230.185:3000/cliente/cliente",
+							"protocol": "http",
+							"host": [
+								"3",
+								"15",
+								"230",
+								"185"
+							],
+							"port": "3000",
+							"path": [
+								"cliente",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "G10 Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"usuario.aopellido@gmail.com\",\n    \"password\": \"usua@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://3.15.230.185:3000/login/login",
+							"protocol": "http",
+							"host": [
+								"3",
+								"15",
+								"230",
+								"185"
+							],
+							"port": "3000",
+							"path": [
+								"login",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "G10 getLibros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://3.15.230.185:3000/libros/libros",
+							"protocol": "http",
+							"host": [
+								"3",
+								"15",
+								"230",
+								"185"
+							],
+							"port": "3000",
+							"path": [
+								"libros",
+								"libros"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "G11 Requests",
+			"item": [
+				{
+					"name": "Registro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"apellido\": \"testin\",\n    \"correo\": \"testindg@test.com\",\n    \"editorial\": \"editorial 1\",\n    \"estado\": 1,\n    \"idRol\": null,\n    \"id_rol\": null,\n    \"nombre\": \"testing\",\n    \"password\": \"123123\",\n    \"telefono\": \"55595953\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://34.69.133.221:47001/Registro",
+							"protocol": "http",
+							"host": [
+								"34",
+								"69",
+								"133",
+								"221"
+							],
+							"port": "47001",
+							"path": [
+								"Registro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "G11 Get Libros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://34.69.133.221:47005/book/getBooks",
+							"protocol": "http",
+							"host": [
+								"34",
+								"69",
+								"133",
+								"221"
+							],
+							"port": "47005",
+							"path": [
+								"book",
+								"getBooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "G11 Add Libros",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"algebra\",\n    \"coverPage\":\"imagen en base 64\",\n    \"description\": \"Libro escrito para el presidente de Guatemala\",\n    \"price\":200,\n    \"units\":100,\n    \"editorial\": \"editorial 2\",\n    \"author\":\"Miguel Angel Asturias\",\n    \"category\":[\"historia\",\"Guatemala\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://34.69.133.221:47002/book/addBook",
+							"protocol": "http",
+							"host": [
+								"34",
+								"69",
+								"133",
+								"221"
+							],
+							"port": "47002",
+							"path": [
+								"book",
+								"addBook"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
