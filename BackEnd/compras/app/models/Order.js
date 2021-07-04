@@ -56,7 +56,7 @@ class Order {
 
 				params.push(orderId)
 				params.push(details[i].product_id);
-				params.push(details[i].precio);
+				params.push(details[i].precio / 2);
 				params.push(details[i].cantidad);
 			}
 
